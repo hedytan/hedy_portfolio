@@ -66,4 +66,24 @@ export const projects: Project[] = [
     titleColor: "#2C3AE0",
     imgPlaceholder: "Spotify Ease — redesign\n▸ drop your screenshot here",
   },
+  {
+    slug: "keyboard-research",
+    year: "2025",
+    tag: "Human Research",
+    title: "Keyboard Research",
+    href: "#",
+    cardBg: "#B8C0C7",       // cool grey-blue
+    titleColor: "#1B1B1B",
+    imgPlaceholder: "Keyboard Research — study\n▸ drop your screenshot here",
+  },
+  {
+    slug: "sync-brew",
+    year: "2025",
+    tag: "Physical product & App",
+    title: "Sync Brew",
+    href: "#",
+    cardBg: "#C9A876",       // warm coffee tan
+    titleColor: "#1B1B1B",
+    imgPlaceholder: "Sync Brew — product + app\n▸ drop your screenshot here",
+  },
 ];
