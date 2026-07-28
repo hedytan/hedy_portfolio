@@ -15,11 +15,11 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hedy Tan — UX/UI Designer",
+  title: "HedyTan",
   description:
     "UX/UI designer & student based in Sydney. Master of Interaction Design at UTS.",
   openGraph: {
-    title: "Hedy Tan — UX/UI Designer",
+    title: "HedyTan",
     description: "UX/UI designer & student based in Sydney.",
     type: "website",
   },
