@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <nav className="fixed top-0 inset-x-0 z-40 bg-bg/80 backdrop-blur-md">
-      <div className="max-w-content mx-auto px-6 md:px-10 flex items-center justify-between h-20 border-b border-faint">
+    <nav className="glass-nav fixed top-0 inset-x-0 z-40 border-b border-white/10">
+      <div className="max-w-content mx-auto px-6 md:px-10 flex items-center justify-between h-20">
         <Link href="/" className="text-lg font-semibold tracking-tight no-underline">
           .HEDY
         </Link>
