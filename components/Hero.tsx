@@ -19,8 +19,7 @@ export default function Hero() {
             className="font-semibold text-center leading-none tracking-tight select-none"
             style={{
               fontSize: "clamp(72px, 17vw, 300px)",
-              color: "transparent",
-              WebkitTextStroke: "1px #3a3a3a",
+              color: "#FFFFFF",
             }}
           >
             {site.bigName}
