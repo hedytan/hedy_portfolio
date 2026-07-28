@@ -13,8 +13,8 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* giant ghost name */}
-        <div className="relative flex items-center justify-center min-h-[62vh]">
+        {/* giant name */}
+        <div className="relative flex flex-col items-center justify-center min-h-[62vh] gap-10 md:gap-16">
           <h1
             className="font-semibold text-center leading-none tracking-tight select-none"
             style={{
@@ -24,11 +24,11 @@ export default function Hero() {
           >
             {site.bigName}
           </h1>
-          <p className="absolute bottom-[14%] left-1/2 -translate-x-1/2 w-full text-center font-semibold text-[clamp(20px,3.4vw,40px)] px-4">
+          <p className="w-full text-center font-semibold text-[clamp(20px,3.4vw,40px)] px-4">
             {site.tagline}
           </p>
           {/* little line + circle accent, bottom-left */}
-          <div className="absolute left-0 bottom-[20%] hidden md:flex items-center">
+          <div className="absolute left-0 bottom-[10%] hidden md:flex items-center">
             <span className="w-16 h-px bg-faint" />
             <span className="w-6 h-6 rounded-full border border-faint" />
           </div>
