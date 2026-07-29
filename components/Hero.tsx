@@ -19,12 +19,15 @@ export default function Hero() {
             className="font-semibold text-center leading-none tracking-tight select-none"
             style={{
               fontSize: "clamp(72px, 17vw, 300px)",
-              color: "#FFFFFF",
+              backgroundImage: "linear-gradient(135deg, #F2F1ED 0%, #9A9A95 50%, #4A4A47 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
             }}
           >
             {site.bigName}
           </h1>
-          <p className="w-full text-center font-semibold text-[clamp(20px,3.4vw,40px)] px-4">
+          <p className="w-full text-center font-semibold text-[clamp(20px,3.4vw,40px)] px-4 text-soft">
             {site.tagline}
           </p>
           {/* little line + circle accent, bottom-left */}
