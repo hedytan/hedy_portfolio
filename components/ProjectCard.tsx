@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Project } from "@/lib/projects";
+import CardPreview from "./CardPreview";
 
 // Sticky stacking card. On desktop the screenshot rises from the left and
 // its lower edge is clipped by the card; the title + blurb sit on the right.
@@ -28,21 +28,12 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         {/* left preview */}
         <div className="relative z-10 flex justify-center md:justify-start md:pl-12 pt-4 md:pt-[92px] pb-9 md:pb-0 order-2 md:order-1 self-end md:self-start">
           <div className="w-[190px] md:w-[262px] aspect-[9/19.5] rounded-t-[22px] overflow-hidden border border-b-0 border-white/10 shadow-[0_-8px_50px_rgba(0,0,0,0.55)]">
-            {project.img ? (
-              <Image
-                src={project.img}
-                alt={project.title}
-                width={1206}
-                height={2622}
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            ) : (
-              <div className="w-full h-full bg-black/85 flex items-center justify-center">
-                <span className="font-mono text-[12px] text-white/40 text-center leading-[1.8] whitespace-pre-line px-5">
-                  {project.imgPlaceholder}
-                </span>
-              </div>
-            )}
+            <CardPreview
+              img={project.img}
+              frames={project.frames}
+              placeholder={project.imgPlaceholder}
+              title={project.title}
+            />
           </div>
         </div>
 

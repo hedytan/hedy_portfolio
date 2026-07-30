@@ -31,6 +31,7 @@ export type Project = {
   href: string;
   description: string;
   img?: string;        // real screenshot preview (optional)
+  frames?: string[];   // hover walkthrough sequence (optional)
   imgPlaceholder: string;
 };
 
@@ -43,6 +44,14 @@ export const projects: Project[] = [
     href: "/projects/resonance",
     description: "An emotion-first music app, designed and built end-to-end in SwiftUI. Artists share the feeling behind a song; fans respond with how it resonated.",
     img: "/resonance/feed.png",
+    frames: [
+      "/resonance/welcome.png",
+      "/resonance/feed.png",
+      "/resonance/moment.png",
+      "/resonance/connection.png",
+      "/resonance/express.png",
+      "/resonance/draw-mood.png",
+    ],
     imgPlaceholder: "Resonance — feed screen\n▸ drop your app screenshot here",
   },
   {
