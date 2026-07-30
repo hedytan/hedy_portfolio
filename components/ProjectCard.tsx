@@ -26,7 +26,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         </div>
 
         {/* left preview — full iPhone */}
-        <div className="relative z-10 flex items-center md:items-start justify-center md:justify-start md:pl-12 pt-24 md:pt-[74px] pb-10 md:pb-7 order-2 md:order-1">
+        <div className="relative z-10 flex items-center md:items-start justify-center md:justify-end md:pr-10 pt-24 md:pt-[74px] pb-10 md:pb-7 order-2 md:order-1">
           <div
             className="relative w-[196px] md:w-[206px] rounded-[2.7rem] p-[3px] shadow-[0_30px_80px_rgba(0,0,0,0.7)]"
             style={{ backgroundImage: "linear-gradient(150deg,#63636a 0%,#232326 24%,#3d3d43 50%,#1d1d20 76%,#5c5c63 100%)" }}
