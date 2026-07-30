@@ -12,6 +12,8 @@ const config: Config = {
         ink: "#F2F1ED",
         soft: "#8A8A85",
         faint: "#242424",
+        panel: "#131313",
+        amber: "#C9A25E",
         blue: "#2C3AE0",
       },
       fontFamily: {

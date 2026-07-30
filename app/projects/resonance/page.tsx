@@ -8,6 +8,23 @@ export const metadata: Metadata = {
   description: "An emotion-first music app, designed and built end-to-end in SwiftUI.",
 };
 
+/* ── content ─────────────────────────────────────────────── */
+
+const meta = [
+  { k: "Timeline", v: ["12 weeks", "5 iterations · 1 pivot"] },
+  { k: "Disciplines", v: ["UX Design", "UI Design", "iOS Development"] },
+  { k: "Responsibilities", v: ["UX Research", "Interaction Design", "SwiftUI Dev", "Prototyping"] },
+  { k: "Tools", v: ["Figma", "SwiftUI", "PencilKit", "Deezer API"] },
+];
+
+const process = [
+  { n: "1", t: "Research", items: ["Guiding Questions", "Group Interview", "Secondary Research", "Key Findings"] },
+  { n: "2", t: "Synthesis", items: ["User Personas", "The Gap"] },
+  { n: "3", t: "Ideation", items: ["Board Concept", "The Pivot", "Value Variation"] },
+  { n: "4", t: "Final Designs", items: ["Six Screens", "Data Model"] },
+  { n: "5", t: "Reflection", items: ["What Worked", "What's Next"] },
+];
+
 const findings = [
   { n: "01", t: "Music is mood-driven first.", p: "Every participant described listening by emotional state — not artist loyalty, not genre. Mood was the primary organising principle for every person we spoke to.", arrow: "Mood shapes replace profile photos." },
   { n: "02", t: "Connection is to the feeling, not the person.", p: "Several listen to music in languages they don't understand — and still feel connected. What an artist shares resonates more reliably as emotional signal than as information.", arrow: "The feeling appears before the words." },
@@ -40,13 +57,15 @@ const decisions = [
 ];
 
 const features = [
-  { n: "01", t: "Welcome", img: "/resonance/welcome.png", p: "The word 'resonance' breathes — scaling on a 4-second easeInOut loop. Five phrases orbit it at low opacity. A single button appears after two seconds. Every other platform opens with a feed. This one asks you to stop first." },
-  { n: "02", t: "Feed", img: "/resonance/feed.png", p: "What you see is not a face — it is a feeling. Each card shows the artist's mood shape, their name, their quote. No follower counts, no likes, no engagement numbers. The only figure on a card is a resonance count." },
-  { n: "03", t: "Moment", img: "/resonance/moment.png", p: "The mood shape sits at the top with a breathing animation and a radial glow. Below it: the mood label, the quote in large Lora italic, the song title. The resonance list comes last. Most platforms bury the emotional context. This one leads with it." },
-  { n: "04", t: "Connection", img: "/resonance/connection.png", p: "Two shapes sit on opposite sides of the screen, joined by a gradient line with a dot travelling along it. Adaptive copy names what just happened — same mood: 'You're not alone.' Different moods: 'His Joy unlocked your Wonder. That's a real connection.'" },
-  { n: "05", t: "Express", img: "/resonance/express.png", p: "A four-step sequence rather than a single form — choosing a feeling, finding the words, optionally adding an image, linking the song. The publish button stays inactive until both mood and quote are filled. A feeling without words is incomplete." },
-  { n: "06", t: "Draw Mood", img: "/resonance/draw-mood.png", p: "When no preset fits, artists draw their mood on a PencilKit canvas. Eight colour swatches update the inking tool on selection. A name field lets the artist name the mood after drawing it — once the shape exists outside your head, naming becomes easier." },
+  { n: "01", t: "Welcome", img: "/resonance/welcome.png", p: "The word 'resonance' breathes on a 4-second loop, five phrases orbiting it. Every other platform opens with a feed. This one asks you to stop first." },
+  { n: "02", t: "Feed", img: "/resonance/feed.png", p: "What you see is not a face — it is a feeling. Mood shapes, names, quotes. No followers, no likes. The only figure on a card is a resonance count." },
+  { n: "03", t: "Moment", img: "/resonance/moment.png", p: "The mood shape breathes at the top with a radial glow; the quote, song, and resonance list follow. Most platforms bury the feeling. This one leads with it." },
+  { n: "04", t: "Connection", img: "/resonance/connection.png", p: "Two shapes joined by a gradient line, a dot travelling between them. Adaptive copy names it — 'His Joy unlocked your Wonder. That's a real connection.'" },
+  { n: "05", t: "Express", img: "/resonance/express.png", p: "A four-step sequence, not a form: choose a feeling, find the words, add an image, link the song. Publish stays inactive until mood and quote are both filled." },
+  { n: "06", t: "Draw Mood", img: "/resonance/draw-mood.png", p: "When no preset fits, artists draw their mood on a PencilKit canvas and name it after. Once the shape exists outside your head, naming becomes easier." },
 ];
+
+/* ── page ────────────────────────────────────────────────── */
 
 export default function Resonance() {
   return (
@@ -64,39 +83,73 @@ export default function Resonance() {
         <Reveal as="p" delay={2} className="mt-6 max-w-[44ch] text-lg italic font-serif text-soft">
           An emotion-first music app — artists share the feeling behind a song, fans respond with how it resonated.
         </Reveal>
-        <Reveal delay={3}>
-          <div className="mt-12 flex flex-wrap justify-center gap-x-11 gap-y-3.5 text-left">
-            {[["Role", "Solo designer & developer"], ["Tools", "Figma · SwiftUI · PencilKit · Deezer API"], ["Timeline", "12 weeks · 5 iterations · 1 pivot"]].map(([k, v]) => (
-              <div key={k}>
-                <span className="block text-[11px] font-medium tracking-[.22em] uppercase text-soft mb-1.5">{k}</span>
-                <span className="text-sm">{v}</span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </header>
 
-      {/* overview */}
-      <Section eyebrow="Overview">
-        <H2>Most platforms give artists more ways to publish. None give them a way to be honest.</H2>
-        <Body>Resonance strips the artist–fan relationship down to a single emotional transaction: an artist shares a mood, a thought, and a song. A fan responds with how it resonated. The app names the connection between them.</Body>
-        <Body>It began as a Pinterest-style content board — and became something else entirely after one question from my tutor I couldn't answer. This case study is about that pivot, and the working SwiftUI app that came out the other side.</Body>
+      {/* process highlights */}
+      <Section eyebrow="Process Highlights" title="Design challenge and responsibilities">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-10 mt-2">
+          <ChallengeBlock label="Challenge">
+            Create a lasting connection between musicians and their listeners — not just another way to publish content.
+          </ChallengeBlock>
+          <ChallengeBlock label="Opportunity">
+            Build the first space where an artist can share the feeling behind a song honestly, and a fan can respond with how it resonated.
+          </ChallengeBlock>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-9 mt-16 pt-12 border-t border-faint">
+          {meta.map((m) => (
+            <Reveal key={m.k}>
+              <span className="block text-[11px] font-medium tracking-[.2em] uppercase text-ink mb-3">{m.k}</span>
+              <ul className="space-y-1.5">
+                {m.v.map((v) => (
+                  <li key={v} className="text-[14.5px] text-soft">{v}</li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
-      {/* problem */}
-      <div className="py-24 px-8 max-w-[720px] mx-auto text-center">
-        <Reveal>
-          <p className="font-serif italic text-[clamp(21px,3vw,29px)] leading-[1.55]">
-            &ldquo;A friend wrote a caption about what she was going through when she made a track. She deleted it before posting. Too honest. Wrong platform.&rdquo;
-          </p>
-          <p className="mt-6 text-[11.5px] font-medium tracking-[.22em] uppercase text-soft">the gap resonance was built for</p>
-        </Reveal>
-      </div>
+      {/* background / the gap */}
+      <Section eyebrow="Background" title="The gap Resonance was built for">
+        <Lead>
+          Most people can name a song that changed something for them — but almost no one knows the story behind why it was made. <b>The gap between what an artist feels when they create, and what a listener receives when they hear</b>, is a real and underexplored design problem.
+        </Lead>
+        <Lead>
+          The research pointed toward a gap that was <b>not primarily technical</b>. The tools to share already exist. The barrier is social: <b>no platform makes honest sharing feel normal, expected, or safe.</b> Resonance is a response to that gap.
+        </Lead>
+        <div className="mt-14 max-w-[640px]">
+          <Reveal>
+            <p className="font-serif italic text-[clamp(20px,2.6vw,27px)] leading-[1.55]">
+              &ldquo;A friend wrote a caption about what she was going through when she made a track. She deleted it before posting. Too honest. Wrong platform.&rdquo;
+            </p>
+            <p className="mt-5 text-[11.5px] font-medium tracking-[.22em] uppercase text-soft">the moment that started it</p>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* the process */}
+      <Section eyebrow="Overview" title="The process">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 mt-4">
+          {process.map((s) => (
+            <Reveal key={s.n}>
+              <div className="flex flex-col items-center text-center">
+                <span className="w-11 h-11 rounded-full bg-amber/15 border border-amber/30 text-amber font-serif text-lg flex items-center justify-center mb-4">{s.n}</span>
+                <h3 className="font-semibold text-ink mb-3">{s.t}</h3>
+                <ul className="space-y-1.5">
+                  {s.items.map((it) => (
+                    <li key={it} className="text-[13px] text-soft leading-snug">{it}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
 
       {/* research */}
-      <Section eyebrow="Research">
-        <H2>Four findings shaped everything.</H2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-12">
+      <Section eyebrow="Research" title="Four findings shaped everything">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
           {findings.map((f) => (
             <Reveal key={f.n}>
               <div className="bg-panel border border-faint rounded-2xl p-8 h-full">
@@ -110,10 +163,9 @@ export default function Resonance() {
         </div>
       </Section>
 
-      {/* personas */}
-      <Section eyebrow="Users">
-        <H2>Two people the whole design had to answer to.</H2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-12">
+      {/* synthesis — personas */}
+      <Section eyebrow="Synthesis" title="Two people the design answered to">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
           {personas.map((p) => (
             <Reveal key={p.role}>
               <div className="bg-panel border border-faint rounded-2xl p-8 h-full">
@@ -135,32 +187,26 @@ export default function Resonance() {
           ))}
         </div>
         <Reveal>
-          <p className="mt-8 text-soft text-[15px] max-w-[62ch]">Every navigation decision, every screen layout, and every interaction was evaluated against one question: does this make Mia feel safe enough to share honestly, and does it make Leo feel genuinely connected to what she&apos;s sharing?</p>
+          <p className="mt-8 text-soft text-[15px] max-w-[62ch]">Every navigation decision was evaluated against one question: does this make Mia feel safe enough to share honestly, and does it make Leo feel genuinely connected to what she&apos;s sharing?</p>
         </Reveal>
       </Section>
 
-      {/* pivot */}
-      <div className="py-8 px-8 max-w-content mx-auto">
-        <Reveal>
-          <div className="bg-panel border border-faint rounded-[22px] px-8 md:px-12 py-16 text-center">
-            <p className="text-[11.5px] font-medium tracking-[.22em] uppercase text-soft">the pivot — week 10</p>
-            <p className="font-serif italic text-[clamp(22px,3vw,30px)] leading-[1.5] max-w-[32ch] mx-auto mt-7">
-              &ldquo;What does Emotional Connection First look like as actual screens?&rdquo;
-            </p>
-            <p className="mt-8 text-soft max-w-[56ch] mx-auto text-base">
-              My tutor&apos;s question — and I couldn&apos;t answer it. I had the phrase; I didn&apos;t have the product. That silence was clarifying: I had been building a content management tool labelled with an emotional value. So iteration 4 started from a blank page — if I remove the board, what replaces it? The answer was the moment: one mood, one thought, one song.
-            </p>
-          </div>
-        </Reveal>
-      </div>
+      {/* ideation — pivot */}
+      <Section eyebrow="Ideation" title="The pivot — week 10">
+        <Lead>
+          It began as a Pinterest-style content board. Then my tutor asked a question I couldn&apos;t answer: <b>what does &lsquo;Emotional Connection First&rsquo; look like as actual screens?</b> I had the phrase; I didn&apos;t have the product.
+        </Lead>
+        <Lead>
+          That silence was clarifying. I had been building <b>a content management tool labelled with an emotional value</b>. So iteration 4 started from a blank page — if I remove the board, what replaces it? The answer was <b>the moment: one mood, one thought, one song.</b>
+        </Lead>
+      </Section>
 
-      {/* decisions */}
-      <Section eyebrow="The Solution">
-        <H2>Four decisions that carry the whole design.</H2>
-        <div className="mt-6">
+      {/* the solution — decisions */}
+      <Section eyebrow="The Solution" title="Four decisions that carry the design">
+        <div className="mt-2">
           {decisions.map((d, i) => (
             <Reveal key={i}>
-              <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 py-12 border-t border-faint last:border-b">
+              <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 py-11 border-t border-faint last:border-b">
                 <span className="font-serif italic text-[22px] text-amber">{`0${i + 1}`}</span>
                 <div>
                   <h3 className="font-serif italic text-[21px] mb-3">{d.t}</h3>
@@ -172,10 +218,9 @@ export default function Resonance() {
         </div>
       </Section>
 
-      {/* features */}
-      <Section eyebrow="The App">
-        <H2>Six screens. Each one a decision.</H2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+      {/* final designs — the app */}
+      <Section eyebrow="Final Designs" title="Six screens. Each one a decision.">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
           {features.map((f) => (
             <Reveal key={f.n}>
               <div className="bg-panel border border-faint rounded-2xl p-7 h-full flex flex-col items-center text-center">
@@ -197,22 +242,22 @@ export default function Resonance() {
       </Section>
 
       {/* reflection */}
-      <Section eyebrow="Reflection">
-        <H2>What worked. What&apos;s next.</H2>
-        <Body>Emotional Connection First genuinely shaped every decision — not just as a phrase in a brief, but as a constraint that eliminated options. Removing follower counts, inverting the content hierarchy, building the Connection screen without a tab bar — each came from asking whether a decision served emotional connection or contradicted it.</Body>
-        <Body>What I&apos;d push further is the artist side. The current app works well for a fan encountering a moment. It works less well for an artist building a body of emotional posts over time — there&apos;s no profile, no archive, no way to see how your emotional palette has shifted across a year. An Emotional Map view would be the next thing to build.</Body>
-        <Body>On the technical side: Deezer previews cut off at 30 seconds. Full Spotify API integration — streaming the full track from the user&apos;s library — is the right next step, and the one I ran out of time to complete.</Body>
+      <Section eyebrow="Reflection" title="What worked. What's next.">
+        <Lead>
+          Emotional Connection First genuinely shaped every decision — not as a phrase in a brief, but as <b>a constraint that eliminated options.</b> Removing follower counts, inverting the hierarchy, building the Connection screen without a tab bar — each came from asking whether it served emotional connection or contradicted it.
+        </Lead>
+        <Lead>
+          What I&apos;d push further is <b>the artist side.</b> The app works for a fan encountering a moment; it works less well for an artist building a body of emotional posts over time. <b>An Emotional Map view</b> — how your palette shifts across a year — would be next. On the technical side, <b>full Spotify integration</b> is the step I ran out of time to complete.
+        </Lead>
+        <div className="mt-14">
+          <Reveal>
+            <p className="font-serif italic text-[clamp(22px,3.2vw,30px)] leading-[1.5] max-w-[24ch]">
+              The app succeeds when two people realise they felt the same thing — even if they&apos;ve never met.
+            </p>
+            <p className="mt-5 text-[11.5px] font-medium tracking-[.22em] uppercase text-soft">that&apos;s still the measure</p>
+          </Reveal>
+        </div>
       </Section>
-
-      {/* closing */}
-      <div className="py-36 px-8 text-center">
-        <Reveal>
-          <p className="font-serif italic text-[clamp(22px,3.4vw,32px)] leading-[1.55] max-w-[26ch] mx-auto">
-            The app succeeds when two people realise they felt the same thing — even if they&apos;ve never met.
-          </p>
-          <p className="mt-6 text-[11.5px] font-medium tracking-[.22em] uppercase text-soft">that&apos;s still the measure</p>
-        </Reveal>
-      </div>
 
       {/* foot nav */}
       <div className="flex justify-between items-center gap-5 max-w-content mx-auto px-8 py-14 border-t border-faint">
@@ -225,19 +270,35 @@ export default function Resonance() {
   );
 }
 
-function Section({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
+/* ── building blocks ─────────────────────────────────────── */
+
+function Section({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) {
   return (
-    <section className="py-24">
+    <section className="py-20 md:py-24">
       <div className="max-w-content mx-auto px-8">
-        <Reveal as="p" className="text-[11.5px] font-medium tracking-[.22em] uppercase text-soft mb-7">{eyebrow}</Reveal>
+        <Reveal as="p" className="text-[11.5px] font-medium tracking-[.22em] uppercase text-soft mb-4">{eyebrow}</Reveal>
+        <Reveal as="h2" delay={1} className="font-serif text-[clamp(26px,3.6vw,40px)] leading-tight tracking-tight max-w-[22ch]">{title}</Reveal>
+        <div className="h-px w-full bg-faint mt-9 mb-12" />
         {children}
       </div>
     </section>
   );
 }
-function H2({ children }: { children: React.ReactNode }) {
-  return <Reveal as="h2" className="font-serif text-[clamp(26px,3.6vw,36px)] leading-tight tracking-tight mb-7 max-w-[24ch]">{children}</Reveal>;
+
+// Dimmed body paragraph; wrap key phrases in <b> to surface them bright.
+function Lead({ children }: { children: React.ReactNode }) {
+  return (
+    <Reveal as="p" className="text-[clamp(17px,1.9vw,21px)] leading-[1.6] text-soft max-w-[68ch] mt-6 first:mt-0 [&_b]:font-normal [&_b]:text-ink">
+      {children}
+    </Reveal>
+  );
 }
-function Body({ children }: { children: React.ReactNode }) {
-  return <Reveal as="p" className="text-soft max-w-[64ch] text-[16.5px] mt-5 first:mt-0">{children}</Reveal>;
+
+function ChallengeBlock({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <Reveal>
+      <h3 className="text-[19px] font-semibold text-ink mb-3">{label}</h3>
+      <p className="text-[16px] leading-relaxed text-soft max-w-[46ch]">{children}</p>
+    </Reveal>
+  );
 }
