@@ -150,6 +150,7 @@ export default function Resonance() {
             <p className="mt-5 text-[11.5px] font-medium tracking-[.22em] uppercase text-soft">the moment that started it</p>
           </Reveal>
         </div>
+        <Figure src="/resonance/process/challenge-mindmap.png" w={1762} h={780} caption="Challenge mind-mapping — radiating directions out from the essential question, “How can importance be placed on music?”" />
       </Section>
 
       {/* the process */}
@@ -173,7 +174,12 @@ export default function Resonance() {
 
       {/* research */}
       <Section eyebrow="Research" title="Four findings shaped everything">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
+        <Lead>
+          Research started by generating guiding questions across <b>eight lenses</b> — what, who, where, when, why, how, should/would, and what-if — then narrowing through a group interview and a secondary-research findings wall.
+        </Lead>
+        <Figure src="/resonance/process/guiding-questions.png" w={1462} h={1464} caption="Guiding-questions board — eight lenses opened up the problem space before any design." />
+        <Figure src="/resonance/process/findings-wall.png" w={1742} h={1414} caption="The findings wall — streaming payouts, fake streams, and AI music eroding fans’ trust in what they hear." />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-14">
           {findings.map((f) => (
             <Reveal key={f.n}>
               <div className="bg-panel border border-faint rounded-2xl p-8 h-full">
@@ -213,16 +219,30 @@ export default function Resonance() {
         <Reveal>
           <p className="mt-8 text-soft text-[15px] max-w-[62ch]">Every navigation decision was evaluated against one question: does this make Mia feel safe enough to share honestly, and does it make Leo feel genuinely connected to what she&apos;s sharing?</p>
         </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <Figure src="/resonance/process/domain-personae.png" w={1724} h={1302} caption="Domain personae — the proto-persona wall Mia and Leo were distilled from." />
+          <Figure src="/resonance/process/problem-statement.png" w={1734} h={1510} caption="Problem/opportunity statement — musicians want to build fan connections but are restricted." />
+        </div>
+      </Section>
+
+      {/* ideation — brainstorm */}
+      <Section eyebrow="Ideation" title="A hundred ideas, filtered to one">
+        <Lead>
+          Every direction went up on the wall — live-listening parties, fan badges, memory tokens, artist crash-courses, behind-the-music access. Then each idea was placed on a <b>creativity × challenge-alignment</b> matrix to find the few worth building.
+        </Lead>
+        <Figure src="/resonance/process/brainstorm.jpg" w={5712} h={4284} caption="Ideation wall — anchored on “Musicians want to maintain lasting fan connections.”" />
+        <Figure src="/resonance/process/alignment-matrix.png" w={1934} h={1434} caption="Sorting every idea by creativity and alignment to the challenge." />
       </Section>
 
       {/* ideation — pivot */}
-      <Section eyebrow="Ideation" title="The pivot — week 10">
+      <Section eyebrow="The Pivot" title="The pivot — week 10">
         <Lead>
           It began as a Pinterest-style content board. Then my tutor asked a question I couldn&apos;t answer: <b>what does &lsquo;Emotional Connection First&rsquo; look like as actual screens?</b> I had the phrase; I didn&apos;t have the product.
         </Lead>
         <Lead>
           That silence was clarifying. I had been building <b>a content management tool labelled with an emotional value</b>. So iteration 4 started from a blank page — if I remove the board, what replaces it? The answer was <b>the moment: one mood, one thought, one song.</b>
         </Lead>
+        <Figure src="/resonance/process/sketches.png" w={2088} h={830} caption="Lo-fi wireframes of the moment-based redesign — feed, moment, connection, express, draw mood." />
       </Section>
 
       {/* the solution — decisions */}
@@ -272,7 +292,8 @@ export default function Resonance() {
 
       {/* final designs — the app */}
       <Section eyebrow="Final Designs" title="Six screens. Each one a decision.">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
+        <Figure src="/resonance/process/user-flow.png" w={1210} h={686} caption="User flow — the fan path and the artist path, with the key interactions that connect them." />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
           {features.map((f) => (
             <Reveal key={f.n}>
               <div className="bg-panel border border-faint rounded-2xl p-7 h-full flex flex-col items-center text-center">
@@ -372,6 +393,20 @@ function ChallengeBlock({ label, children }: { label: string; children: React.Re
     <Reveal>
       <h3 className="text-[19px] font-semibold text-ink mb-3">{label}</h3>
       <p className="text-[16px] leading-relaxed text-soft max-w-[46ch]">{children}</p>
+    </Reveal>
+  );
+}
+
+// A captioned process/design artifact image.
+function Figure({ src, w, h, caption, className = "" }: { src: string; w: number; h: number; caption: string; className?: string }) {
+  return (
+    <Reveal>
+      <figure className={`mt-10 ${className}`}>
+        <div className="rounded-2xl overflow-hidden border border-faint bg-white/[0.02]">
+          <Image src={src} alt={caption} width={w} height={h} className="w-full h-auto" />
+        </div>
+        <figcaption className="mt-3 text-[12.5px] text-soft">{caption}</figcaption>
+      </figure>
     </Reveal>
   );
 }
