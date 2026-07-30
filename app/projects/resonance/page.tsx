@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 
@@ -8,9 +9,27 @@ export const metadata: Metadata = {
 };
 
 const findings = [
-  { n: "01", t: "Music is mood-driven first.", p: "Every participant described listening by emotional state — not artist loyalty, not genre.", arrow: "Mood shapes replace profile photos." },
-  { n: "02", t: "Connection is to the feeling, not the person.", p: "Several listen to music in languages they don't understand — and still feel it.", arrow: "The feeling appears before the words." },
-  { n: "03", t: "Honest sharing has no home.", p: "Social platforms reward performance over honesty. Instagram is too polished; Notion too private.", arrow: "No followers, likes, or rankings. Anywhere." },
+  { n: "01", t: "Music is mood-driven first.", p: "Every participant described listening by emotional state — not artist loyalty, not genre. Mood was the primary organising principle for every person we spoke to.", arrow: "Mood shapes replace profile photos." },
+  { n: "02", t: "Connection is to the feeling, not the person.", p: "Several listen to music in languages they don't understand — and still feel connected. What an artist shares resonates more reliably as emotional signal than as information.", arrow: "The feeling appears before the words." },
+  { n: "03", t: "Honest sharing has no home.", p: "Social platforms reward performance over honesty. Artists chase snippets that go viral rather than building the sustained presence that creates genuine bonds.", arrow: "No followers, likes, or rankings. Anywhere." },
+  { n: "04", t: "Music discovery is social, not algorithmic.", p: "The most trusted path to new music is still a person — a friend, a room, a recommendation. Algorithmic discovery was treated with ambivalence across the board.", arrow: "A feed of feelings, not an algorithm." },
+];
+
+const personas = [
+  {
+    role: "Artist",
+    name: "Mia, 23",
+    bio: "Independent musician — writes, records, self-releases.",
+    goal: "Share the creative process: the moods, references, and half-finished ideas that existed before the finished track.",
+    pain: "Instagram is too polished. Notion is too private. Nowhere to share honestly.",
+  },
+  {
+    role: "Fan",
+    name: "Leo, 20",
+    bio: "Music enthusiast — streams across genres, follows indie artists.",
+    goal: "Go beyond the music — discover the references and emotional context. Feel like an insider, not a passive consumer.",
+    pain: "Artist content is scattered. A tweet here, a Story there. Nothing curated or lasting.",
+  },
 ];
 
 const decisions = [
@@ -18,6 +37,15 @@ const decisions = [
   { t: "Every metric is gone.", p: "No followers, no likes, no rankings. A card no longer says how popular an artist is. It says what they're feeling right now." },
   { t: "The Connection screen has no tab bar.", p: "I built it both ways. With the tab bar it read as information; without it, an arrival. That difference decided the design." },
   { t: "Some feelings can't be named — so you draw them.", p: "When no preset fits, artists draw their mood on a freeform canvas and name it after — once the shape exists, naming becomes easier." },
+];
+
+const features = [
+  { n: "01", t: "Welcome", img: "/resonance/welcome.png", p: "The word 'resonance' breathes — scaling on a 4-second easeInOut loop. Five phrases orbit it at low opacity. A single button appears after two seconds. Every other platform opens with a feed. This one asks you to stop first." },
+  { n: "02", t: "Feed", img: "/resonance/feed.png", p: "What you see is not a face — it is a feeling. Each card shows the artist's mood shape, their name, their quote. No follower counts, no likes, no engagement numbers. The only figure on a card is a resonance count." },
+  { n: "03", t: "Moment", img: "/resonance/moment.png", p: "The mood shape sits at the top with a breathing animation and a radial glow. Below it: the mood label, the quote in large Lora italic, the song title. The resonance list comes last. Most platforms bury the emotional context. This one leads with it." },
+  { n: "04", t: "Connection", img: "/resonance/connection.png", p: "Two shapes sit on opposite sides of the screen, joined by a gradient line with a dot travelling along it. Adaptive copy names what just happened — same mood: 'You're not alone.' Different moods: 'His Joy unlocked your Wonder. That's a real connection.'" },
+  { n: "05", t: "Express", img: "/resonance/express.png", p: "A four-step sequence rather than a single form — choosing a feeling, finding the words, optionally adding an image, linking the song. The publish button stays inactive until both mood and quote are filled. A feeling without words is incomplete." },
+  { n: "06", t: "Draw Mood", img: "/resonance/draw-mood.png", p: "When no preset fits, artists draw their mood on a PencilKit canvas. Eight colour swatches update the inking tool on selection. A name field lets the artist name the mood after drawing it — once the shape exists outside your head, naming becomes easier." },
 ];
 
 export default function Resonance() {
@@ -67,8 +95,8 @@ export default function Resonance() {
 
       {/* research */}
       <Section eyebrow="Research">
-        <H2>Three findings shaped everything.</H2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12">
+        <H2>Four findings shaped everything.</H2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-12">
           {findings.map((f) => (
             <Reveal key={f.n}>
               <div className="bg-panel border border-faint rounded-2xl p-8 h-full">
@@ -80,6 +108,35 @@ export default function Resonance() {
             </Reveal>
           ))}
         </div>
+      </Section>
+
+      {/* personas */}
+      <Section eyebrow="Users">
+        <H2>Two people the whole design had to answer to.</H2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-12">
+          {personas.map((p) => (
+            <Reveal key={p.role}>
+              <div className="bg-panel border border-faint rounded-2xl p-8 h-full">
+                <span className="block text-[11px] font-medium tracking-[.22em] uppercase text-amber mb-3">{p.role}</span>
+                <h3 className="font-serif text-[22px] mb-1">{p.name}</h3>
+                <p className="text-[13.5px] text-soft mb-6">{p.bio}</p>
+                <div className="space-y-4">
+                  <div>
+                    <span className="block text-[10.5px] font-medium tracking-[.18em] uppercase text-soft mb-1.5">Goal</span>
+                    <p className="text-[14px]">{p.goal}</p>
+                  </div>
+                  <div>
+                    <span className="block text-[10.5px] font-medium tracking-[.18em] uppercase text-soft mb-1.5">Pain</span>
+                    <p className="text-[14px] italic font-serif">{p.pain}</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <p className="mt-8 text-soft text-[15px] max-w-[62ch]">Every navigation decision, every screen layout, and every interaction was evaluated against one question: does this make Mia feel safe enough to share honestly, and does it make Leo feel genuinely connected to what she&apos;s sharing?</p>
+        </Reveal>
       </Section>
 
       {/* pivot */}
@@ -113,6 +170,38 @@ export default function Resonance() {
             </Reveal>
           ))}
         </div>
+      </Section>
+
+      {/* features */}
+      <Section eyebrow="The App">
+        <H2>Six screens. Each one a decision.</H2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+          {features.map((f) => (
+            <Reveal key={f.n}>
+              <div className="bg-panel border border-faint rounded-2xl p-7 h-full flex flex-col items-center text-center">
+                <div className="w-[150px] rounded-[20px] overflow-hidden bg-black border border-white/10 mb-6 aspect-[9/19.5] shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+                  <Image
+                    src={f.img}
+                    alt={`Resonance — ${f.t} screen`}
+                    width={1206}
+                    height={2622}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <span className="block text-[11px] font-medium tracking-[.22em] uppercase text-amber mb-2">{f.n} — {f.t}</span>
+                <p className="text-[14px] text-soft leading-relaxed max-w-[34ch]">{f.p}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* reflection */}
+      <Section eyebrow="Reflection">
+        <H2>What worked. What&apos;s next.</H2>
+        <Body>Emotional Connection First genuinely shaped every decision — not just as a phrase in a brief, but as a constraint that eliminated options. Removing follower counts, inverting the content hierarchy, building the Connection screen without a tab bar — each came from asking whether a decision served emotional connection or contradicted it.</Body>
+        <Body>What I&apos;d push further is the artist side. The current app works well for a fan encountering a moment. It works less well for an artist building a body of emotional posts over time — there&apos;s no profile, no archive, no way to see how your emotional palette has shifted across a year. An Emotional Map view would be the next thing to build.</Body>
+        <Body>On the technical side: Deezer previews cut off at 30 seconds. Full Spotify API integration — streaming the full track from the user&apos;s library — is the right next step, and the one I ran out of time to complete.</Body>
       </Section>
 
       {/* closing */}
