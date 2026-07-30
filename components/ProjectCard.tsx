@@ -28,6 +28,12 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         {/* left preview — full iPhone */}
         <div className="relative z-10 flex items-center justify-center md:justify-start md:pl-12 pt-24 md:pt-0 pb-10 md:pb-0 order-2 md:order-1">
           <div className="relative w-[196px] md:w-[224px] rounded-[2.5rem] bg-[#0c0c0c] p-[9px] border border-white/[0.14] shadow-[0_24px_70px_rgba(0,0,0,0.65)]">
+            {/* side buttons */}
+            <span className="absolute -left-[2px] top-[21%] w-[3px] h-[5%] rounded-l-[2px] bg-[#080808]" />       {/* action / mute */}
+            <span className="absolute -left-[2px] top-[30%] w-[3px] h-[9%] rounded-l-[2px] bg-[#080808]" />       {/* volume up */}
+            <span className="absolute -left-[2px] top-[41%] w-[3px] h-[9%] rounded-l-[2px] bg-[#080808]" />       {/* volume down */}
+            <span className="absolute -right-[2px] top-[31%] w-[3px] h-[13%] rounded-r-[2px] bg-[#080808]" />     {/* side / power */}
+
             <div className="relative aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-black">
               <CardPreview
                 img={project.img}
