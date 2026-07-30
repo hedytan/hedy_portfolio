@@ -8,7 +8,7 @@ import CardPreview from "./CardPreview";
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   const num = String(index + 1).padStart(2, "0");
   return (
-    <div className="sticky" style={{ top: `${96 + index * 22}px` }}>
+    <div>
       <Link
         href={project.href}
         className="relative grid grid-cols-1 md:grid-cols-2 overflow-hidden no-underline group rounded-[26px] bg-[#151515] border border-white/[0.06] min-h-[440px] md:min-h-0 md:h-[540px]"
