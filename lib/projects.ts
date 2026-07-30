@@ -29,9 +29,7 @@ export type Project = {
   tag: string;
   title: string;
   href: string;
-  // card look
-  cardBg: string;    // big color block behind the card
-  titleColor: string;
+  description: string;
   imgPlaceholder: string;
 };
 
@@ -42,8 +40,7 @@ export const projects: Project[] = [
     tag: "iOS · SwiftUI",
     title: "Resonance",
     href: "/projects/resonance",
-    cardBg: "#AEB98A",       // olive
-    titleColor: "#1B1B1B",
+    description: "A walkthrough of my iOS app design for Resonance, an emotion-first music app built end-to-end in SwiftUI.",
     imgPlaceholder: "Resonance — feed screen\n▸ drop your app screenshot here",
   },
   {
@@ -52,8 +49,7 @@ export const projects: Project[] = [
     tag: "UI/UX · Team Lead",
     title: "FitsApp",
     href: "#",
-    cardBg: "#E4DCC8",       // sand
-    titleColor: "#2C3AE0",
+    description: "A walkthrough of my UI/UX work leading design for FitsApp, an app + widget experience.",
     imgPlaceholder: "FitsApp — app + widget\n▸ drop your screenshot here",
   },
   {
@@ -62,8 +58,7 @@ export const projects: Project[] = [
     tag: "UI/UX · Accessibility",
     title: "Spotify Ease",
     href: "#",
-    cardBg: "#9FB0A3",       // muted sage
-    titleColor: "#2C3AE0",
+    description: "A walkthrough of my accessibility-focused redesign of the Spotify app.",
     imgPlaceholder: "Spotify Ease — redesign\n▸ drop your screenshot here",
   },
   {
@@ -72,8 +67,7 @@ export const projects: Project[] = [
     tag: "Human Research",
     title: "Keyboard Research",
     href: "#",
-    cardBg: "#B8C0C7",       // cool grey-blue
-    titleColor: "#1B1B1B",
+    description: "A walkthrough of my human research study on keyboard typing experiences.",
     imgPlaceholder: "Keyboard Research — study\n▸ drop your screenshot here",
   },
   {
@@ -82,8 +76,7 @@ export const projects: Project[] = [
     tag: "Physical product & App",
     title: "Sync Brew",
     href: "#",
-    cardBg: "#C9A876",       // warm coffee tan
-    titleColor: "#1B1B1B",
+    description: "A walkthrough of my physical product and companion app design for Sync Brew.",
     imgPlaceholder: "Sync Brew — product + app\n▸ drop your screenshot here",
   },
 ];
