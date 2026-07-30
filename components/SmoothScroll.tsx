@@ -15,6 +15,18 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       touchMultiplier: 1.4,
     });
 
+    // Preserve scroll position across refreshes (Lenis breaks native restore).
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    const key = `scroll:${window.location.pathname}`;
+    const saved = sessionStorage.getItem(key);
+    if (saved && !window.location.hash) {
+      const y = parseFloat(saved);
+      if (y > 0) requestAnimationFrame(() => lenis.scrollTo(y, { immediate: true }));
+    }
+    const saveScroll = () => sessionStorage.setItem(key, String(window.scrollY));
+    window.addEventListener("scroll", saveScroll, { passive: true });
+    window.addEventListener("beforeunload", saveScroll);
+
     let raf: number;
     const loop = (time: number) => {
       lenis.raf(time);
@@ -40,6 +52,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     return () => {
       cancelAnimationFrame(raf);
       document.removeEventListener("click", onClick);
+      window.removeEventListener("scroll", saveScroll);
+      window.removeEventListener("beforeunload", saveScroll);
       lenis.destroy();
     };
   }, []);
