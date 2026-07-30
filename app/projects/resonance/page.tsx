@@ -65,6 +65,30 @@ const features = [
   { n: "06", t: "Draw Mood", img: "/resonance/draw-mood.png", p: "When no preset fits, artists draw their mood on a PencilKit canvas and name it after. Once the shape exists outside your head, naming becomes easier." },
 ];
 
+const moods = [
+  { t: "Joy", c: "#C9922E", s: "asymmetric blob" },
+  { t: "Melancholy", c: "#2E3A5C", s: "weighted teardrop" },
+  { t: "Wonder", c: "#3C7A85", s: "radiant star" },
+  { t: "Tender", c: "#6E3A48", s: "soft circle" },
+  { t: "Urgency", c: "#B5432E", s: "hard diamond" },
+  { t: "Awe", c: "#3A5B9E", s: "concentric rings" },
+  { t: "Custom", c: "#8A8A85", s: "you draw it" },
+];
+
+const takeaways = [
+  "A value proposition only matters once it changes the screens. “Emotional Connection First” was an empty phrase until it removed the board.",
+  "Building both versions beats arguing about one — the tab-bar / no-tab-bar test is what decided the Connection screen.",
+  "Constraints clarify. Removing every metric forced each card to say what someone feels, not how popular they are.",
+  "Defining the data model first made the AI-assisted build reliable — a clear MoodType enum gave every prompt a complete spec.",
+];
+
+const nextSteps = [
+  "An Emotional Map — how an artist’s palette shifts across a year.",
+  "Full Spotify integration — stream the whole track, not a 30-second preview.",
+  "A second round of testing with real independent artists.",
+  "Discovery that stays as honest as the moment itself.",
+];
+
 /* ── page ────────────────────────────────────────────────── */
 
 export default function Resonance() {
@@ -202,7 +226,7 @@ export default function Resonance() {
       </Section>
 
       {/* the solution — decisions */}
-      <Section eyebrow="The Solution" title="Four decisions that carry the design">
+      <Section eyebrow="Design Decisions" title="Four decisions that carry the design">
         <div className="mt-2">
           {decisions.map((d, i) => (
             <Reveal key={i}>
@@ -215,6 +239,34 @@ export default function Resonance() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </Section>
+
+      {/* design system */}
+      <Section eyebrow="Design System" title="One vocabulary the whole app is built on">
+        <Lead>
+          Resonance is built around one question: <b>what is the smallest unit of emotional data?</b> The answer — a mood, a thought, a song — shaped every struct and every screen. At the centre is <b>MoodType</b>, a seven-case Swift enum. Each case carries its own colour and its own hand-tuned shape, so a change in one place propagates to every card, feed, and glow.
+        </Lead>
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 mt-12">
+          {moods.map((m) => (
+            <Reveal key={m.t}>
+              <div className="flex flex-col items-center text-center">
+                <span className="w-14 h-14 rounded-full mb-3 border border-white/10" style={{ backgroundColor: m.c }} />
+                <span className="text-[13.5px] text-ink">{m.t}</span>
+                <span className="text-[11.5px] text-soft mt-0.5">{m.s}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-8 mt-16 pt-12 border-t border-faint">
+          <Reveal>
+            <h3 className="text-[17px] font-semibold text-ink mb-3">One vocabulary</h3>
+            <p className="text-[15.5px] text-soft leading-relaxed max-w-[46ch]">Names in DM Mono, quotes in Lora italic, moods in that seven-case enum. Because the compiler forces every view to handle all seven cases, the emotional vocabulary can never drift between the feed, a moment, and the mood selector.</p>
+          </Reveal>
+          <Reveal>
+            <h3 className="text-[17px] font-semibold text-ink mb-3">Two lifecycles, kept apart</h3>
+            <p className="text-[15.5px] text-soft leading-relaxed max-w-[46ch]"><b className="font-normal text-ink">PostStore</b> holds what was felt and shared; <b className="font-normal text-ink">MusicManager</b> handles what is heard. Post data persists for the session while audio is transient — separating them means a view that shows posts never needs to know how playback works.</p>
+          </Reveal>
         </div>
       </Section>
 
@@ -242,14 +294,35 @@ export default function Resonance() {
       </Section>
 
       {/* reflection */}
-      <Section eyebrow="Reflection" title="What worked. What's next.">
+      <Section eyebrow="Reflections" title="Post-design outcome">
         <Lead>
           Emotional Connection First genuinely shaped every decision — not as a phrase in a brief, but as <b>a constraint that eliminated options.</b> Removing follower counts, inverting the hierarchy, building the Connection screen without a tab bar — each came from asking whether it served emotional connection or contradicted it.
         </Lead>
-        <Lead>
-          What I&apos;d push further is <b>the artist side.</b> The app works for a fan encountering a moment; it works less well for an artist building a body of emotional posts over time. <b>An Emotional Map view</b> — how your palette shifts across a year — would be next. On the technical side, <b>full Spotify integration</b> is the step I ran out of time to complete.
-        </Lead>
-        <div className="mt-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12 mt-16">
+          <div>
+            <Reveal as="h3" className="text-[20px] font-semibold text-ink mb-6">My key takeaways</Reveal>
+            <ol className="space-y-5">
+              {takeaways.map((t, i) => (
+                <Reveal key={i} as="li" className="grid grid-cols-[auto_1fr] gap-4">
+                  <span className="font-serif italic text-amber text-[17px] leading-tight">{`0${i + 1}`}</span>
+                  <span className="text-[15.5px] text-soft leading-relaxed">{t}</span>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <Reveal as="h3" className="text-[20px] font-semibold text-ink mb-6">Next steps</Reveal>
+            <ol className="space-y-5">
+              {nextSteps.map((t, i) => (
+                <Reveal key={i} as="li" className="grid grid-cols-[auto_1fr] gap-4">
+                  <span className="font-serif italic text-amber text-[17px] leading-tight">{`0${i + 1}`}</span>
+                  <span className="text-[15.5px] text-soft leading-relaxed">{t}</span>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+        </div>
+        <div className="mt-20">
           <Reveal>
             <p className="font-serif italic text-[clamp(22px,3.2vw,30px)] leading-[1.5] max-w-[24ch]">
               The app succeeds when two people realise they felt the same thing — even if they&apos;ve never met.
