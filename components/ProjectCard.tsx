@@ -1,43 +1,57 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Project } from "@/lib/projects";
 
-// Sticky stacking card — the Nitro "floating cards" effect.
-// Each card sticks near the top as you scroll, so they pile up.
+// Sticky stacking card. On desktop the screenshot rises from the left and
+// its lower edge is clipped by the card; the title + blurb sit on the right.
+// On mobile it stacks: title/blurb first, full screenshot below.
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   const num = String(index + 1).padStart(2, "0");
   return (
-    <div
-      className="sticky"
-      style={{ top: `${96 + index * 22}px` }}
-    >
+    <div className="sticky" style={{ top: `${96 + index * 22}px` }}>
       <Link
         href={project.href}
-        className="block rounded-[26px] overflow-hidden no-underline group bg-[#151515] border border-white/[0.06]"
+        className="relative grid grid-cols-1 md:grid-cols-2 overflow-hidden no-underline group rounded-[26px] bg-[#151515] border border-white/[0.06] min-h-[440px] md:min-h-0 md:h-[540px]"
       >
-        {/* card header */}
-        <div className="px-7 md:px-10 pt-8 flex justify-between items-center">
+        {/* header */}
+        <div className="absolute top-0 inset-x-0 z-20 px-7 md:px-10 pt-8 flex justify-between items-center">
           <span className="font-mono text-[13px] tracking-wide text-soft">
             {num}
             <span className="mx-2.5 text-faint">|</span>
             {project.tag.toUpperCase()}
           </span>
-          <span className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-lg text-ink transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+          <span className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/15 flex items-center justify-center text-[15px] text-ink transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
             ↗
           </span>
         </div>
 
-        {/* image (left) + title & blurb (right) */}
-        <div className="mt-8 px-7 md:px-10 pb-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="w-full max-w-[280px] mx-auto md:mx-0 aspect-[9/16] rounded-2xl bg-black/85 border border-white/10 flex items-center justify-center">
-            <span className="font-mono text-[12px] text-white/40 text-center leading-[1.8] whitespace-pre-line px-4">
-              {project.imgPlaceholder}
-            </span>
+        {/* left preview */}
+        <div className="relative z-10 flex justify-center md:justify-start md:pl-12 pt-4 md:pt-[92px] pb-9 md:pb-0 order-2 md:order-1 self-end md:self-start">
+          <div className="w-[190px] md:w-[262px] aspect-[9/19.5] rounded-t-[22px] overflow-hidden border border-b-0 border-white/10 shadow-[0_-8px_50px_rgba(0,0,0,0.55)]">
+            {project.img ? (
+              <Image
+                src={project.img}
+                alt={project.title}
+                width={1206}
+                height={2622}
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            ) : (
+              <div className="w-full h-full bg-black/85 flex items-center justify-center">
+                <span className="font-mono text-[12px] text-white/40 text-center leading-[1.8] whitespace-pre-line px-5">
+                  {project.imgPlaceholder}
+                </span>
+              </div>
+            )}
           </div>
+        </div>
 
+        {/* right text */}
+        <div className="relative z-10 flex items-start md:items-center order-1 md:order-2 px-7 md:px-0 md:pr-14 pt-24 md:pt-0">
           <div>
             <h3
               className="font-semibold tracking-tight leading-none text-ink"
-              style={{ fontSize: "clamp(32px,4.2vw,56px)" }}
+              style={{ fontSize: "clamp(30px,4.2vw,54px)" }}
             >
               {project.title}
             </h3>
