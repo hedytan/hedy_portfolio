@@ -25,15 +25,19 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           </span>
         </div>
 
-        {/* left preview */}
-        <div className="relative z-10 flex justify-center md:justify-start md:pl-12 pt-4 md:pt-[92px] pb-9 md:pb-0 order-2 md:order-1 self-end md:self-start">
-          <div className="w-[190px] md:w-[262px] aspect-[9/19.5] rounded-t-[22px] overflow-hidden border border-b-0 border-white/10 shadow-[0_-8px_50px_rgba(0,0,0,0.55)]">
-            <CardPreview
-              img={project.img}
-              frames={project.frames}
-              placeholder={project.imgPlaceholder}
-              title={project.title}
-            />
+        {/* left preview — full iPhone */}
+        <div className="relative z-10 flex items-center justify-center md:justify-start md:pl-12 pt-24 md:pt-0 pb-10 md:pb-0 order-2 md:order-1">
+          <div className="relative w-[196px] md:w-[224px] rounded-[2.5rem] bg-[#0c0c0c] p-[9px] border border-white/[0.14] shadow-[0_24px_70px_rgba(0,0,0,0.65)]">
+            <div className="relative aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-black">
+              <CardPreview
+                img={project.img}
+                frames={project.frames}
+                placeholder={project.imgPlaceholder}
+                title={project.title}
+              />
+              {/* dynamic island */}
+              <span className="absolute top-[8px] left-1/2 -translate-x-1/2 w-[30%] h-[15px] bg-black rounded-full z-20" />
+            </div>
           </div>
         </div>
 
