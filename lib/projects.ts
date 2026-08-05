@@ -60,7 +60,7 @@ export const projects: Project[] = [
     tag: "UX Research · Team",
     title: "FitsApp",
     href: "/projects/fitsapp",
-    description: "A team fitness app that boosts motivation to stay physically active — my UX research and design lead work in the Apple Foundation Program.",
+    description: "A step-tracker where every walk grows a tree — motivation from delight, not just data. My UX research and design work in the Apple Foundation Program.",
     imgPlaceholder: "FitsApp — coming soon\n▸ drop your screenshot here",
   },
   {

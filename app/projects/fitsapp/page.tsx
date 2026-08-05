@@ -12,11 +12,32 @@ export const metadata: Metadata = {
 const meta = [
   { k: "Timeline", v: ["4 weeks", "Apple Foundation Program"] },
   { k: "Team", v: ["Kiwi Kuties", "5 members"] },
-  { k: "My Role", v: ["UX Research", "UI Design", "Team Lead"] },
-  { k: "Tools", v: ["Figma", "Miro", "SwiftUI"] },
+  { k: "My Role", v: ["UX Research", "UI Design", "Prototyping"] },
+  { k: "Tools", v: ["Figma", "SwiftUI", "Apple Watch"] },
 ];
 
-const team = ["Xinyi (Cindy) Hu", "Hedy Tan Wei Qian", "Callum Rice", "Stanley Diomampo", "Angelo Sayas"];
+const team = [
+  { name: "Xinyi (Cindy) Hu", role: "Final-year Masters of IT" },
+  { name: "Hedy Tan Wei Qian", role: "1st-year Interaction Design" },
+  { name: "Stanley Diomampo", role: "1st-year IT · Dip. Professional Practice" },
+  { name: "Angelo Sayas", role: "1st-year Information Technology" },
+  { name: "Callum Rice", role: "1st-year Information Technology" },
+];
+
+const evidence = [
+  { big: "1 / 3", p: "young adults meet the guideline for minimum weekly exercise." },
+  { big: "WHO", p: "“Walking more is a simple and effective method to improve physical activity and overall health.”" },
+  { big: "Habit", p: "“Attaching a challenging activity to an easy, fun one increases the likelihood of forming a habit.”" },
+];
+
+const features = [
+  { t: "Watch your tree grow", img: "/fitsapp/tree.png", p: "Every step grows a tree — 5,000, 10,000, 15,000, 20,000. Progress you can watch, not just a number you read." },
+  { t: "Plan your weekly goal", img: "/fitsapp/weekly-goal.png", p: "Pick how active you want to be, then name your tree. The goal is yours — and so is what grows from it." },
+  { t: "Grow a whole garden", img: "/fitsapp/shop.png", p: "Unlock new trees — Candy, Pine, Oak, Maple, Cherry — with the steps you bank. Walking becomes collecting." },
+  { t: "Customise your world", img: "/fitsapp/customise.png", p: "Seasonal colours and styles let you make the app your own. Delight is personal." },
+  { t: "On your wrist", img: "/fitsapp/watch.png", p: "An Apple Watch companion that reminds you, motivates you, and accompanies you — “You walked 2,139 steps!”" },
+  { t: "See your progress", img: "/fitsapp/progress.png", p: "Steps and distance at a glance, so you can see exactly how much you've improved." },
+];
 
 const process = [
   { n: "1", t: "Engage", items: ["Big Idea", "Essential Question", "Challenge"] },
@@ -70,8 +91,8 @@ export default function FitsApp() {
       <header className="min-h-screen flex flex-col items-center justify-center text-center px-8 pt-24 pb-16">
         <Reveal as="p" className="text-[11.5px] font-medium tracking-[.22em] uppercase text-amber mb-6">UX Research · Team · 2025</Reveal>
         <Reveal as="h1" delay={1} className="font-serif text-[clamp(48px,9vw,110px)] leading-none tracking-tight">FitsApp</Reveal>
-        <Reveal as="p" delay={2} className="mt-6 max-w-[46ch] text-lg italic font-serif text-soft">
-          A fitness app that boosts motivation to stay physically active — built with team Kiwi Kuties in the Apple Foundation Program.
+        <Reveal as="p" delay={2} className="mt-6 max-w-[48ch] text-lg italic font-serif text-soft">
+          A step-tracker where every walk grows a tree — because motivation doesn&apos;t only come from data, it comes from delight. Built with team Kiwi Kuties.
         </Reveal>
       </header>
 
@@ -107,12 +128,13 @@ export default function FitsApp() {
             &ldquo;We don&apos;t crash — we hatch.&rdquo;
           </p>
         </Reveal>
-        <div className="flex flex-wrap gap-3 mt-8">
-          {team.map((name) => (
-            <Reveal key={name}>
-              <span className={`inline-block px-4 py-2 rounded-full border border-faint text-[14px] ${name.startsWith("Hedy") ? "bg-amber/15 border-amber/40 text-ink" : "bg-panel text-soft"}`}>
-                {name}
-              </span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+          {team.map((m) => (
+            <Reveal key={m.name}>
+              <div className={`rounded-2xl border p-5 h-full ${m.name.startsWith("Hedy") ? "bg-amber/10 border-amber/40" : "bg-panel border-faint"}`}>
+                <h3 className="text-[15.5px] font-semibold text-ink">{m.name}</h3>
+                <p className="text-[13px] text-soft mt-1">{m.role}</p>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -238,13 +260,42 @@ export default function FitsApp() {
         </div>
       </Section>
 
-      {/* final designs — placeholder */}
-      <Section eyebrow="Final Designs" title="Design & prototype">
-        <Reveal>
-          <div className="bg-panel border border-faint border-dashed rounded-2xl p-12 text-center">
-            <p className="text-soft text-[15.5px] max-w-[52ch] mx-auto">The ideation, wireframes, and high-fidelity FitsApp screens are next — this case study will grow as the design phase lands.</p>
-          </div>
-        </Reveal>
+      {/* the insight */}
+      <Section eyebrow="Insight" title="Motivation comes from delight, not just data">
+        <Lead>
+          Only <b>one in three young adults</b> meet the guideline for minimum weekly exercise — and the barrier isn&apos;t knowledge, it&apos;s <b>motivation and time</b>. Data alone doesn&apos;t fix that. So we leaned on the psychology of habit: <b>attach a hard thing to an easy, delightful one.</b>
+        </Lead>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12">
+          {evidence.map((e) => (
+            <Reveal key={e.big}>
+              <div className="bg-panel border border-faint rounded-2xl p-8 h-full">
+                <span className="block font-serif text-amber text-[clamp(34px,4vw,48px)] leading-none mb-4">{e.big}</span>
+                <p className="text-[14.5px] text-soft leading-relaxed">{e.p}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* the solution — the app */}
+      <Section eyebrow="The Solution" title="Every walk grows a tree">
+        <Lead>
+          FitsApp turns your steps into a <b>living tree</b>. Walk more and it grows; hit your weekly goal and you unlock new species for your garden. The number is still there — but now it&apos;s something you <b>want to watch</b>, on your phone and your wrist.
+        </Lead>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+          {features.map((f) => (
+            <Reveal key={f.t}>
+              <div className="bg-panel border border-faint rounded-2xl p-7 h-full flex flex-col items-center text-center">
+                <div className="w-[150px] rounded-[20px] overflow-hidden bg-[#5b587f] border border-white/10 mb-6 aspect-[9/19.5] shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={f.img} alt={f.t} loading="lazy" className="w-full h-full object-cover object-top" />
+                </div>
+                <h3 className="font-serif italic text-[18px] mb-2">{f.t}</h3>
+                <p className="text-[14px] text-soft leading-relaxed max-w-[34ch]">{f.p}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       {/* reflection */}
