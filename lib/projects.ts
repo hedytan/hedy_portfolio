@@ -57,11 +57,11 @@ export const projects: Project[] = [
   {
     slug: "fitsapp",
     year: "2025",
-    tag: "UI/UX · Team Lead",
+    tag: "UX Research · Team",
     title: "FitsApp",
-    href: "#",
-    description: "A walkthrough of my UI/UX work leading design for FitsApp, an app + widget experience.",
-    imgPlaceholder: "FitsApp — app + widget\n▸ drop your screenshot here",
+    href: "/projects/fitsapp",
+    description: "A team fitness app that boosts motivation to stay physically active — my UX research and design lead work in the Apple Foundation Program.",
+    imgPlaceholder: "FitsApp — coming soon\n▸ drop your screenshot here",
   },
   {
     slug: "spotify-ease",
