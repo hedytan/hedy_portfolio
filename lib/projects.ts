@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: "Resonance",
     href: "/projects/resonance",
     description: "An emotion-first music app, designed and built end-to-end in SwiftUI. Artists share the feeling behind a song; fans respond with how it resonated.",
-    img: "/resonance/feed.png",
+    img: "/resonance/welcome.png",
     frames: [
       "/resonance/welcome.png",
       "/resonance/feed.png",
