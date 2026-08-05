@@ -3,50 +3,48 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-// Phone preview that plays a screen-by-screen walkthrough on hover.
-// At rest it shows `img`; on hover it cycles through `frames` and
-// crossfades between them, then returns to rest on mouse leave.
+// Phone screen that plays a screen-by-screen walkthrough while `playing`
+// is true, crossfading between frames, and rests on `img` otherwise.
 export default function CardPreview({
   img,
   frames,
   placeholder,
   title,
+  playing = false,
 }: {
   img?: string;
   frames?: string[];
   placeholder: string;
   title: string;
+  playing?: boolean;
 }) {
   const seq = frames && frames.length ? frames : img ? [img] : [];
   const restIndex = img && seq.includes(img) ? seq.indexOf(img) : 0;
   const [active, setActive] = useState(restIndex);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const stop = () => {
-    if (timer.current) {
-      clearInterval(timer.current);
-      timer.current = null;
-    }
-  };
+  useEffect(() => {
+    const stop = () => {
+      if (timer.current) {
+        clearInterval(timer.current);
+        timer.current = null;
+      }
+    };
+    const reduce = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const start = () => {
-    if (seq.length < 2) return;
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    stop();
+    if (!playing || seq.length < 2 || reduce) {
+      stop();
+      setActive(restIndex);
+      return;
+    }
     let i = 0;
     setActive(0);
     timer.current = setInterval(() => {
       i = (i + 1) % seq.length;
       setActive(i);
     }, 850);
-  };
-
-  const reset = () => {
-    stop();
-    setActive(restIndex);
-  };
-
-  useEffect(() => () => stop(), []);
+    return stop;
+  }, [playing, seq.length, restIndex]);
 
   if (seq.length === 0) {
     return (
@@ -59,7 +57,7 @@ export default function CardPreview({
   }
 
   return (
-    <div className="relative w-full h-full" onMouseEnter={start} onMouseLeave={reset}>
+    <div className="relative w-full h-full">
       {seq.map((src, i) => (
         <Image
           key={src + i}
