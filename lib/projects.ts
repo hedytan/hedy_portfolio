@@ -8,7 +8,7 @@ export const site = {
   greeting: "Hey, I'm Hedy",
   status: "available for new projects",
   bigName: "Hedy Tan",
-  tagline: "I'm a UX/UI designer & student based in Sydney",
+  tagline: "I'm a UX/UI designer based in Sydney",
   links: {
     linkedin: "https://www.linkedin.com/in/hedy-tan-83b81423b/",
     github: "#",
