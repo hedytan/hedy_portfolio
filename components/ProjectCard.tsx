@@ -47,7 +47,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         href={project.href}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative block overflow-hidden no-underline rounded-[26px] bg-[#151515] border border-white/[0.06] h-[520px] md:h-[540px]"
+        className="relative block overflow-hidden no-underline rounded-[26px] bg-[#151515] border border-white/[0.06] h-[520px] md:h-[540px] shadow-[0_24px_60px_rgba(0,0,0,0.55)]"
       >
         {/* header (always visible) */}
         <div className="absolute top-0 inset-x-0 z-30 px-7 md:px-10 pt-8 flex justify-between items-center">
