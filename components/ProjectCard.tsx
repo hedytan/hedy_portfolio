@@ -56,7 +56,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             <span className="mx-2.5 text-faint">|</span>
             {project.tag.toUpperCase()}
           </span>
-          <span className={`w-9 h-9 rounded-full bg-white/[0.06] border border-white/15 flex items-center justify-center text-[15px] text-ink transition-transform duration-300 ${hovered ? "translate-x-1 -translate-y-1" : ""}`}>
+          <span className={`w-9 h-9 rounded-full bg-white/[0.06] border border-white/15 flex items-center justify-center text-[15px] text-[#F2F1ED] transition-transform duration-300 ${hovered ? "translate-x-1 -translate-y-1" : ""}`}>
             ↗
           </span>
         </div>
@@ -70,7 +70,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             </div>
             <div className="absolute inset-y-0 right-0 w-[52%] flex items-center pr-14">
               <div>
-                <h3 className="font-semibold tracking-tight leading-none text-ink" style={{ fontSize: "clamp(30px,4.2vw,54px)" }}>
+                <h3 className="font-semibold tracking-tight leading-none text-[#F2F1ED]" style={{ fontSize: "clamp(30px,4.2vw,54px)" }}>
                   {project.title}
                 </h3>
                 <p className="mt-5 text-soft text-lg leading-relaxed max-w-[42ch]">
@@ -82,7 +82,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           {/* mobile: title on top, phone peeking below */}
           <div className="md:hidden flex flex-col h-full pt-24 px-7">
             <div>
-              <h3 className="font-semibold tracking-tight leading-none text-ink text-[34px]">
+              <h3 className="font-semibold tracking-tight leading-none text-[#F2F1ED] text-[34px]">
                 {project.title}
               </h3>
               <p className="mt-4 text-soft text-base leading-relaxed">

@@ -19,7 +19,7 @@ export default function Hero() {
             className="font-semibold text-center leading-none tracking-tight select-none"
             style={{
               fontSize: "clamp(52px, 10vw, 160px)",
-              backgroundImage: "linear-gradient(135deg, #F2F1ED 0%, #9A9A95 50%, #4A4A47 100%)",
+              backgroundImage: "linear-gradient(135deg, #171512 0%, #4A443C 50%, #171512 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               color: "transparent",

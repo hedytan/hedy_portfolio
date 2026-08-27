@@ -8,12 +8,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#050505",
-        ink: "#F2F1ED",
-        soft: "#8A8A85",
-        faint: "#242424",
-        panel: "#131313",
-        amber: "#C9A25E",
+        bg: "#F4F2ED",
+        ink: "#171512",
+        soft: "#8C7A63",
+        faint: "#E2DED3",
+        panel: "#EEEAE0",
+        amber: "#A87A3D",
         blue: "#2C3AE0",
       },
       fontFamily: {
