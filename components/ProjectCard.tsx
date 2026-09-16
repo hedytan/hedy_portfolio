@@ -76,6 +76,11 @@ export default function ProjectCard({ project, index }: { project: Project; inde
                 <p className="mt-5 text-soft text-lg leading-relaxed max-w-[42ch]">
                   {project.description}
                 </p>
+                {project.highlight && (
+                  <p className="mt-4 font-mono text-[12px] tracking-[.1em] uppercase text-soft/70">
+                    {project.highlight}
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -88,6 +93,11 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               <p className="mt-4 text-soft text-base leading-relaxed">
                 {project.description}
               </p>
+              {project.highlight && (
+                <p className="mt-3 font-mono text-[11px] tracking-[.1em] uppercase text-soft/70">
+                  {project.highlight}
+                </p>
+              )}
             </div>
             <div className="mt-8 mx-auto -mb-24">
               <Phone project={project} playing={false} width="w-[170px]" />

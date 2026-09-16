@@ -30,6 +30,7 @@ export type Project = {
   title: string;
   href: string;
   description: string;
+  highlight?: string;  // one-line, factual scope signal — timeline, team size, role (optional)
   img?: string;        // real screenshot preview (optional)
   frames?: string[];   // hover walkthrough sequence (optional)
   imgPlaceholder: string;
@@ -43,6 +44,7 @@ export const projects: Project[] = [
     title: "Resonance",
     href: "/projects/resonance",
     description: "An emotion-first music app, designed and built end-to-end in SwiftUI. Artists share the feeling behind a song; fans respond with how it resonated.",
+    highlight: "12 weeks · solo · 6 screens shipped in SwiftUI",
     img: "/resonance/welcome.png",
     frames: [
       "/resonance/welcome.png",
@@ -61,6 +63,7 @@ export const projects: Project[] = [
     title: "FitsApp",
     href: "/projects/fitsapp",
     description: "A step-tracker where every walk grows a tree — motivation from delight, not just data. My UX research and design work in the Apple Foundation Program.",
+    highlight: "4 weeks · team of 5 · Apple Foundation Program",
     imgPlaceholder: "FitsApp — coming soon\n▸ drop your screenshot here",
   },
   {

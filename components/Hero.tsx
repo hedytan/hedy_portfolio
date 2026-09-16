@@ -30,11 +30,20 @@ export default function Hero() {
           <p className="w-full text-center font-semibold text-[clamp(20px,3.4vw,40px)] px-4 text-soft">
             {site.tagline}
           </p>
-          {/* little line + circle accent, bottom-left */}
-          <div className="absolute left-0 bottom-[10%] hidden md:flex items-center">
-            <span className="w-16 h-px bg-faint" />
-            <span className="w-6 h-6 rounded-full border border-faint" />
-          </div>
+          {/* hand-drawn squiggle-into-loop accent, bottom-left */}
+          <svg
+            viewBox="0 0 140 40"
+            className="absolute left-0 bottom-[10%] hidden md:block w-32 lg:w-36 h-auto text-soft/60"
+            fill="none"
+          >
+            <path
+              d="M4,20 Q20,2 36,20 T68,20 T98,20 C110,4 134,6 136,20 C138,34 116,38 104,28 C94,20 98,8 108,6"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
       </div>
     </header>

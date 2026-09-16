@@ -94,6 +94,9 @@ export default function FitsApp() {
         <Reveal as="p" delay={2} className="mt-6 max-w-[48ch] text-lg italic font-serif text-soft">
           A step-tracker where every walk grows a tree — because motivation doesn&apos;t only come from data, it comes from delight. Built with team Kiwi Kuties.
         </Reveal>
+        <Reveal as="p" delay={3} className="mt-7 font-mono text-[12px] tracking-[.16em] uppercase text-soft/70">
+          4 weeks · team of 5 · Apple Foundation Program
+        </Reveal>
       </header>
 
       {/* process highlights */}

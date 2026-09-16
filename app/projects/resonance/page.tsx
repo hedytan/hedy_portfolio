@@ -107,6 +107,9 @@ export default function Resonance() {
         <Reveal as="p" delay={2} className="mt-6 max-w-[44ch] text-lg italic font-serif text-soft">
           An emotion-first music app — artists share the feeling behind a song, fans respond with how it resonated.
         </Reveal>
+        <Reveal as="p" delay={3} className="mt-7 font-mono text-[12px] tracking-[.16em] uppercase text-soft/70">
+          12 weeks · solo · 6 screens shipped in SwiftUI
+        </Reveal>
       </header>
 
       {/* process highlights */}
