@@ -2,7 +2,7 @@ import { site } from "@/lib/projects";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="max-w-content mx-auto px-6 md:px-10 py-24 border-t border-faint">
+    <footer id="contact" className="paper-texture max-w-content mx-auto px-6 md:px-10 py-24 border-t border-faint">
       <p className="font-mono text-[13px] text-soft mb-8">.say hello</p>
       <h2 className="font-semibold text-[clamp(28px,5vw,60px)] leading-[1.15] tracking-tight max-w-[20ch]">
         open for opportunities — feel free to reach out and let&apos;s talk.

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, IBM_Plex_Mono, Fraunces } from "next/font/google";
+import { Instrument_Sans, IBM_Plex_Mono, Fraunces, Caveat } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -20,6 +20,11 @@ const serif = Fraunces({
   variable: "--font-serif",
   display: "swap",
 });
+const hand = Caveat({
+  subsets: ["latin"],
+  variable: "--font-hand",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "HedyTan",
@@ -34,7 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable} ${serif.variable} ${hand.variable}`}>
       <body className="font-sans bg-bg text-ink antialiased">
         <SmoothScroll>{children}</SmoothScroll>
       </body>

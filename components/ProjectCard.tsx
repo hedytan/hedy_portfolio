@@ -47,13 +47,22 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         href={project.href}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative block overflow-hidden no-underline rounded-[26px] bg-[#151515] border border-white/[0.06] h-[520px] md:h-[540px] shadow-[0_24px_60px_rgba(0,0,0,0.55)]"
+        className="relative block overflow-hidden no-underline rounded-[26px] bg-[#181215] border border-white/[0.06] h-[520px] md:h-[540px] shadow-[0_24px_60px_rgba(0,0,0,0.55)]"
       >
         {/* header (always visible) */}
         <div className="absolute top-0 inset-x-0 z-30 px-7 md:px-10 pt-8 flex justify-between items-center">
-          <span className="font-mono text-[13px] tracking-wide text-soft">
-            {num}
-            <span className="mx-2.5 text-faint">|</span>
+          <span className="font-mono text-[13px] tracking-wide text-[#B5A99C] flex items-center">
+            <span className="relative inline-flex items-center justify-center w-6 h-6 -ml-0.5 mr-1.5">
+              <svg viewBox="0 0 28 28" className="absolute inset-0 w-full h-full text-white/15" fill="none">
+                <path
+                  d="M14,2 C21,1.5 26,7 25,14 C24.5,21.5 19,26 12,25.5 C5,25 1.5,19 2.5,12 C3.5,5 8,2.3 14,2"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                />
+              </svg>
+              <span className="relative">{num}</span>
+            </span>
+            <span className="mr-2.5 text-faint">|</span>
             {project.tag.toUpperCase()}
           </span>
           <span className={`w-9 h-9 rounded-full bg-white/[0.06] border border-white/15 flex items-center justify-center text-[15px] text-[#F2F1ED] transition-transform duration-300 ${hovered ? "translate-x-1 -translate-y-1" : ""}`}>
@@ -73,11 +82,11 @@ export default function ProjectCard({ project, index }: { project: Project; inde
                 <h3 className="font-semibold tracking-tight leading-none text-[#F2F1ED]" style={{ fontSize: "clamp(30px,4.2vw,54px)" }}>
                   {project.title}
                 </h3>
-                <p className="mt-5 text-soft text-lg leading-relaxed max-w-[42ch]">
+                <p className="mt-5 text-[#B5A99C] text-lg leading-relaxed max-w-[42ch]">
                   {project.description}
                 </p>
                 {project.highlight && (
-                  <p className="mt-4 font-mono text-[12px] tracking-[.1em] uppercase text-soft/70">
+                  <p className="mt-4 font-mono text-[12px] tracking-[.1em] uppercase text-[#B5A99C]/70">
                     {project.highlight}
                   </p>
                 )}
@@ -90,11 +99,11 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               <h3 className="font-semibold tracking-tight leading-none text-[#F2F1ED] text-[34px]">
                 {project.title}
               </h3>
-              <p className="mt-4 text-soft text-base leading-relaxed">
+              <p className="mt-4 text-[#B5A99C] text-base leading-relaxed">
                 {project.description}
               </p>
               {project.highlight && (
-                <p className="mt-3 font-mono text-[11px] tracking-[.1em] uppercase text-soft/70">
+                <p className="mt-3 font-mono text-[11px] tracking-[.1em] uppercase text-[#B5A99C]/70">
                   {project.highlight}
                 </p>
               )}

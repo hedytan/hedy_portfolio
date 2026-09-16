@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main>
+      <main className="paper-texture">
         <Hero />
         <WorkList />
         <About />

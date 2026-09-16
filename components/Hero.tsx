@@ -15,7 +15,7 @@ export default function Hero() {
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundImage: "linear-gradient(to bottom, transparent 40%, #F4F2ED 100%)" }}
+          style={{ backgroundImage: "linear-gradient(to bottom, transparent 40%, #F0DEBD 100%)" }}
         />
       </div>
 
@@ -36,7 +36,7 @@ export default function Hero() {
               className="font-semibold text-center leading-none tracking-tight select-none"
               style={{
                 fontSize: "clamp(52px, 10vw, 160px)",
-                backgroundImage: "linear-gradient(135deg, #171512 0%, #4A443C 50%, #171512 100%)",
+                backgroundImage: "linear-gradient(135deg, #1E1618 0%, #56424A 50%, #1E1618 100%)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",

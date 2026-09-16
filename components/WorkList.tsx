@@ -10,6 +10,7 @@ const STACK_STEP = 22; // px of previous card left peeking per card
 export default function WorkList() {
   return (
     <section id="work" className="max-w-content mx-auto px-6 md:px-10 mt-10">
+      <p className="font-hand text-3xl text-ink/80 -rotate-2 pl-1">a few things I&apos;ve made ↓</p>
       <div className="py-16">
         {projects.map((p, i) => (
           <div
