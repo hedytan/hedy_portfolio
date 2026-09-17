@@ -1,5 +1,36 @@
 import Image from "next/image";
-import { site } from "@/lib/projects";
+import Link from "next/link";
+import { site, projects } from "@/lib/projects";
+
+// A quick-glance strip of project thumbnails, sitting just below the
+// fold so scrolling down a little reveals the work right away.
+function ProjectThumbs() {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+      {projects.map((p) => (
+        <Link
+          key={p.slug}
+          href={p.href}
+          className="group relative block aspect-[4/3] rounded-xl overflow-hidden border border-faint bg-panel no-underline"
+        >
+          {p.img ? (
+            <Image
+              src={p.img}
+              alt={p.title}
+              fill
+              sizes="220px"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center p-3 text-center">
+              <span className="font-hand text-xl text-ink/70 -rotate-1">{p.title}</span>
+            </div>
+          )}
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 export default function Hero() {
   return (
@@ -31,7 +62,7 @@ export default function Hero() {
           </div>
 
           {/* giant name */}
-          <div className="relative flex flex-col items-center justify-center min-h-[62vh] gap-10 md:gap-16">
+          <div className="relative flex flex-col items-center justify-center min-h-[50vh] gap-10 md:gap-16">
             <h1
               className="font-semibold text-center leading-none tracking-tight select-none"
               style={{
@@ -58,6 +89,10 @@ export default function Hero() {
                 strokeLinejoin="round"
               />
             </svg>
+          </div>
+
+          <div className="pb-16 md:pb-24">
+            <ProjectThumbs />
           </div>
         </div>
       </div>
