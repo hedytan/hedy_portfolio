@@ -36,10 +36,7 @@ export default function Hero() {
               className="font-semibold text-center leading-none tracking-tight select-none"
               style={{
                 fontSize: "clamp(52px, 10vw, 160px)",
-                backgroundImage: "linear-gradient(135deg, #1E1618 0%, #56424A 50%, #1E1618 100%)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
+                color: "#FFFFFF",
               }}
             >
               {site.bigName}
