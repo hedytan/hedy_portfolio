@@ -35,6 +35,11 @@ body {
 /* sticky stacking cards (the "floating cards" effect) */
 .card-stack { position: relative; }
 
+/* hides the scrollbar on a horizontally swipeable strip, without
+   disabling the scroll/swipe itself */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* subtle paper grain, layered over a section via ::after so it never
    fights the DOM/z-index order of the section's real content */
 .paper-texture { position: relative; }

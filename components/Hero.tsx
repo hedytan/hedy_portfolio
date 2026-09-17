@@ -3,22 +3,23 @@ import Link from "next/link";
 import { site, projects } from "@/lib/projects";
 
 // A quick-glance strip of project thumbnails, sitting just below the
-// fold so scrolling down a little reveals the work right away.
+// fold so scrolling down a little reveals the work right away. Swipes
+// horizontally; each tile links straight into that project.
 function ProjectThumbs() {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+    <div className="no-scrollbar -mx-6 px-6 md:-mx-10 md:px-10 flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory">
       {projects.map((p) => (
         <Link
           key={p.slug}
           href={p.href}
-          className="group relative block aspect-[4/3] rounded-xl overflow-hidden border border-faint bg-panel no-underline"
+          className="group relative block shrink-0 snap-start w-[220px] sm:w-[240px] aspect-[4/3] rounded-xl overflow-hidden border border-faint bg-panel no-underline"
         >
           {p.img ? (
             <Image
               src={p.img}
               alt={p.title}
               fill
-              sizes="220px"
+              sizes="240px"
               className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
@@ -28,6 +29,8 @@ function ProjectThumbs() {
           )}
         </Link>
       ))}
+      {/* trailing spacer so the last tile can snap with room to breathe */}
+      <div className="shrink-0 w-px" />
     </div>
   );
 }
