@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site, projects } from "@/lib/projects";
+import PortraitPhoto from "./PortraitPhoto";
 
 // A quick-glance strip of project thumbnails, sitting just below the
 // fold so scrolling down a little reveals the work right away. Swipes
@@ -66,8 +67,11 @@ export default function Hero() {
 
           {/* giant name */}
           <div className="relative flex flex-col items-center justify-center min-h-[50vh] gap-10 md:gap-16">
+            <div className="relative z-20 md:absolute md:right-[4%] lg:right-[10%] md:top-[4%]">
+              <PortraitPhoto />
+            </div>
             <h1
-              className="font-semibold text-center leading-none tracking-tight select-none"
+              className="relative z-10 font-semibold text-center leading-none tracking-tight select-none"
               style={{
                 fontSize: "clamp(52px, 10vw, 160px)",
                 color: "#FFFFFF",
