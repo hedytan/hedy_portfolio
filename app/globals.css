@@ -225,3 +225,13 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
  .os-desktop, .os-window[open] { animation: none; }
  .os-file { transition: none; }
 }
+
+.desktop-sticker { position: absolute; z-index: 3; left: 49%; bottom: 140px; width: clamp(170px, 18vw, 240px); padding: 0; border: 0; background: transparent; touch-action: none; user-select: none; cursor: grab; -webkit-user-select: none; }
+.desktop-sticker img { display: block; width: 100%; height: auto; pointer-events: none; filter: drop-shadow(0 9px 7px #35476025); transition: filter 180ms; }
+.desktop-sticker.is-dragging { cursor: grabbing; z-index: 4; }
+.desktop-sticker.is-dragging img { filter: drop-shadow(0 16px 12px #35476035); }
+.desktop-sticker:focus-visible { outline: 2px dashed #3268a9; outline-offset: 8px; border-radius: 18px; }
+.sticker-caption { display: block; font: 18px var(--font-hand), cursive; color: #516780; margin-top: 8px; transform: rotate(-5deg); }
+@media (min-width: 651px) and (max-width: 1000px) { .desktop-sticker { left: 36%; bottom: 125px; width: 180px; } }
+@media (max-width: 650px) { .desktop-sticker { left: auto; right: 22px; top: 106px; bottom: auto; width: 120px; } .os-wallpaper-caption h1 { max-width: calc(100% - 120px); font-size: clamp(32px, 7vw, 46px); } .sticker-caption { font-size: 14px; } }
+@media (prefers-reduced-motion: reduce) { .desktop-sticker img { transition: none; } }

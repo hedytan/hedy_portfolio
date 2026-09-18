@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Hero from "./Hero";
+import DesktopSticker from "./DesktopSticker";
 import { projects, site } from "@/lib/projects";
 
 const files = [
@@ -49,6 +50,7 @@ export default function PortfolioDesktop() {
       <header className="os-menubar"><a href="#desktop" className="os-brand">Hedy OS</a><span>Personal space / Portfolio</span><a href="#top" className="os-shutdown">Back to cover ↗</a></header>
       <div className="os-wallpaper-caption"><p>A little space for big ideas.</p><h1 ref={desktopHeading} tabIndex={-1}>Welcome to<br /><em>my desktop.</em></h1><p>Design, curiosity, and a few things I&apos;ve made.</p></div>
       <div className="os-files" aria-label="Desktop files">{files.map(file => <a className="os-file" key={file.id} href={`#${file.id}`} aria-haspopup="dialog"><FileIcon type={file.type}/><strong>{file.name}</strong><span>{file.extension}</span></a>)}</div>
+      <DesktopSticker />
       <div className="os-desktop-note"><span className="os-status-dot" />{site.status}<span className="os-note-location">Sydney, Australia</span></div>
       <p className="os-hint">Click a file to explore. Make yourself at home.</p>
     </section>}
