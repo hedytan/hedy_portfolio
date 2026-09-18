@@ -54,7 +54,7 @@ export default function Hero() {
           <div className="laptop-base" aria-hidden="true"><span /></div>
           <div className="laptop-shadow" aria-hidden="true" />
         </div>
-        <a ref={launchRef} href="#work" className="hero-launch">
+        <a ref={launchRef} href="#desktop" className="hero-launch">
           <span>Press Enter to Launch</span>
           <svg width="20" height="28" viewBox="0 0 20 28" fill="none" aria-hidden="true"><path d="M10 2v22m-6-6 6 6 6-6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </a>
