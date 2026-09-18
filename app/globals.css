@@ -60,3 +60,89 @@ html.lenis, html.lenis body { height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* A small personal terminal, inspired by the reference's laptop cover. */
+.terminal-hero {
+  --cover-paper: #fdfcf8;
+  --terminal-blue: #477fcb;
+  --terminal-yellow: #f5df8b;
+  min-height: 100svh;
+  background: var(--cover-paper);
+  display: grid;
+  place-items: center;
+  padding: 40px 24px 110px;
+  overflow: hidden;
+}
+.hero-stage { width: min(100%, 580px); text-align: center; }
+.hero-laptop { position: relative; width: 100%; padding: 0 25px 42px; }
+.laptop-lid {
+  position: relative;
+  padding: 15px 15px 18px;
+  border-radius: 19px 19px 3px 3px;
+  background: #2b2a30;
+  box-shadow: inset 0 1px 2px #ffffff30, 0 0 0 1px #17171b;
+}
+.laptop-camera { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #151619; top: 5px; left: calc(50% - 2px); }
+.terminal-screen {
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  border-radius: 3px;
+  background: var(--terminal-blue);
+  box-shadow: inset 0 0 24px #1755a32a;
+  text-align: left;
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  line-height: 1.85;
+  color: #fff;
+}
+.terminal-screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, transparent 0 2px, #ffffff06 2px 3px); }
+.terminal-titlebar { position: relative; height: 42px; display: flex; align-items: center; justify-content: center; color: #e3edfc; font-size: 10px; }
+.terminal-dots { position: absolute; display: flex; gap: 7px; left: 18px; }
+.terminal-dots i { width: 9px; height: 9px; border-radius: 50%; background: #ff6661; }
+.terminal-dots i:nth-child(2) { background: #f8c650; }
+.terminal-dots i:nth-child(3) { background: #76cb73; }
+.terminal-content { padding: 17px 22px 24px; }
+.terminal-block { margin-bottom: 22px; animation: terminal-appear 500ms both; }
+.terminal-last { margin-bottom: 0; }
+.terminal-command { font-weight: 500; }
+.terminal-command > span:first-child { color: var(--terminal-yellow); }
+.terminal-output { color: #edf3ff; font-size: inherit; font-weight: 400; }
+.terminal-indent { padding-left: 16px; }
+.terminal-highlight { color: #254b82; background: var(--terminal-yellow); padding: 2px 9px; border-radius: 2px; font-weight: 500; }
+.terminal-cursor { display: inline-block; width: 7px; height: 14px; vertical-align: -2px; margin-left: 7px; background: var(--terminal-yellow); animation: terminal-blink 1.2s steps(1) infinite; }
+.laptop-base { position: relative; margin: 0 -25px; height: 16px; border-radius: 1px 1px 50% 50% / 1px 1px 95% 95%; background: linear-gradient(#d9d9dc 0%, #aaa9ae 38%, #dedde0 45%, #959499 100%); box-shadow: 0 1px 0 #89888b; }
+.laptop-base > span { display: block; margin: auto; width: 17%; height: 5px; border-radius: 0 0 9px 9px; background: #8d8c92; box-shadow: inset 0 1px 2px #626166; }
+.laptop-shadow { position: absolute; bottom: 0; left: 8%; right: 8%; height: 24px; border-radius: 50%; background: #22222b30; filter: blur(10px); }
+.hero-launch { display: flex; width: fit-content; min-height: 70px; margin: 32px auto 0; flex-direction: column; align-items: center; gap: 15px; color: #77737d; font-family: var(--font-mono), monospace; font-size: 13px; letter-spacing: 2px; text-decoration: none; transition: color 200ms, transform 200ms; }
+.hero-launch:hover { color: #326bb6; transform: translateY(3px); }
+.hero-launch:focus-visible, .cover-nav a:focus-visible { outline: 2px solid #326bb6; outline-offset: 5px; border-radius: 8px; }
+.cover-nav { position: fixed; z-index: 50; bottom: max(22px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); display: flex; padding: 5px; gap: 2px; border: 1px solid #fff; border-radius: 999px; background: #fffffff0; backdrop-filter: blur(16px); box-shadow: 0 5px 25px #25233214, 0 1px 4px #25233208; }
+.cover-nav a { min-height: 44px; padding: 0 19px; display: flex; align-items: center; justify-content: center; border-radius: 999px; font-size: 13px; color: #484550; text-decoration: none; transition: color 180ms, background 180ms; }
+.cover-nav a:hover { background: #edf2fa; }
+.cover-nav a.is-active { background: #477fcb; color: white; box-shadow: inset 0 1px 2px #ffffff30; }
+body:has(.cover-nav) footer { padding-bottom: 110px; }
+@keyframes terminal-appear { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes terminal-blink { 50% { opacity: 0; } }
+@media (max-width: 600px) {
+  .terminal-hero { padding: 64px 16px 116px; }
+  .hero-laptop { padding: 0 13px 32px; }
+  .laptop-lid { padding: 10px 9px 12px; border-radius: 13px 13px 2px 2px; }
+  .terminal-screen { min-height: 0; font-size: clamp(8px, 2.3vw, 13px); }
+  .terminal-titlebar { height: 32px; font-size: 8px; }
+  .terminal-dots { left: 11px; gap: 5px; }
+  .terminal-dots i { width: 6px; height: 6px; }
+  .terminal-content { padding: 12px 12px 20px; }
+  .terminal-block { margin-bottom: 17px; }
+  .terminal-last { margin-bottom: 0; }
+  .terminal-indent { padding-left: 10px; }
+  .terminal-cursor { width: 5px; height: 10px; }
+  .laptop-base { margin: 0 -13px; height: 11px; }
+  .laptop-shadow { height: 18px; }
+  .hero-launch { margin-top: 35px; font-size: 11px; }
+  .cover-nav a { padding: 0 15px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .terminal-block, .terminal-cursor { animation: none; }
+  .hero-launch, .cover-nav a { transition: none; }
+}

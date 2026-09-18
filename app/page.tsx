@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <Nav />
+      <Nav variant="cover" />
       <main className="paper-texture">
         <Hero />
         <WorkList />
