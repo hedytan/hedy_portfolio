@@ -1,40 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import { site, projects } from "@/lib/projects";
+import { site } from "@/lib/projects";
 import PortraitPhoto from "./PortraitPhoto";
-
-// A quick-glance strip of project thumbnails, sitting just below the
-// fold so scrolling down a little reveals the work right away. Swipes
-// horizontally; each tile links straight into that project.
-function ProjectThumbs() {
-  return (
-    <div className="no-scrollbar -mx-6 px-6 md:-mx-10 md:px-10 flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory">
-      {projects.map((p) => (
-        <Link
-          key={p.slug}
-          href={p.href}
-          className="group relative block shrink-0 snap-start w-[220px] sm:w-[240px] aspect-[4/3] rounded-xl overflow-hidden border border-faint bg-panel no-underline"
-        >
-          {p.img ? (
-            <Image
-              src={p.img}
-              alt={p.title}
-              fill
-              sizes="240px"
-              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center p-3 text-center">
-              <span className="font-hand text-xl text-ink/70 -rotate-1">{p.title}</span>
-            </div>
-          )}
-        </Link>
-      ))}
-      {/* trailing spacer so the last tile can snap with room to breathe */}
-      <div className="shrink-0 w-px" />
-    </div>
-  );
-}
 
 export default function Hero() {
   return (
@@ -66,8 +32,8 @@ export default function Hero() {
           </div>
 
           {/* giant name */}
-          <div className="relative flex flex-col items-center justify-center min-h-[50vh] gap-10 md:gap-16">
-            <div className="relative z-20 md:absolute md:right-[4%] lg:right-[10%] md:top-[4%]">
+          <div className="relative flex flex-col items-center justify-center min-h-[60vh] gap-10 md:gap-16 pb-16 md:pb-24">
+            <div className="relative z-20">
               <PortraitPhoto />
             </div>
             <h1
@@ -96,10 +62,6 @@ export default function Hero() {
                 strokeLinejoin="round"
               />
             </svg>
-          </div>
-
-          <div className="pb-16 md:pb-24">
-            <ProjectThumbs />
           </div>
         </div>
       </div>

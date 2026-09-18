@@ -55,7 +55,7 @@ export default function PortraitPhoto() {
   }, []);
 
   return (
-    <div className="relative w-[260px] md:w-[340px] select-none">
+    <div className="relative w-[280px] md:w-[400px] select-none">
       {/* floating tool icons, tucked behind/above the head */}
       <IconBadge className="left-[6%] -top-5 md:-top-7 z-0" rotate={-12}>
         <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6 text-amber" fill="none">
@@ -80,8 +80,19 @@ export default function PortraitPhoto() {
       <div
         className="relative z-10"
         style={{
-          filter:
-            "drop-shadow(0 0 2.5px #F0DEBD) drop-shadow(0 0 2.5px #F0DEBD) drop-shadow(0 0 2.5px #F0DEBD) drop-shadow(0 0 2.5px #F0DEBD) drop-shadow(0 0 2.5px #F0DEBD) drop-shadow(0 0 2.5px #F0DEBD) drop-shadow(0 20px 30px rgba(23,21,18,0.35))",
+          filter: [
+            // crisp white "sticker" outline — 8 zero-blur offsets around a ring
+            "drop-shadow(3.5px 0px 0 #fff)",
+            "drop-shadow(2.5px 2.5px 0 #fff)",
+            "drop-shadow(0px 3.5px 0 #fff)",
+            "drop-shadow(-2.5px 2.5px 0 #fff)",
+            "drop-shadow(-3.5px 0px 0 #fff)",
+            "drop-shadow(-2.5px -2.5px 0 #fff)",
+            "drop-shadow(0px -3.5px 0 #fff)",
+            "drop-shadow(2.5px -2.5px 0 #fff)",
+            // soft depth shadow so it floats above the page
+            "drop-shadow(0 20px 30px rgba(23,21,18,0.35))",
+          ].join(" "),
         }}
       >
         <Image
