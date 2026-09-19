@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 export default function DesktopSticker() {
   const sticker = useRef<HTMLButtonElement>(null);
   const drag = useRef<{ id: number; x: number; y: number; left: number; top: number } | null>(null);
+  const moved = useRef(false);
   const [position, setPosition] = useState<{ left: number; top: number } | null>(null);
   const [dragging, setDragging] = useState(false);
 
@@ -33,17 +34,29 @@ export default function DesktopSticker() {
     type="button"
     className={`desktop-sticker${dragging ? " is-dragging" : ""}`}
     style={position ? { left: position.left, top: position.top, right: "auto", bottom: "auto" } : undefined}
-    aria-label="Hedy illustration. Drag to move, or use arrow keys. Press Home to reset."
+    aria-label="Get to know me — open About me. Drag to move, or use arrow keys. Press Home to reset."
+    aria-haspopup="dialog"
+    onClick={event => {
+      if (event.detail === 0 || !moved.current) window.location.hash = "about";
+      moved.current = false;
+    }}
     onPointerDown={event => {
       if (event.button !== 0 || drag.current) return;
+      moved.current = false;
       const element = event.currentTarget;
       drag.current = { id: event.pointerId, x: event.clientX, y: event.clientY, left: element.offsetLeft, top: element.offsetTop };
       element.setPointerCapture(event.pointerId);
-      setDragging(true);
+
     }}
     onPointerMove={event => {
       const start = drag.current;
-      if (start?.id === event.pointerId) move(start.left + event.clientX - start.x, start.top + event.clientY - start.y);
+      if (start?.id !== event.pointerId) return;
+      const dx = event.clientX - start.x;
+      const dy = event.clientY - start.y;
+      if (!moved.current && Math.hypot(dx, dy) < 6) return;
+      moved.current = true;
+      setDragging(true);
+      move(start.left + dx, start.top + dy);
     }}
     onPointerUp={event => {
       if (drag.current?.id !== event.pointerId) return;
@@ -63,7 +76,8 @@ export default function DesktopSticker() {
       move(event.currentTarget.offsetLeft + direction[0] * step, event.currentTarget.offsetTop + direction[1] * step);
     }}
   >
+    <span className="sticker-bubble" aria-hidden="true">Get to know me <span>↗</span></span>
     <Image src="/hedy-desktop-sticker.png" alt="" width={1948} height={2048} sizes="(max-width: 650px) 120px, (max-width: 1000px) 180px, 240px" draggable={false} />
-    <span className="sticker-caption" aria-hidden="true">drag me around ↗</span>
+    <span className="sticker-caption" aria-hidden="true">or drag me around</span>
   </button>;
 }

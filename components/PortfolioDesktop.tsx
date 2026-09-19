@@ -49,7 +49,7 @@ export default function PortfolioDesktop() {
     {!launched ? <Hero /> : <section className="os-desktop" aria-label="Hedy desktop">
       <header className="os-menubar"><a href="#desktop" className="os-brand">Hedy OS</a><span>Personal space / Portfolio</span><a href="#top" className="os-shutdown">Back to cover ↗</a></header>
       <div className="os-wallpaper-caption"><p>A little space for big ideas.</p><h1 ref={desktopHeading} tabIndex={-1}>Welcome to<br /><em>my desktop.</em></h1><p>Design, curiosity, and a few things I&apos;ve made.</p></div>
-      <div className="os-files" aria-label="Desktop files">{files.map(file => <a className="os-file" key={file.id} href={`#${file.id}`} aria-haspopup="dialog"><FileIcon type={file.type}/><strong>{file.name}</strong><span>{file.extension}</span></a>)}</div>
+      <div className="os-files" aria-label="Desktop files">{files.filter(file => file.id !== "about").map(file => <a className="os-file" key={file.id} href={`#${file.id}`} aria-haspopup="dialog"><FileIcon type={file.type}/><strong>{file.name}</strong><span>{file.extension}</span></a>)}</div>
       <DesktopSticker />
       <div className="os-desktop-note"><span className="os-status-dot" />{site.status}<span className="os-note-location">Sydney, Australia</span></div>
       <p className="os-hint">Click a file to explore. Make yourself at home.</p>

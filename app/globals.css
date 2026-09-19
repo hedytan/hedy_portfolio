@@ -235,3 +235,11 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 @media (min-width: 651px) and (max-width: 1000px) { .desktop-sticker { left: 36%; bottom: 125px; width: 180px; } }
 @media (max-width: 650px) { .desktop-sticker { left: auto; right: 22px; top: 106px; bottom: auto; width: 120px; } .os-wallpaper-caption h1 { max-width: calc(100% - 120px); font-size: clamp(32px, 7vw, 46px); } .sticker-caption { font-size: 14px; } }
 @media (prefers-reduced-motion: reduce) { .desktop-sticker img { transition: none; } }
+
+.sticker-bubble { position: relative; display: block; width: fit-content; max-width: 100%; margin: 0 auto 17px; padding: 10px 15px; border: 1px solid #d1dcea; border-radius: 18px; background: #fffdf8; box-shadow: 0 4px 14px #35476012; color: #314e70; font-size: 13px; font-weight: 500; line-height: 1.4; cursor: pointer; transition: background 180ms, box-shadow 180ms; }
+.sticker-bubble::after { content: ""; position: absolute; right: 25%; bottom: -6px; width: 10px; height: 10px; background: inherit; border-right: 1px solid #d1dcea; border-bottom: 1px solid #d1dcea; transform: rotate(45deg); }
+.sticker-bubble span { margin-left: 4px; color: #477fcb; }
+.desktop-sticker:hover .sticker-bubble { background: #edf4ff; box-shadow: 0 5px 18px #35476020; }
+.desktop-sticker.is-dragging .sticker-bubble { cursor: grabbing; }
+@media (max-width: 650px) { .sticker-bubble { font-size: 11px; padding: 8px 9px; margin-bottom: 12px; } }
+@media (prefers-reduced-motion: reduce) { .sticker-bubble { transition: none; } }
