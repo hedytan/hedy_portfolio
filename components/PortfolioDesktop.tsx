@@ -47,7 +47,7 @@ export default function PortfolioDesktop() {
 
   return <main className="portfolio-os">
     {!launched ? <Hero /> : <section className="os-desktop" aria-label="Hedy desktop">
-      <header className="os-menubar"><a href="#desktop" className="os-brand">Hedy OS</a><span>Personal space / Portfolio</span><a href="#top" className="os-shutdown">Back to cover ↗</a></header>
+      <header className="os-menubar"><a href="#desktop" className="os-brand">hedy.t</a><span>Personal space / Portfolio</span><a href="#top" className="os-shutdown">Back to cover ↗</a></header>
       <div className="os-wallpaper-caption"><p>A little space for big ideas.</p><h1 ref={desktopHeading} tabIndex={-1}>Welcome to<br /><em>my desktop.</em></h1><p>Design, curiosity, and a few things I&apos;ve made.</p></div>
       <div className="os-files" aria-label="Desktop files">{files.filter(file => file.id !== "about").map(file => <a className="os-file" key={file.id} href={`#${file.id}`} aria-haspopup="dialog"><FileIcon type={file.type}/><strong>{file.name}</strong><span>{file.extension}</span></a>)}</div>
       <DesktopSticker />
@@ -65,7 +65,7 @@ export default function PortfolioDesktop() {
         {route === "toolbox" && <><div className="os-eyebrow">03 / MY TOOLBOX</div><h3>From a question<br/>to something real.</h3><p className="os-lead">The tools and methods I use to explore, design, and build.</p><div className="os-skills">{site.about.chips.map((chip,i) => <div key={chip}><span>{String(i+1).padStart(2,"0")}</span>{chip}</div>)}</div></>}
         {route === "contact" && <><div className="os-eyebrow">04 / LET'S CONNECT</div><h3>Good things start<br/>with a hello.</h3><p className="os-lead">Open for opportunities, collaborations, and conversations about design.</p><a className="os-contact-link" href={`mailto:${site.email}`}>{site.email} ↗</a><a className="os-text-link" href={site.links.linkedin} target="_blank" rel="noreferrer">Find me on LinkedIn ↗</a><p className="os-contact-note">Based in Sydney, Australia.</p></>}
       </div>
-      <div className="os-window-status">Hedy OS<span>Esc to close · Click a file to explore</span></div>
+      <div className="os-window-status">hedy.t<span>Esc to close · Click a file to explore</span></div>
     </dialog>
   </main>;
 }
