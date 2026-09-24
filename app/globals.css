@@ -243,3 +243,11 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .desktop-sticker.is-dragging .sticker-bubble { cursor: grabbing; }
 @media (max-width: 650px) { .sticker-bubble { font-size: 11px; padding: 8px 9px; margin-bottom: 12px; } }
 @media (prefers-reduced-motion: reduce) { .sticker-bubble { transition: none; } }
+
+.os-draggable-file { position: relative; z-index: 5; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; transition: background 180ms; }
+.os-draggable-file.is-dragging { z-index: 10; cursor: grabbing; background: #ffffff70; }
+.os-draggable-file svg { pointer-events: none; }
+.os-clock { display: flex; align-items: center; gap: 14px; flex-shrink: 0; font: 12px var(--font-mono), monospace; font-variant-numeric: tabular-nums; }
+.os-clock > span:last-child { min-width: 8ch; }
+@media (max-width: 850px) { .os-clock-date { display: none; } }
+@media (max-width: 380px) { .os-clock { font-size: 10px; } .os-shutdown { font-size: 10px; } }

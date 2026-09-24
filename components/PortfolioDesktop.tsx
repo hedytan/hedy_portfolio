@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Hero from "./Hero";
 import DesktopSticker from "./DesktopSticker";
+import DesktopFile from "./DesktopFile";
+import DesktopClock from "./DesktopClock";
 import { projects, site } from "@/lib/projects";
 
 const files = [
@@ -47,12 +49,12 @@ export default function PortfolioDesktop() {
 
   return <main className="portfolio-os">
     {!launched ? <Hero /> : <section className="os-desktop" aria-label="Hedy desktop">
-      <header className="os-menubar"><a href="#desktop" className="os-brand">hedy.t</a><span>Personal space / Portfolio</span><a href="#top" className="os-shutdown">Back to cover ↗</a></header>
+      <header className="os-menubar"><a href="#desktop" className="os-brand">hedy.t</a><span>Personal space / Portfolio</span><a href="#top" className="os-shutdown">Back to cover ↗</a><DesktopClock /></header>
       <div className="os-wallpaper-caption"><p>A curious mind. A world of possibilities.</p><h1 ref={desktopHeading} tabIndex={-1}>Welcome to<br /><em>my world.</em></h1><p>Thoughtful design, playful experiments, and a little bit of me.</p></div>
-      <div className="os-files" aria-label="Desktop files">{files.filter(file => file.id !== "about").map(file => <a className="os-file" key={file.id} href={`#${file.id}`} aria-haspopup="dialog"><FileIcon type={file.type}/><strong>{file.name}</strong><span>{file.extension}</span></a>)}</div>
+      <div className="os-files" aria-label="Desktop files">{files.filter(file => file.id !== "about").map(file => <DesktopFile key={file.id} id={file.id} name={file.name}><FileIcon type={file.type}/><strong>{file.name}</strong><span>{file.extension}</span></DesktopFile>)}</div>
       <DesktopSticker />
       <div className="os-desktop-note"><span className="os-status-dot" />{site.status}<span className="os-note-location">Sydney, Australia</span></div>
-      <p className="os-hint">Click a file to explore. Make yourself at home.</p>
+      <p className="os-hint">Click to explore. Drag to make it yours.</p>
     </section>}
 
     <nav className="cover-nav" aria-label="Main navigation">{[{id: launched ? "desktop" : "top", label: launched ? "Desktop" : "Home"}, {id:"work",label:"Projects"},{id:"about",label:"About"},{id:"contact",label:"Contact"}].map(item => <a key={item.id} href={`#${item.id}`} className={route === item.id ? "is-active" : ""} aria-current={route === item.id ? "page" : undefined}>{item.label}</a>)}</nav>
