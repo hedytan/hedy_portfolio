@@ -93,7 +93,7 @@ export default function PortfolioDesktop() {
             <p className="font-hand text-2xl -rotate-1" style={{color:"#3f4f68", whiteSpace:"pre-line"}}>{site.about.signature}</p>
 
             <div className="hidden md:block">
-              <Polaroid src="/FullSizeRender.jpeg" alt="Hedy in front of the Sydney Opera House" caption="me :)" rotate={-6} width={140}
+              <Polaroid src="/hedy-sydney-portrait.jpg" alt="Hedy in front of the Sydney Opera House" caption="hedy in Sydney" rotate={-6} width={140}
                 className="absolute" style={{ right: "-4%", top: "-18px", zIndex: 20 }} />
               <Polaroid src="/hedy-beach.jpg" alt="Hedy at the beach" caption="a fav moment" rotate={7} width={130}
                 className="absolute" style={{ right: "8%", top: "220px", zIndex: 15 }} />
@@ -103,7 +103,7 @@ export default function PortfolioDesktop() {
           </div>
 
           <div className="md:hidden flex gap-4 overflow-x-auto pb-2 -mx-1 px-1" style={{scrollbarWidth:"none"}}>
-            <Polaroid src="/FullSizeRender.jpeg" alt="Hedy in front of the Sydney Opera House" caption="me :)" rotate={-4} width={120} className="shrink-0" />
+            <Polaroid src="/hedy-sydney-portrait.jpg" alt="Hedy in front of the Sydney Opera House" caption="hedy in Sydney" rotate={-4} width={120} className="shrink-0" />
             <Polaroid src="/hedy-beach.jpg" alt="Hedy at the beach" caption="a fav moment" rotate={5} width={120} className="shrink-0" />
             <Polaroid src="/hedy-izakaya.jpg" alt="Hedy at an izakaya in Japan" caption="last trip" rotate={-3} width={120} className="shrink-0" />
           </div>
