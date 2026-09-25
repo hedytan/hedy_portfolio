@@ -56,7 +56,6 @@ export default function Hero() {
         </div>
         <a ref={launchRef} href="#desktop" className="hero-launch">
           <span>Click the screen or press Enter</span>
-          <svg width="20" height="28" viewBox="0 0 20 28" fill="none" aria-hidden="true"><path d="M10 2v22m-6-6 6 6 6-6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </a>
       </div>
     </header>
