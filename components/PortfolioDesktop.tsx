@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Hero from "./Hero";
+import DesktopWindow from "./DesktopWindow";
 import DesktopSticker from "./DesktopSticker";
 import DesktopFile from "./DesktopFile";
 import DesktopClock from "./DesktopClock";
@@ -25,30 +26,47 @@ function FileIcon({ type }: { type: string }) {
 
 export default function PortfolioDesktop() {
   const [route, setRoute] = useState("top");
-  const dialog = useRef<HTMLDialogElement>(null);
+  const [windows, setWindows] = useState<{id:string; minimized:boolean}[]>([]);
+  const openWindow = (id: string) => setWindows(current => [...current.filter(window => window.id !== id), {id, minimized:false}]);
   const desktopHeading = useRef<HTMLHeadingElement>(null);
   const launched = route !== "top";
-  const activeFile = files.find(file => file.id === route);
+  const activeWindow = [...windows].reverse().find(window => !window.minimized)?.id;
 
   useEffect(() => {
     const sync = () => {
       const hash = window.location.hash.slice(1);
       setRoute(["desktop", ...files.map(file => file.id)].includes(hash) ? hash : "top");
+      if (files.some(file => file.id === hash)) openWindow(hash);
     };
     sync();
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
   }, []);
 
-  useEffect(() => {
-    if (activeFile && dialog.current && !dialog.current.open) dialog.current.showModal();
-    if (!activeFile && dialog.current?.open) dialog.current.close();
-    if (route === "desktop") desktopHeading.current?.focus();
-  }, [route, activeFile]);
+  const returnToDesktop = () => {
+    window.history.replaceState(null, "", "#desktop");
+    setRoute("desktop");
+    desktopHeading.current?.focus({preventScroll:true});
+  };
+  const closeWindow = (id: string) => {
+    setWindows(current => current.filter(window => window.id !== id));
+    returnToDesktop();
+  };
+  const minimizeWindow = (id: string) => {
+    setWindows(current => current.map(window => window.id === id ? {...window, minimized:true} : window));
+    returnToDesktop();
+  };
 
-  const closeFile = () => { window.location.hash = "desktop"; };
-
-  return <main className="portfolio-os">
+  return <main className="portfolio-os" onClick={event => {
+    if (event.defaultPrevented) return;
+    const link = (event.target as HTMLElement).closest('a');
+    const id = link?.getAttribute('href')?.slice(1);
+    if (!link?.getAttribute('href')?.startsWith('#') || !files.some(file => file.id === id)) return;
+    event.preventDefault();
+    openWindow(id!);
+    setRoute(id!);
+    window.history.replaceState(null, "", `#${id}`);
+  }}>
     {!launched ? <Hero /> : <section className="os-desktop" aria-label="Hedy desktop">
       <header className="os-menubar"><a href="#desktop" className="os-brand">hedy.t</a><span>Personal space / Portfolio</span><a href="#top" className="os-shutdown">Back to cover ↗</a><DesktopClock /></header>
       <div className="os-wallpaper-caption"><p>A curious mind. A world of possibilities.</p><h1 ref={desktopHeading} tabIndex={-1}>Welcome to<br /><em>my world.</em></h1><p>I&apos;m Hedy, a UX/UI designer in Sydney. I turn everyday observations into mobile experiences — listening to people, shaping interactions, and bringing ideas to life in SwiftUI.</p></div>
@@ -60,15 +78,17 @@ export default function PortfolioDesktop() {
 
     <nav className="cover-nav" aria-label="Main navigation">{[{id: launched ? "desktop" : "top", label: launched ? "Desktop" : "Home"}, {id:"work",label:"Projects"},{id:"about",label:"About"},{id:"contact",label:"Contact"}].map(item => <a key={item.id} href={`#${item.id}`} className={route === item.id ? "is-active" : ""} aria-current={route === item.id ? "page" : undefined}>{item.label}</a>)}</nav>
 
-    <dialog ref={dialog} className="os-window" aria-labelledby="os-window-title" onCancel={event => {event.preventDefault(); closeFile();}} onClick={event => {if (event.target === event.currentTarget) closeFile();}}>
-      <div className="os-window-bar"><button className="os-window-close" onClick={closeFile} aria-label="Close window">×</button><h2 id="os-window-title">{activeFile?.name}</h2><span>{activeFile?.extension.split(" · ")[1]}</span></div>
-      <div className="os-window-content" data-lenis-prevent key={route}>
+    {launched && windows.map((window, index) => {
+      const route = window.id;
+      const file = files.find(file => file.id === route)!;
+      return <DesktopWindow key={route} id={route} title={file.name} index={index} active={activeWindow === route} minimized={window.minimized}
+        onActivate={() => {if (activeWindow !== route) openWindow(route);}} onClose={() => closeWindow(route)} onMinimize={() => minimizeWindow(route)}>
         {route === "about" && <article className="os-about"><div className="os-eyebrow">01 / A LITTLE ABOUT ME</div><Image src="/hedy-cutout.png" alt="Hedy Tan" width={160} height={180} className="os-portrait"/><h3>Hey, I&apos;m {site.name}.</h3><p className="os-lead">{site.tagline}.<br/>Master of Interaction Design at UTS.</p><p>{site.about.lead}</p>{site.about.paragraphs.map(p => <p key={p}>{p}</p>)}<a className="os-text-link" href="#work">Explore my work ↗</a></article>}
         {route === "work" && <><div className="os-eyebrow">02 / SELECTED WORK</div><h3>Made with curiosity.</h3><p className="os-lead">A collection of research, interfaces, and experiments.</p><div className="os-projects">{projects.map((project, i) => <article key={project.slug} className="os-project"><div className="os-project-number">{String(i+1).padStart(2,"0")}</div><div><span className="os-eyebrow">{project.tag} · {project.year}</span><h4>{project.title}</h4><p>{project.description}</p>{project.href !== "#" ? <Link className="os-text-link" href={project.href}>Open case study ↗</Link> : <span className="os-coming-soon">Case study coming soon</span>}</div></article>)}</div></>}
         {route === "toolbox" && <><div className="os-eyebrow">03 / MY TOOLBOX</div><h3>From a question<br/>to something real.</h3><p className="os-lead">The tools and methods I use to explore, design, and build.</p><div className="os-skills">{site.about.chips.map((chip,i) => <div key={chip}><span>{String(i+1).padStart(2,"0")}</span>{chip}</div>)}</div></>}
         {route === "contact" && <><div className="os-eyebrow">04 / LET'S CONNECT</div><h3>Good things start<br/>with a hello.</h3><p className="os-lead">Open for opportunities, collaborations, and conversations about design.</p><a className="os-contact-link" href={`mailto:${site.email}`}>{site.email} ↗</a><a className="os-text-link" href={site.links.linkedin} target="_blank" rel="noreferrer">Find me on LinkedIn ↗</a><p className="os-contact-note">Based in Sydney, Australia.</p></>}
-      </div>
-      <div className="os-window-status">hedy.t<span>Esc to close · Click a file to explore</span></div>
-    </dialog>
+      </DesktopWindow>;
+    })}
+    {launched && windows.some(window => window.minimized) && <nav className="minimized-windows" aria-label="Minimized windows">{windows.filter(window => window.minimized).map(window => <button key={window.id} onClick={() => openWindow(window.id)} aria-label={`Restore ${files.find(file => file.id === window.id)!.name}`}>{files.find(file => file.id === window.id)!.name}<span aria-hidden="true"> ↗</span></button>)}</nav>}
   </main>;
 }
