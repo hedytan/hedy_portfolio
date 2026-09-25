@@ -300,3 +300,6 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
  .desktop-window-bar .window-bar-spacer { width: 12px; min-width: 12px; }
  .minimized-windows { bottom: 88px; max-width: calc(100vw - 32px); }
 }
+
+.terminal-screen-link { display: block; text-decoration: none; cursor: pointer; }
+.terminal-screen-link:focus-visible { outline: 3px solid var(--terminal-yellow); outline-offset: -3px; }
