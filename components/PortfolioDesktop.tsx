@@ -85,12 +85,9 @@ export default function PortfolioDesktop() {
         onActivate={() => {if (activeWindow !== route) openWindow(route);}} onClose={() => closeWindow(route)} onMinimize={() => minimizeWindow(route)}>
         {route === "about" && <article className="os-about">
           <div className="os-eyebrow">01 / A LITTLE ABOUT ME</div>
-          <h3>Hey, I&apos;m {site.name}.</h3>
-          <p className="os-lead">{site.tagline}.<br/>Master of Interaction Design at UTS.</p>
+          <h3>{site.about.paragraphs[0]}</h3>
           <div className="relative">
-            {site.about.paragraphs.map(p => <p key={p}>{p}</p>)}
-            <p>{site.about.closing}</p>
-            <p className="font-hand text-2xl -rotate-1" style={{color:"#3f4f68", whiteSpace:"pre-line"}}>{site.about.signature}</p>
+            {site.about.paragraphs.slice(1).map(p => <p key={p}>{p}</p>)}
 
             <div className="hidden md:block">
               <Polaroid src="/hedy-sydney-portrait.jpg" alt="Hedy in front of the Sydney Opera House" caption="hedy in Sydney" rotate={-6} width={140}

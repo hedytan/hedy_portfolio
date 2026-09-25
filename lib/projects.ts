@@ -15,15 +15,12 @@ export const site = {
     resume: "#",
   },
   about: {
-    lead: "hi, i'm hedy.",
     paragraphs: [
-      "i built this site to give my work an actual home — and honestly, to get a little better at putting my own voice next to it instead of just case studies.",
-      "in a nutshell: i grew up in Malaysia, i'm currently in Sydney working through a master of interaction design, and most of what i do lives somewhere in UX/UI. beyond that — i notice people before i notice almost anything else about a place, and yellow is, unapologetically, my favourite colour.",
-      "i think that's where most of my ideas actually come from — not from a brief, but from watching how someone hesitates, or lights up, or gives up halfway through something that should've been simple. i collect those moments and try to turn them into interfaces that don't make people feel that way.",
-      "outside of that, i'm chasing beauty in fairly ordinary places — a lot of my time goes into photography, looking for good light and something worth keeping. my last trip was to Japan for exactly that. when i'm not behind a lens, there's a good chance i'm lying on a beach somewhere, doing absolutely nothing productive.",
+      "hi, i'm hedy - a UX/UI designer based in Sydney. welcome to my little corner of the internet <3",
+      "i have a habit of noticing small things: an interaction that feels awkward, a detail that makes me smile, or a feeling that refuses to fit into a sentence. sometimes those observations become sketches. sometimes they become apps. sometimes they become a very specific conversation about whether that button really needs to be there.",
+      "my background is in digital media and interaction design, and i'm now exploring how research, visuals, and a little code can come together to make something people want to spend time with.",
+      "this website is a little like my sketchbook: personal, playful, and probably never quite finished. i hope you find something here that makes you curious. stay a while, open a folder, or say hello - i'd love to know what you're making, too.",
     ],
-    closing: "i'm always up for talking through a new idea, a book recommendation, or a project worth building. say hi.",
-    signature: "with love,\nhedy",
     chips: ["Figma", "SwiftUI", "User research", "Prototyping", "Accessibility", "ESP32", "AI-assisted workflows"],
   },
 };
