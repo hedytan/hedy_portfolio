@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Hero from "./Hero";
+import Polaroid from "./Polaroid";
 import DesktopWindow from "./DesktopWindow";
 import DesktopSticker from "./DesktopSticker";
 import DesktopFile from "./DesktopFile";
@@ -83,7 +83,33 @@ export default function PortfolioDesktop() {
       const file = files.find(file => file.id === route)!;
       return <DesktopWindow key={route} id={route} title={file.name} index={index} active={activeWindow === route} minimized={window.minimized}
         onActivate={() => {if (activeWindow !== route) openWindow(route);}} onClose={() => closeWindow(route)} onMinimize={() => minimizeWindow(route)}>
-        {route === "about" && <article className="os-about"><div className="os-eyebrow">01 / A LITTLE ABOUT ME</div><Image src="/hedy-cutout.png" alt="Hedy Tan" width={160} height={180} className="os-portrait"/><h3>Hey, I&apos;m {site.name}.</h3><p className="os-lead">{site.tagline}.<br/>Master of Interaction Design at UTS.</p><p>{site.about.lead}</p>{site.about.paragraphs.map(p => <p key={p}>{p}</p>)}<a className="os-text-link" href="#work">Explore my work ↗</a></article>}
+        {route === "about" && <article className="os-about">
+          <div className="os-eyebrow">01 / A LITTLE ABOUT ME</div>
+          <h3>Hey, I&apos;m {site.name}.</h3>
+          <p className="os-lead">{site.tagline}.<br/>Master of Interaction Design at UTS.</p>
+          <div className="relative">
+            {site.about.paragraphs.map(p => <p key={p}>{p}</p>)}
+            <p className="italic" style={{color:"#8a94a3"}}>{site.about.personalNote}</p>
+            <p>{site.about.closing}</p>
+
+            <div className="hidden md:block">
+              <Polaroid src="/FullSizeRender.jpeg" alt="Hedy in front of the Sydney Opera House" caption="me :)" rotate={-6} width={140}
+                className="absolute" style={{ right: "-4%", top: "-18px", zIndex: 20 }} />
+              <Polaroid src="/hedy-beach.jpg" alt="Hedy at the beach" caption="a fav moment" rotate={7} width={130}
+                className="absolute" style={{ right: "8%", top: "220px", zIndex: 15 }} />
+              <Polaroid src="/hedy-izakaya.jpg" alt="Hedy at an izakaya in Japan" caption="last trip" rotate={-4} width={135}
+                className="absolute" style={{ right: "-5%", top: "410px", zIndex: 16 }} />
+            </div>
+          </div>
+
+          <div className="md:hidden flex gap-4 overflow-x-auto pb-2 -mx-1 px-1" style={{scrollbarWidth:"none"}}>
+            <Polaroid src="/FullSizeRender.jpeg" alt="Hedy in front of the Sydney Opera House" caption="me :)" rotate={-4} width={120} className="shrink-0" />
+            <Polaroid src="/hedy-beach.jpg" alt="Hedy at the beach" caption="a fav moment" rotate={5} width={120} className="shrink-0" />
+            <Polaroid src="/hedy-izakaya.jpg" alt="Hedy at an izakaya in Japan" caption="last trip" rotate={-3} width={120} className="shrink-0" />
+          </div>
+
+          <a className="os-text-link" href="#work">Explore my work ↗</a>
+        </article>}
         {route === "work" && <><div className="os-eyebrow">02 / SELECTED WORK</div><h3>Made with curiosity.</h3><p className="os-lead">A collection of research, interfaces, and experiments.</p><div className="os-projects">{projects.map((project, i) => <article key={project.slug} className="os-project"><div className="os-project-number">{String(i+1).padStart(2,"0")}</div><div><span className="os-eyebrow">{project.tag} · {project.year}</span><h4>{project.title}</h4><p>{project.description}</p>{project.href !== "#" ? <Link className="os-text-link" href={project.href}>Open case study ↗</Link> : <span className="os-coming-soon">Case study coming soon</span>}</div></article>)}</div></>}
         {route === "toolbox" && <><div className="os-eyebrow">03 / MY TOOLBOX</div><h3>From a question<br/>to something real.</h3><p className="os-lead">The tools and methods I use to explore, design, and build.</p><div className="os-skills">{site.about.chips.map((chip,i) => <div key={chip}><span>{String(i+1).padStart(2,"0")}</span>{chip}</div>)}</div></>}
         {route === "contact" && <><div className="os-eyebrow">04 / LET'S CONNECT</div><h3>Good things start<br/>with a hello.</h3><p className="os-lead">Open for opportunities, collaborations, and conversations about design.</p><a className="os-contact-link" href={`mailto:${site.email}`}>{site.email} ↗</a><a className="os-text-link" href={site.links.linkedin} target="_blank" rel="noreferrer">Find me on LinkedIn ↗</a><p className="os-contact-note">Based in Sydney, Australia.</p></>}

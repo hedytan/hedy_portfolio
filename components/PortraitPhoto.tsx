@@ -77,6 +77,21 @@ export default function PortraitPhoto() {
         </svg>
       </IconBadge>
 
+      {/* lower badges hang down over the giant name text, for the denser collage overlap */}
+      <IconBadge className="-left-4 md:-left-6 bottom-[6%] z-30" rotate={-16}>
+        <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6 text-amber" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M3 9h18" />
+          <path d="M8 13h3" />
+        </svg>
+      </IconBadge>
+      <IconBadge className="-right-4 md:-right-6 bottom-[14%] z-30" rotate={18}>
+        <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6 text-ink" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="8" />
+          <path d="M12 8v4l3 2" />
+        </svg>
+      </IconBadge>
+
       <div
         className="relative z-10"
         style={{

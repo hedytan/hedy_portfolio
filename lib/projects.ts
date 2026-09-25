@@ -15,10 +15,14 @@ export const site = {
     resume: "#",
   },
   about: {
-    lead: "my craft is building experiences that bring value to people — I care about function over form, honest research, and interfaces that actually feel right.",
+    lead: "hi, i'm hedy.",
     paragraphs: [
-      "My background runs from digital media through interaction design. In practice that means I'll sketch a shape on paper, tune its Bézier curves in code, and care equally about both. I've run user interviews, wired ESP32 boards, shipped SwiftUI prototypes, and designed for people from independent musicians to elderly music lovers.",
+      "i built this site to give my work an actual home — and honestly, to get a little better at putting my own voice next to it instead of just case studies.",
+      "most at home somewhere between sketching an idea on paper and tuning its curves in Figma. my background runs from digital media into interaction design, and i care more about whether something actually works for the person using it than whether it photographs well — function over form, always.",
+      "in practice that's meant running user interviews, wiring up ESP32 boards, and shipping SwiftUI prototypes — for people ranging from independent musicians to elderly music lovers. that range is probably my favourite part of this work: good design rarely looks the same twice.",
     ],
+    personalNote: "tell me a hobby, a fun fact, or something totally unrelated to design — i'll drop it in right here.",
+    closing: "always up for talking through a new idea, a book recommendation, or a project worth building — say hi.",
     chips: ["Figma", "SwiftUI", "User research", "Prototyping", "Accessibility", "ESP32", "AI-assisted workflows"],
   },
 };
