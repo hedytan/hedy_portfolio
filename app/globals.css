@@ -251,3 +251,23 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .os-clock > span:last-child { min-width: 8ch; }
 @media (max-width: 850px) { .os-clock-date { display: none; } }
 @media (max-width: 380px) { .os-clock { font-size: 10px; } .os-shutdown { font-size: 10px; } }
+
+/* Real interface sheets peek out of the work folder, then fan out on focus. */
+.work-folder-preview { position: relative; display: block; width: 120px; height: 112px; margin: -40px 0 12px; perspective: 600px; pointer-events: none; }
+.work-folder-back { position: absolute; inset: 44px 4px 3px; border-radius: 5px 8px 8px 8px; background: #c99344; border: 1px solid #b8873c; box-shadow: 0 7px 10px #31496720; }
+.work-folder-back::before { content: ""; position: absolute; left: -1px; top: -10px; width: 46px; height: 12px; border-radius: 6px 9px 0 0; background: #c99344; border: 1px solid #b8873c; border-bottom: 0; }
+.work-preview-sheet { position: absolute; top: 10px; left: 28px; width: 64px; height: 88px; padding: 4px; border: 1px solid #e2dbd1; border-radius: 5px; background: #fffdf8; box-shadow: 0 2px 6px #263d6326; overflow: hidden; transform-origin: center bottom; transition: transform 300ms cubic-bezier(.22,1,.36,1); }
+.work-preview-sheet img { width: 100%; height: 66px; object-fit: cover; object-position: center 28%; border-radius: 2px; }
+.work-preview-sheet > span { display: block; margin-top: 3px; font-size: 5px; line-height: 1.2; text-align: center; color: #4e4954; white-space: nowrap; }
+.work-preview-sheet-0 { transform: translate(-22px, 3px) rotate(-15deg); }
+.work-preview-sheet-1 { transform: translate(0, -6px) rotate(-2deg); z-index: 1; }
+.work-preview-sheet-2 { transform: translate(23px, 5px) rotate(13deg); }
+.work-folder-front { position: absolute; z-index: 2; inset: 60px 0 0; display: flex; align-items: flex-end; justify-content: space-between; padding: 10px; border: 1px solid #d8ac60; border-top-color: #ffedbd; border-radius: 5px 5px 8px 8px; background: linear-gradient(165deg, #f9dea2, #efc573); box-shadow: inset 0 1px 0 #fff1cc, 0 3px 4px #31496712; transform-origin: bottom; transition: transform 300ms ease; }
+.work-folder-label { font: 6px var(--font-mono), monospace; letter-spacing: .6px; color: #78582d; }
+.work-folder-mark { color: #926b37; font-size: 13px; }
+.os-file:is(:hover, :focus-visible) .work-preview-sheet-0 { transform: translate(-29px, -12px) rotate(-20deg); }
+.os-file:is(:hover, :focus-visible) .work-preview-sheet-1 { transform: translate(0, -25px) rotate(0); }
+.os-file:is(:hover, :focus-visible) .work-preview-sheet-2 { transform: translate(30px, -10px) rotate(19deg); }
+.os-file:is(:hover, :focus-visible) .work-folder-front { transform: rotateX(-16deg); }
+@media (max-width: 650px) { .work-folder-preview { margin-top: -28px; height: 100px; } .work-folder-front { top: 54px; } }
+@media (prefers-reduced-motion: reduce) { .work-preview-sheet, .work-folder-front { transition: none; } }
