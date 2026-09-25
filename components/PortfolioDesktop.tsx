@@ -11,10 +11,10 @@ import WorkFolderPreview from "./WorkFolderPreview";
 import { projects, site } from "@/lib/projects";
 
 const files = [
-  { id: "about", name: "About me", extension: "自我介绍 · .md", type: "document" },
-  { id: "work", name: "Selected work", extension: "作品集 · folder", type: "folder" },
-  { id: "toolbox", name: "My toolbox", extension: "技能工具 · .txt", type: "folder" },
-  { id: "contact", name: "Say hello", extension: "联系我 · .mail", type: "mail" },
+  { id: "about", name: "About me", extension: "Introduction · .md", type: "document" },
+  { id: "work", name: "Selected work", extension: "Projects · folder", type: "folder" },
+  { id: "toolbox", name: "My toolbox", extension: "Skills & tools · .txt", type: "folder" },
+  { id: "contact", name: "Say hello", extension: "Contact · .mail", type: "mail" },
 ];
 
 function FileIcon({ type }: { type: string }) {
