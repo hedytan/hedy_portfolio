@@ -157,8 +157,8 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .os-shutdown { margin-left: auto; }
 .os-wallpaper-caption { position: relative; margin: clamp(35px, 9vh, 110px) 0 50px; max-width: 620px; }
 .os-wallpaper-caption > p:first-child { font-family: var(--font-mono), monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
-.os-wallpaper-caption h1 { font-size: clamp(46px, 6vw, 88px); line-height: 1.08; letter-spacing: -.055em; font-weight: 500; outline: none; }
-.os-wallpaper-caption em { font-family: var(--font-serif), Georgia, serif; font-weight: 400; }
+.os-wallpaper-caption h1 { font-family: var(--font-child), cursive; font-size: clamp(46px, 6vw, 88px); line-height: 1.08; letter-spacing: normal; font-weight: 400; outline: none; }
+.os-wallpaper-caption em { font-style: normal; }
 .os-wallpaper-caption > p:last-child { margin-top: 24px; color: #516780; font-size: 15px; }
 .os-files { position: absolute; top: 20%; right: 7%; display: grid; grid-template-columns: repeat(2, 140px); gap: 40px 28px; }
 .os-file { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; border: 1px solid transparent; padding: 12px 6px; border-radius: 10px; transition: background 180ms, transform 180ms; }

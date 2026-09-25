@@ -21,6 +21,7 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
         serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
         hand: ["var(--font-hand)", "cursive"],
+        child: ["var(--font-child)", "cursive"],
       },
       maxWidth: { content: "1240px" },
     },
