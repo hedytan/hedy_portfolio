@@ -89,8 +89,8 @@ export default function PortfolioDesktop() {
           <p className="os-lead">{site.tagline}.<br/>Master of Interaction Design at UTS.</p>
           <div className="relative">
             {site.about.paragraphs.map(p => <p key={p}>{p}</p>)}
-            <p className="italic" style={{color:"#8a94a3"}}>{site.about.personalNote}</p>
             <p>{site.about.closing}</p>
+            <p className="font-hand text-2xl -rotate-1" style={{color:"#3f4f68", whiteSpace:"pre-line"}}>{site.about.signature}</p>
 
             <div className="hidden md:block">
               <Polaroid src="/FullSizeRender.jpeg" alt="Hedy in front of the Sydney Opera House" caption="me :)" rotate={-6} width={140}

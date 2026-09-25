@@ -10,7 +10,7 @@ const sans = Instrument_Sans({
 });
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable} ${serif.variable} ${hand.variable}`}>
-      <body className="font-sans bg-bg text-ink antialiased">
+      <body className="font-mono bg-bg text-ink antialiased">
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

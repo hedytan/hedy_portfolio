@@ -18,11 +18,12 @@ export const site = {
     lead: "hi, i'm hedy.",
     paragraphs: [
       "i built this site to give my work an actual home — and honestly, to get a little better at putting my own voice next to it instead of just case studies.",
-      "most at home somewhere between sketching an idea on paper and tuning its curves in Figma. my background runs from digital media into interaction design, and i care more about whether something actually works for the person using it than whether it photographs well — function over form, always.",
-      "in practice that's meant running user interviews, wiring up ESP32 boards, and shipping SwiftUI prototypes — for people ranging from independent musicians to elderly music lovers. that range is probably my favourite part of this work: good design rarely looks the same twice.",
+      "in a nutshell: i grew up in Malaysia, i'm currently in Sydney working through a master of interaction design, and most of what i do lives somewhere in UX/UI. beyond that — i notice people before i notice almost anything else about a place, and yellow is, unapologetically, my favourite colour.",
+      "i think that's where most of my ideas actually come from — not from a brief, but from watching how someone hesitates, or lights up, or gives up halfway through something that should've been simple. i collect those moments and try to turn them into interfaces that don't make people feel that way.",
+      "outside of that, i'm chasing beauty in fairly ordinary places — a lot of my time goes into photography, looking for good light and something worth keeping. my last trip was to Japan for exactly that. when i'm not behind a lens, there's a good chance i'm lying on a beach somewhere, doing absolutely nothing productive.",
     ],
-    personalNote: "tell me a hobby, a fun fact, or something totally unrelated to design — i'll drop it in right here.",
-    closing: "always up for talking through a new idea, a book recommendation, or a project worth building — say hi.",
+    closing: "i'm always up for talking through a new idea, a book recommendation, or a project worth building. say hi.",
+    signature: "with love,\nhedy",
     chips: ["Figma", "SwiftUI", "User research", "Prototyping", "Accessibility", "ESP32", "AI-assisted workflows"],
   },
 };
