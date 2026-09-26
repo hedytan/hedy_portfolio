@@ -40,7 +40,7 @@ export default function Polaroid({ src, alt, caption, rotate = 0, width = 180, c
       onPointerMove={onPointerMove}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
-      className={`select-none bg-[#FAF6EC] rounded-[2px] shadow-[0_14px_30px_rgba(23,21,18,0.22)] p-2.5 pb-8 cursor-grab active:cursor-grabbing active:shadow-[0_24px_46px_rgba(23,21,18,0.3)] touch-none ${className}`}
+      className={`select-none bg-[#FAF6EC] rounded-[2px] shadow-[0_14px_30px_rgba(23,21,18,0.22)] p-2.5 pb-3 cursor-grab active:cursor-grabbing active:shadow-[0_24px_46px_rgba(23,21,18,0.3)] touch-none ${className}`}
       style={{
         ...style,
         width,
