@@ -73,7 +73,6 @@ export default function PortfolioDesktop() {
       <div className="os-files" aria-label="Desktop files">{files.filter(file => file.id !== "about").map(file => <DesktopFile key={file.id} id={file.id} name={file.name}>{file.id === "work" ? <WorkFolderPreview /> : <FileIcon type={file.type}/>}<strong>{file.name}</strong><span>{file.extension}</span></DesktopFile>)}</div>
       <DesktopSticker />
       <div className="os-desktop-note"><span className="os-status-dot" />{site.status}<span className="os-note-location">Sydney, Australia</span></div>
-      <p className="os-hint">Click to explore. Drag to make it yours.</p>
     </section>}
 
     <nav className="cover-nav" aria-label="Main navigation">{[{id: launched ? "desktop" : "top", label: launched ? "Desktop" : "Home"}, {id:"work",label:"Projects"},{id:"about",label:"About"},{id:"contact",label:"Contact"}].map(item => <a key={item.id} href={`#${item.id}`} className={route === item.id ? "is-active" : ""} aria-current={route === item.id ? "page" : undefined}>{item.label}</a>)}</nav>
