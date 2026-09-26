@@ -156,7 +156,6 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .os-brand { font-weight: 700; font-size: 15px; }
 .os-shutdown { margin-left: auto; }
 .os-wallpaper-caption { position: relative; margin: clamp(35px, 9vh, 110px) 0 50px; max-width: 620px; }
-.os-wallpaper-caption > p:first-child { font-family: var(--font-mono), monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
 .os-wallpaper-caption h1 { font-family: var(--font-child), cursive; font-size: clamp(46px, 6vw, 88px); line-height: 1.08; letter-spacing: normal; font-weight: 400; outline: none; }
 .os-wallpaper-caption em { font-style: normal; }
 .os-wallpaper-caption > p:last-child { margin-top: 24px; color: #516780; font-size: 15px; }
