@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Hero from "./Hero";
 import Polaroid from "./Polaroid";
 import DesktopWindow from "./DesktopWindow";
@@ -69,7 +70,7 @@ export default function PortfolioDesktop() {
     {!launched ? <Hero /> : <section className="os-desktop" aria-label="Hedy desktop">
       <header className="os-menubar"><a href="#desktop" className="os-brand">hedy.t</a><a href="#top" className="os-shutdown">Back to cover ↗</a><DesktopClock /></header>
       <div className="os-wallpaper-caption"><h1 ref={desktopHeading} tabIndex={-1}>Welcome to<br /><em>my world.</em></h1><p>I&apos;m Hedy, a UX/UI designer in Sydney. I turn everyday observations into mobile experiences — listening to people, shaping interactions, and bringing ideas to life in SwiftUI.</p></div>
-      <div className="os-files" aria-label="Desktop files">{files.filter(file => file.id !== "about").map(file => <DesktopFile key={file.id} id={file.id} name={file.name}><FileIcon type={file.type}/><strong>{file.name}</strong><span>{file.extension}</span></DesktopFile>)}</div>
+      <div className="os-files" aria-label="Desktop files">{files.filter(file => file.id !== "about").map(file => <DesktopFile key={file.id} id={file.id} name={file.name}>{file.id === "work" ? <Image src="/projects-cover.jpg" alt="" width={64} height={72} className="os-file-cover" /> : <FileIcon type={file.type}/>}<strong>{file.name}</strong><span>{file.extension}</span></DesktopFile>)}</div>
       <DesktopSticker />
       <div className="os-desktop-note"><span className="os-status-dot" />{site.status}<span className="os-note-location">Sydney, Australia</span></div>
     </section>}
