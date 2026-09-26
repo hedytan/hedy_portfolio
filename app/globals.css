@@ -163,7 +163,7 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .os-file { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; border: 1px solid transparent; padding: 12px 6px; border-radius: 10px; transition: background 180ms, transform 180ms; }
 .os-file:hover, .os-file:focus-visible { background: #ffffff70; border-color: #ffffffa0; transform: translateY(-3px); outline: 2px solid #7295c0; outline-offset: 3px; }
 .os-file svg { width: 80px; height: 72px; filter: drop-shadow(0 5px 3px #31496720); margin-bottom: 12px; }
-.os-file-cover { width: 64px; height: 72px; object-fit: cover; border-radius: 5px; margin-bottom: 12px; box-shadow: 0 6px 14px #31496030; transition: transform 180ms; }
+.os-file-cover { width: 64px; height: 72px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 4px 5px #31496025); transition: transform 180ms; }
 .os-file:is(:hover, :focus-visible) .os-file-cover { transform: translateY(-2px); }
 .os-file strong { font-size: 13px; font-weight: 500; }
 .os-file > span { font-size: 10px; margin-top: 5px; color: #536a82; }
