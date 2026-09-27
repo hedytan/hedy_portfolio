@@ -19,14 +19,14 @@ const decisions = [
 
 export default function FitsApp() {
   return (
-    <main className="bg-bg text-ink">
+    <main className="font-mono bg-bg text-ink">
       <nav aria-label="Project navigation" className="flex items-center justify-between gap-4 max-w-content mx-auto px-6 md:px-8 py-6 border-b border-faint">
         <Link href="/#work" className="py-3 text-sm text-soft hover:text-ink">← All projects</Link>
         <span className="font-mono text-xs text-soft">02 / FitsApp</span>
       </nav>
       <header className="max-w-content mx-auto px-6 md:px-8 pt-16 md:pt-24 pb-12">
         <p className="text-xs uppercase tracking-[.2em] text-soft mb-5">FitsApp · A team design project</p>
-        <h1 className="font-serif text-[clamp(42px,7vw,88px)] leading-[1.07] tracking-tight max-w-[15ch]">Small steps.<br /><em>Something growing.</em></h1>
+        <h1 className="font-mono text-[clamp(42px,7vw,88px)] leading-[1.07] tracking-tight max-w-[15ch]">Small steps.<br /><em>Something growing.</em></h1>
         <p className="text-lg md:text-xl text-soft leading-relaxed max-w-[58ch] mt-7">A playful activity app for busy young professionals, turning everyday steps into a growing tree. Designed to make progress visible and give people a reason to take the next small step.</p>
         <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 pt-7 border-t border-faint">
           {[["Context", "Apple Foundation Program"], ["Timeline", "4 weeks"], ["Team", "Kiwi Kuties · 5 members"], ["Focus", "Research · Interaction · Prototyping"]].map(([label, value]) => <div key={label}><dt className="text-xs uppercase tracking-widest text-soft mb-2">{label}</dt><dd className="text-sm leading-relaxed">{value}</dd></div>)}
@@ -40,36 +40,36 @@ export default function FitsApp() {
       <Section id="problem" number="01" title="Finding a smaller, more useful question.">
         <Lead>We began with a broad exploration of wellbeing: exercise, sleep, diet and social connection. Collaborative mapping brought us towards physical activity, then towards the motivation to keep going.</Lead>
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 my-9">
-          {["Wellbeing", "Physical activity", "Sustaining motivation", "Visible everyday progress"].map((step, i) => <li key={step} className="border-t border-faint pt-4"><span className="block font-mono text-xs text-soft mb-3">0{i + 1}</span><span className="text-lg font-serif">{step}</span></li>)}
+          {["Wellbeing", "Physical activity", "Sustaining motivation", "Visible everyday progress"].map((step, i) => <li key={step} className="border-t border-faint pt-4"><span className="block font-mono text-xs text-soft mb-3">0{i + 1}</span><span className="text-lg font-mono">{step}</span></li>)}
         </ol>
         <Lead>The team refined its challenge from encouraging participation to <strong>boosting motivation to stay physically active</strong>. Our opportunity was to make small actions feel worthwhile for people whose work and daily responsibilities make restarting difficult.</Lead>
         <aside className="mt-9 rounded-2xl bg-panel border border-faint p-6 md:p-8">
           <p className="text-xs uppercase tracking-widest text-soft">Design persona · Mia, 28</p>
-          <p className="font-serif text-2xl leading-snug mt-3">After a full day at work, a complete workout can feel out of reach.</p>
+          <p className="font-mono text-2xl leading-snug mt-3">After a full day at work, a complete workout can feel out of reach.</p>
           <p className="text-soft leading-relaxed mt-4 max-w-[65ch]">Mia represents a busy young professional who wants to feel more active, enjoys exercising with friends, and struggles to maintain a routine around deadlines and fatigue. This persona frames a design scenario; it is not a participant quote.</p>
         </aside>
       </Section>
 
       <Section id="research" number="02" title="Three signals that shaped the concept.">
         <Lead>We organised the research around motivation, engagement and activity. These signals helped us move from a broad exercise challenge to a focused visualisation concept.</Lead>
-        <div className="grid md:grid-cols-3 gap-5 mt-9">{insights.map(item => <article key={item.title} className="rounded-2xl border border-faint p-6 bg-panel"><p className="text-xs text-soft mb-4">{item.source}</p><h3 className="font-serif text-2xl leading-tight">{item.title}</h3><p className="text-soft leading-relaxed mt-4">{item.text}</p><p className="border-t border-faint mt-5 pt-5 leading-relaxed">{item.implication}</p></article>)}</div>
+        <div className="grid md:grid-cols-3 gap-5 mt-9">{insights.map(item => <article key={item.title} className="rounded-2xl border border-faint p-6 bg-panel"><p className="text-xs text-soft mb-4">{item.source}</p><h3 className="font-mono text-2xl leading-tight">{item.title}</h3><p className="text-soft leading-relaxed mt-4">{item.text}</p><p className="border-t border-faint mt-5 pt-5 leading-relaxed">{item.implication}</p></article>)}</div>
         <details className="mt-8 border-y border-faint py-5"><summary className="cursor-pointer py-2 font-medium">A note on the research evidence</summary><p className="text-soft leading-relaxed mt-4 max-w-[75ch]">The process boards distinguish interviews, desk research and generative-AI exploration. Interview summaries informed our interpretation; desk research provided context; AI-generated material helped explore hypotheses and is not treated as participant evidence. The material presented here does not establish participant counts or measured behaviour change.</p></details>
       </Section>
 
       <Section id="concept" number="03" title="What if progress felt like something you were growing?">
         <Lead>A tree gave us a visual metaphor for accumulated effort. Steps become growth; growth gives users something to return to. The concept keeps numerical feedback visible while adding a more personal reason to check in.</Lead>
-        <div className="grid sm:grid-cols-3 gap-6 mt-9">{[["Move", "Everyday walking provides the input."], ["See", "A step count and tree show progress together."], ["Make it yours", "Goals, a tree name and visual choices add ownership."]].map(([title, text]) => <div key={title} className="border-l-2 border-faint pl-5"><h3 className="font-serif text-2xl">{title}</h3><p className="text-soft mt-3 leading-relaxed">{text}</p></div>)}</div>
+        <div className="grid sm:grid-cols-3 gap-6 mt-9">{[["Move", "Everyday walking provides the input."], ["See", "A step count and tree show progress together."], ["Make it yours", "Goals, a tree name and visual choices add ownership."]].map(([title, text]) => <div key={title} className="border-l-2 border-faint pl-5"><h3 className="font-mono text-2xl">{title}</h3><p className="text-soft mt-3 leading-relaxed">{text}</p></div>)}</div>
         <Figure name="progress" caption="The concept pairs visible growth with step counts and personal goal settings." />
       </Section>
 
       <Section id="decisions" number="04" title="The choices behind the tree.">
         <Lead>Each choice makes the experience more focused, but also leaves something unresolved. These are the trade-offs visible in the design and the questions they raise.</Lead>
-        <div className="mt-9">{decisions.map((item, i) => <article key={item.title} className="grid md:grid-cols-[1fr_2fr] gap-5 md:gap-12 py-8 border-t border-faint"><h3 className="font-serif text-2xl"><span className="block font-mono text-xs text-soft mb-3">0{i + 1}</span>{item.title}</h3><div><p className="leading-relaxed">{item.choice}</p><p className="text-soft leading-relaxed mt-4"><strong className="text-ink font-medium">The trade-off: </strong>{item.tradeoff}</p></div></article>)}</div>
+        <div className="mt-9">{decisions.map((item, i) => <article key={item.title} className="grid md:grid-cols-[1fr_2fr] gap-5 md:gap-12 py-8 border-t border-faint"><h3 className="font-mono text-2xl"><span className="block font-mono text-xs text-soft mb-3">0{i + 1}</span>{item.title}</h3><div><p className="leading-relaxed">{item.choice}</p><p className="text-soft leading-relaxed mt-4"><strong className="text-ink font-medium">The trade-off: </strong>{item.tradeoff}</p></div></article>)}</div>
       </Section>
 
       <Section id="evolution" number="05" title="From a growing tree to a personal world.">
         <Lead>Paper sketches explored a close-up tree, a zoomed-out view, goal setting and a shop beneath the roots. Later interface explorations brought these ideas into a consistent visual world of clouds, soil and tree shapes.</Lead>
-        <div className="grid md:grid-cols-3 gap-6 mt-8">{[["Make growth readable", "The tree remains the focal point, with the step count and scale giving it context."], ["Make goals tangible", "Activity-level choices reveal step targets, helping connect an intention with a number."], ["Make progress personal", "Tree selection and locked options explore how accumulated steps could unlock visual variety."]].map(([title, text]) => <article key={title}><h3 className="font-serif text-xl">{title}</h3><p className="text-soft leading-relaxed mt-3">{text}</p></article>)}</div>
+        <div className="grid md:grid-cols-3 gap-6 mt-8">{[["Make growth readable", "The tree remains the focal point, with the step count and scale giving it context."], ["Make goals tangible", "Activity-level choices reveal step targets, helping connect an intention with a number."], ["Make progress personal", "Tree selection and locked options explore how accumulated steps could unlock visual variety."]].map(([title, text]) => <article key={title}><h3 className="font-mono text-xl">{title}</h3><p className="text-soft leading-relaxed mt-3">{text}</p></article>)}</div>
         <Figure name="customisation" caption="Tree selection and visual variations in the project presentation. These screens show the design direction, not a measured improvement in motivation." />
       </Section>
 
@@ -81,7 +81,7 @@ export default function FitsApp() {
 
       <Section id="reflection" number="07" title="Designing a reason to return, without a reason to feel guilty.">
         <Lead>The strongest unresolved question is the role of pressure. A shrinking tree might encourage a return, but it might also make an already busy person feel worse. The next iteration should test that tension directly.</Lead>
-        <div className="grid md:grid-cols-3 gap-6 mt-9">{[["Understanding", "Can people explain how steps translate into growth and rewards after using the prototype?"], ["Recovery", "How do users respond to regression compared with paused growth and a forgiving restart?"], ["Staying power", "Does the experience remain meaningful after its novelty fades? A longer study would be needed to assess this."]].map(([title, text]) => <article key={title} className="bg-panel border border-faint rounded-2xl p-6"><h3 className="font-serif text-2xl">{title}</h3><p className="mt-4 leading-relaxed text-soft">{text}</p></article>)}</div>
+        <div className="grid md:grid-cols-3 gap-6 mt-9">{[["Understanding", "Can people explain how steps translate into growth and rewards after using the prototype?"], ["Recovery", "How do users respond to regression compared with paused growth and a forgiving restart?"], ["Staying power", "Does the experience remain meaningful after its novelty fades? A longer study would be needed to assess this."]].map(([title, text]) => <article key={title} className="bg-panel border border-faint rounded-2xl p-6"><h3 className="font-mono text-2xl">{title}</h3><p className="mt-4 leading-relaxed text-soft">{text}</p></article>)}</div>
         <p className="mt-9 text-soft leading-relaxed max-w-[70ch]">FitsApp gave our team a focused concept to investigate: make everyday movement visible, personal and rewarding. Its effect on sustained activity remains a hypothesis to test.</p>
       </Section>
       <footer className="max-w-content mx-auto px-6 md:px-8 py-12 border-t border-faint flex justify-between gap-5 text-sm"><Link href="/#work" className="py-3 hover:underline">← All projects</Link><Link href="/projects/resonance" className="py-3 hover:underline">Resonance →</Link></footer>
@@ -89,7 +89,7 @@ export default function FitsApp() {
   );
 }
 function Section({ id, number, title, children }: { id: string; number: string; title: string; children: React.ReactNode }) {
-  return <section id={id} className="max-w-content mx-auto px-6 md:px-8 py-12 md:py-16 scroll-mt-8"><p className="text-xs font-mono text-soft mb-4">{number} / FITSAPP</p><h2 className="font-serif text-[clamp(30px,4vw,46px)] leading-tight max-w-[28ch]">{title}</h2><div className="mt-8">{children}</div></section>;
+  return <section id={id} className="max-w-content mx-auto px-6 md:px-8 py-12 md:py-16 scroll-mt-8"><p className="text-xs font-mono text-soft mb-4">{number} / FITSAPP</p><h2 className="font-mono text-[clamp(30px,4vw,46px)] leading-tight max-w-[28ch]">{title}</h2><div className="mt-8">{children}</div></section>;
 }
 function Lead({ children }: { children: React.ReactNode }) { return <p className="text-lg md:text-xl leading-relaxed text-soft max-w-[70ch] [&_strong]:text-ink [&_strong]:font-medium">{children}</p>; }
 function Figure({ name, caption, priority = false }: { name: string; caption: string; priority?: boolean }) {
