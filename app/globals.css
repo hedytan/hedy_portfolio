@@ -165,6 +165,17 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .os-file svg { width: 80px; height: 72px; filter: drop-shadow(0 5px 3px #31496720); margin-bottom: 12px; }
 .os-file-cover { width: 64px; height: 72px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 4px 5px #31496025); transition: transform 180ms; }
 .os-file:is(:hover, :focus-visible) .os-file-cover { transform: translateY(-2px); }
+@keyframes project-icon-flash {
+  0%, 100% { filter: drop-shadow(0 4px 5px #31496025) brightness(1); }
+  35% { filter: drop-shadow(0 4px 8px #ffffff80) brightness(1.45); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .os-file:hover .os-file-cover { animation: project-icon-flash 480ms ease-out 1; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .os-file:focus-visible .os-file-cover { animation: project-icon-flash 480ms ease-out 1; }
+}
+
 .os-file strong { font-size: 13px; font-weight: 500; }
 .os-file > span { font-size: 10px; margin-top: 5px; color: #536a82; }
 .os-desktop-note { position: relative; font-family: var(--font-mono), monospace; font-size: 11px; display: flex; align-items: center; gap: 8px; }
