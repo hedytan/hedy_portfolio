@@ -105,7 +105,26 @@ export default function PortfolioDesktop() {
 
           <a className="os-text-link" href="#work">Explore my work ↗</a>
         </article>}
-        {route === "work" && <><div className="os-eyebrow">02 / SELECTED WORK</div><h3>Made with curiosity.</h3><p className="os-lead">A collection of research, interfaces, and experiments.</p><div className="os-projects">{projects.map((project, i) => <article key={project.slug} className="os-project"><div className="os-project-number">{String(i+1).padStart(2,"0")}</div><div><span className="os-eyebrow">{project.tag} · {project.year}</span><h4>{project.title}</h4><p>{project.description}</p>{project.href !== "#" ? <Link className="os-text-link" href={project.href}>Open case study ↗</Link> : <span className="os-coming-soon">Case study coming soon</span>}</div></article>)}</div></>}
+        {route === "work" && <div className="work-gallery">
+          <header className="work-gallery-heading"><h3>things i’ve made & explored</h3></header>
+          {[
+            { title: "Projects", slugs: ["resonance", "fitsapp"] },
+            { title: "Case studies", slugs: ["spotify-ease", "sync-brew", "keyboard-research"] },
+          ].map(group => <section className="work-gallery-section" key={group.title} aria-label={group.title}>
+            <h4 className="work-gallery-label">{group.title}</h4>
+            <div className={`work-gallery-grid${group.title === "Projects" ? " work-gallery-grid-two" : ""}`}>
+              {group.slugs.map(slug => {
+                const project = projects.find(item => item.slug === slug)!;
+                const title = slug === "keyboard-research" ? "Typing Research" : project.title;
+                const content = <><div className="work-gallery-space" aria-hidden="true" /><h5>{title}</h5><span className="work-gallery-meta">{project.tag}</span>{project.href === "#" && <span className="work-gallery-soon">Coming soon</span>}</>;
+                return project.href !== "#"
+                  ? <Link key={slug} href={project.href} className="work-gallery-item" aria-label={`Explore ${title}`}>{content}</Link>
+                  : <article key={slug} className="work-gallery-item">{content}</article>;
+              })}
+            </div>
+          </section>)}
+        </div>}
+
         {route === "toolbox" && <><div className="os-eyebrow">03 / MY TOOLBOX</div><h3>From a question<br/>to something real.</h3><p className="os-lead">The tools and methods I use to explore, design, and build.</p><div className="os-skills">{site.about.chips.map((chip,i) => <div key={chip}><span>{String(i+1).padStart(2,"0")}</span>{chip}</div>)}</div></>}
         {route === "contact" && <><div className="os-eyebrow">04 / LET'S CONNECT</div><h3>Good things start<br/>with a hello.</h3><p className="os-lead">Open for opportunities, collaborations, and conversations about design.</p><a className="os-contact-link" href={`mailto:${site.email}`}>{site.email} ↗</a><a className="os-text-link" href={site.links.linkedin} target="_blank" rel="noreferrer">Find me on LinkedIn ↗</a><p className="os-contact-note">Based in Sydney, Australia.</p></>}
       </DesktopWindow>;
