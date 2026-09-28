@@ -163,17 +163,12 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .os-file { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; border: 1px solid transparent; padding: 12px 6px; border-radius: 10px; transition: background 180ms, transform 180ms; }
 .os-file:hover, .os-file:focus-visible { background: #ffffff70; border-color: #ffffffa0; transform: translateY(-3px); outline: 2px solid #7295c0; outline-offset: 3px; }
 .os-file svg { width: 80px; height: 72px; filter: drop-shadow(0 5px 3px #31496720); margin-bottom: 12px; }
-.os-file-cover { width: 64px; height: 72px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 4px 5px #31496025); transition: transform 180ms; }
-.os-file:is(:hover, :focus-visible) .os-file-cover { transform: translateY(-2px); }
-@keyframes project-icon-flash {
-  0%, 100% { filter: drop-shadow(0 4px 5px #31496025) brightness(1); }
-  35% { filter: drop-shadow(0 4px 8px #ffffff80) brightness(1.45); }
-}
+.os-file-cover { width: 64px; height: 72px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 4px 5px #31496025); transform-origin: center; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .os-file:hover .os-file-cover { animation: project-icon-flash 480ms ease-out 1; }
+  .os-file:hover .os-file-cover { transform: rotate(3deg); }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .os-file:focus-visible .os-file-cover { animation: project-icon-flash 480ms ease-out 1; }
+  .os-file:focus-visible .os-file-cover { transform: rotate(3deg); }
 }
 
 .os-file strong { font-size: 13px; font-weight: 500; }
