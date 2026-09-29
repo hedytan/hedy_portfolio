@@ -116,7 +116,7 @@ export default function PortfolioDesktop() {
               {group.slugs.map(slug => {
                 const project = projects.find(item => item.slug === slug)!;
                 const title = slug === "keyboard-research" ? "Typing Research" : project.title;
-                const content = <><div className="work-gallery-space" aria-hidden="true" /><h5>{title}</h5><span className="work-gallery-meta">{project.tag}</span>{project.href === "#" && <span className="work-gallery-soon">Coming soon</span>}</>;
+                const content = <><div className="work-gallery-visual"><div className="work-gallery-space" aria-hidden="true" /><div className="work-gallery-overlay"><span className="work-gallery-overlay-title" aria-hidden="true">{title}</span><p>{project.description}</p><span className="work-gallery-action">{project.href !== "#" ? "Explore project ↗" : "Coming soon"}</span></div></div><h5>{title}</h5><span className="work-gallery-meta">{project.tag}</span>{project.href === "#" && <span className="work-gallery-soon">Coming soon</span>}</>;
                 return project.href !== "#"
                   ? <Link key={slug} href={project.href} className="work-gallery-item" aria-label={`Explore ${title}`}>{content}</Link>
                   : <article key={slug} className="work-gallery-item">{content}</article>;
