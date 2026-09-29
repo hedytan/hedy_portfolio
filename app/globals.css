@@ -355,3 +355,19 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
   .work-gallery-visual, .work-gallery-overlay { transition: none; }
   .work-gallery-item:is(:hover, :focus-visible) .work-gallery-visual { transform: rotate(var(--paper-angle)); }
 }
+
+/* The chair gently follows a nearby pointer; the button remains stable for dragging. */
+.sticker-figure { display: block; transform-origin: 57% 88%; transform: perspective(750px) rotateY(var(--chair-turn, 0deg)) rotateZ(var(--chair-lean, 0deg)); transition: transform 550ms cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
+.desktop-sticker.is-greeting .sticker-bubble { background: #edf4ff; transform: translateY(-3px); }
+.desktop-sticker .sticker-bubble { transition: background 180ms, box-shadow 180ms, transform 300ms ease; }
+.desktop-sticker.is-dragging .sticker-figure { transform: rotate(-3deg) scale(1.025); }
+@media (prefers-reduced-motion: reduce) {
+  .desktop-sticker .sticker-figure, .desktop-sticker .sticker-bubble { transition: none; transform: none; }
+}
+
+.sticker-figure { position: relative; }
+.desktop-sticker .sticker-figure img { transition: opacity 180ms ease, filter 180ms ease; }
+.desktop-sticker .sticker-greeting-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
+.desktop-sticker.is-greeting .sticker-figure > img:first-child { opacity: 0; }
+.desktop-sticker.is-greeting .sticker-greeting-image { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .desktop-sticker .sticker-figure img { transition: none; } }
