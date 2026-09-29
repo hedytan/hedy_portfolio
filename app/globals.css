@@ -373,3 +373,6 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 @media (prefers-reduced-motion: reduce) { .desktop-intro-caret { animation: none; } }
 
 .os-window .polaroid-caption { margin: 8px 0 0; line-height: 1.25; }
+
+.work-gallery-space { position: relative; }
+.work-gallery-cover { object-fit: cover; }
