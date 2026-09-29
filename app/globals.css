@@ -371,3 +371,10 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .desktop-sticker.is-greeting .sticker-figure > img:first-child { opacity: 0; }
 .desktop-sticker.is-greeting .sticker-greeting-image { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .desktop-sticker .sticker-figure img { transition: none; } }
+
+.desktop-intro { display: grid; }
+.desktop-intro-reserve, .desktop-intro-typing { grid-area: 1 / 1; }
+.desktop-intro-reserve { visibility: hidden; }
+.desktop-intro-caret { display: inline-block; width: 2px; height: 1em; margin-left: 2px; background: currentColor; vertical-align: -.12em; animation: intro-caret 800ms step-end infinite; }
+@keyframes intro-caret { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .desktop-intro-caret { animation: none; } }
