@@ -47,6 +47,6 @@ export default function DesktopWindow({ id, title, index, active, minimized, onA
       <h2 id={`window-${id}`}>{title}</h2><span className="window-bar-spacer" aria-hidden="true" />
     </div>
     <div className="os-window-content" data-lenis-prevent>{children}</div>
-    <div className="os-window-status">hedy.t<span>Drag title bar to move · Esc to close</span></div>
+    <div className="os-window-status">hedy.t</div>
   </section>;
 }

@@ -378,3 +378,5 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .desktop-intro-caret { display: inline-block; width: 2px; height: 1em; margin-left: 2px; background: currentColor; vertical-align: -.12em; animation: intro-caret 800ms step-end infinite; }
 @keyframes intro-caret { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .desktop-intro-caret { animation: none; } }
+
+.os-window .polaroid-caption { margin: 8px 0 0; line-height: 1.25; }

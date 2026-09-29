@@ -58,7 +58,7 @@ export default function Polaroid({ src, alt, caption, rotate = 0, width = 180, c
           </div>
         )}
       </div>
-      <p className="mt-2 text-center font-hand text-lg text-ink/80">{caption}</p>
+      <p className="polaroid-caption mt-2 text-center font-hand text-lg text-ink/80">{caption}</p>
     </div>
   );
 }
