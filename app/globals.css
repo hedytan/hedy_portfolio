@@ -379,10 +379,14 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 .os-window .polaroid-caption { margin: 8px 0 0; line-height: 1.25; }
 
 .work-gallery-space { position: relative; }
-.work-gallery-cover { object-fit: cover; }
+.work-gallery-cover { object-fit: contain; background: #fff; }
 
 /* Give the project wall room without enlarging the other desktop windows. */
 @media (min-width: 651px) {
   .desktop-window.projects-window:not(.is-maximized) { width: min(1320px, calc(100vw - 64px)); left: max(32px, calc(50vw - 660px)); top: 64px; height: calc(100svh - 160px); }
   .projects-window .os-window-content { padding: 30px clamp(32px, 5vw, 70px) 48px; }
 }
+
+.work-gallery-space-fitsapp, .work-gallery-space-fitsapp .work-gallery-cover { background: #c5c1e2; }
+.work-gallery-space-resonance { background: #fff; }
+.work-gallery-space-resonance .work-gallery-cover { inset: 14% 23% !important; width: 54% !important; height: 72% !important; object-fit: fill; background: #111; box-shadow: 0 5px 8px #0003; }
