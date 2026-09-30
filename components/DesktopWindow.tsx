@@ -19,7 +19,7 @@ export default function DesktopWindow({ id, title, index, active, minimized, onA
     return () => window.removeEventListener('resize', resize);
   }, []);
   return <section ref={ref} role="dialog" aria-modal="false" aria-labelledby={`window-${id}`} tabIndex={-1}
-    hidden={minimized} className={`os-window desktop-window${maximized ? ' is-maximized' : ''}${active ? ' is-active' : ''}`}
+    hidden={minimized} className={`os-window desktop-window${id === "work" ? " projects-window" : ""}${maximized ? ' is-maximized' : ''}${active ? ' is-active' : ''}`}
     style={{zIndex:60 + index, ...(!maximized && position ? position : {}), ...(!maximized && !position ? {translate:`${initialOffset.current}px ${initialOffset.current}px`} : {})}}
     onPointerDownCapture={onActivate} onFocusCapture={() => {if (!active) onActivate();}}
     onKeyDown={event => {if (event.key === 'Escape' && active) {event.stopPropagation(); onClose();}}}>

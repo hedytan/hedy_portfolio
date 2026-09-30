@@ -313,11 +313,12 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 
 /* Selected work presented as pinned prints on a warm gallery wall. */
 .os-window-content:has(.work-gallery) { background: #e7e2dc; }
-.work-gallery { container-type: inline-size; max-width: 1080px; margin: 0 auto; padding: 10px 0 36px; color: #36322d; }
+.work-gallery { container-type: inline-size; max-width: 1180px; margin: 0 auto; padding: 10px 0 36px; color: #36322d; }
 .os-window .work-gallery-heading h3 { text-align: center; font-size: clamp(17px, 2vw, 22px); font-weight: 400; letter-spacing: .06em; line-height: 1.6; margin: 0 0 38px; }
 .work-gallery-section + .work-gallery-section { margin-top: 64px; }
 .work-gallery-label { text-align: center; text-transform: uppercase; font-size: 12px; font-weight: 400; letter-spacing: .14em; margin-bottom: 36px; }
-.work-gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 36px; }
+.work-gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 250px)); justify-content: space-between; gap: 48px 40px; }
+.work-gallery-grid-two { grid-template-columns: repeat(2, minmax(0, 250px)); justify-content: space-evenly; }
 .work-gallery-item { --paper-angle: -1deg; display: flex; flex-direction: column; align-items: stretch; text-decoration: none; color: inherit; min-width: 0; }
 .work-gallery-item:nth-child(2n) { --paper-angle: 1.2deg; }
 .work-gallery-item:nth-child(3n) { --paper-angle: -.6deg; }
@@ -338,6 +339,9 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
   .work-gallery-overlay { position: absolute; inset: 0; overflow-y: auto; opacity: 0; transition: opacity 250ms ease; }
   .work-gallery-item:is(:hover, :focus-visible) .work-gallery-visual { transform: rotate(0deg) translateY(-3px); box-shadow: 0 24px 25px -16px #37302966; }
   .work-gallery-item:is(:hover, :focus-visible) .work-gallery-overlay { opacity: 1; }
+}
+@container (min-width: 481px) and (max-width: 760px) {
+  .work-gallery-grid { grid-template-columns: repeat(2, minmax(0, 250px)); justify-content: space-evenly; gap: 40px 28px; }
 }
 @container (max-width: 480px) {
   .work-gallery-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; gap: 40px; }
@@ -376,3 +380,9 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
 
 .work-gallery-space { position: relative; }
 .work-gallery-cover { object-fit: cover; }
+
+/* Give the project wall room without enlarging the other desktop windows. */
+@media (min-width: 651px) {
+  .desktop-window.projects-window:not(.is-maximized) { width: min(1320px, calc(100vw - 64px)); left: max(32px, calc(50vw - 660px)); top: 64px; height: calc(100svh - 160px); }
+  .projects-window .os-window-content { padding: 30px clamp(32px, 5vw, 70px) 48px; }
+}
