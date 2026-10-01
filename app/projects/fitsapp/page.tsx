@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FitsAppStory from "@/components/FitsAppStory";
-import "./story.css";
+import "../case-study.css";
 
 export const metadata: Metadata = {
   title: "FitsApp — Small steps. A reason to return. · Hedy Tan",

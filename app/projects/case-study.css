@@ -65,3 +65,70 @@
 .fits-story-dots [aria-current=step] span { width:22px; background:#fff; }
 @media(max-width:1099px) { .fits-story { padding:36px 7vw 20px; margin:0; } .fits-story-card { border-radius:32px; padding:28px 22px; aspect-ratio:auto; min-height:370px; } .fits-story-grid { gap:20px; } .fits-story-card > p:not(.fits-story-kicker) { font-size:16px; line-height:1.4; } .fits-story-card h3 { font-size:18px; } }
 @media(max-width:600px) { .fits-story { padding:30px 24px 18px; } .fits-story-card { min-height:390px; padding:30px 24px; } .fits-story-card > p:not(.fits-story-kicker) { text-align:left; } .fits-story-controls > button { position:static; transform:none; color:var(--fits-ink); } .fits-story-controls { justify-content:space-between; } }
+
+.case-screens { max-width:1480px; margin:0 auto; padding:0 40px 80px; }
+.case-screens > .fits-story-kicker { color:var(--fits-muted); margin-bottom:10px; }
+.case-screens h2 { font-size:clamp(25px,3vw,40px); letter-spacing:-.035em; line-height:1.2; margin:0 0 32px; }
+.case-screens-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:18px; }
+.case-screen { display:flex; flex-direction:column; }
+.case-screen-frame { width:100%; aspect-ratio:1206/2622; border-radius:18px; overflow:hidden; background:#000; border:1px solid rgba(0,0,0,.08); margin-bottom:14px; }
+.case-screen-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+.case-screen-label { display:block; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--fits-muted); margin-bottom:6px; }
+.case-screen p { font-size:13px; line-height:1.6; }
+@media(max-width:1099px) { .case-screens { padding:0 7vw 60px; } .case-screens-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; } }
+@media(max-width:600px) { .case-screens-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; } }
+
+/* Deeper-dive long-form sections — sit below the chaptered overview for
+   anyone who keeps scrolling past the quick version. */
+.case-divider { max-width:1480px; margin:0 auto; padding:0 40px 60px; display:flex; align-items:center; gap:18px; }
+.case-divider::before, .case-divider::after { content:""; flex:1; height:1px; background:currentColor; opacity:.15; }
+.case-divider span { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--fits-muted); white-space:nowrap; }
+.case-section { max-width:1100px; margin:0 auto; padding:0 40px 90px; }
+.case-section + .case-section { padding-top:0; }
+.case-section-head { margin-bottom:28px; }
+.case-section-head h2 { font-size:clamp(23px,2.6vw,34px); letter-spacing:-.03em; line-height:1.25; margin:8px 0 0; max-width:22ch; }
+.case-lead { font-size:clamp(15.5px,1.6vw,18px); line-height:1.75; color:var(--fits-muted); max-width:68ch; margin-top:14px; }
+.case-lead:first-child { margin-top:0; }
+.case-lead b { font-weight:600; color:var(--fits-ink); }
+.case-figure { margin-top:28px; }
+.case-figure img { width:100%; height:auto; border-radius:16px; border:1px solid rgba(0,0,0,.08); display:block; }
+.case-figure figcaption { font-size:12.5px; color:var(--fits-muted); margin-top:10px; }
+.case-quote { max-width:620px; margin-top:36px; }
+.case-quote p { font-size:clamp(18px,2.2vw,23px); line-height:1.55; }
+.case-quote span { display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--fits-muted); margin-top:14px; }
+.case-process-strip { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; margin-top:8px; }
+.case-process-strip > div { padding:18px 16px; border-radius:16px; background:var(--fits-paper); }
+.case-process-strip h4 { font-size:14px; margin-bottom:8px; }
+.case-process-strip li { font-size:12.5px; color:var(--fits-muted); line-height:1.6; }
+.case-card-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:28px; }
+.case-card { background:var(--fits-paper); border-radius:20px; padding:28px; }
+.case-card .case-tag { display:block; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--fits-muted); margin-bottom:12px; }
+.case-card h3 { font-size:17px; margin-bottom:10px; line-height:1.4; }
+.case-card p { font-size:14px; line-height:1.75; color:var(--fits-muted); }
+.case-card p + p { margin-top:10px; }
+.case-decision { display:grid; grid-template-columns:40px 1fr; gap:16px; padding:28px 0; border-top:1px solid rgba(0,0,0,.1); }
+.case-decision:last-child { border-bottom:1px solid rgba(0,0,0,.1); }
+.case-decision span { font-size:14px; color:var(--fits-muted); }
+.case-decision h3 { font-size:17px; margin-bottom:8px; }
+.case-decision p { font-size:14px; line-height:1.7; color:var(--fits-muted); max-width:58ch; }
+.case-mood-grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:12px; margin-top:28px; }
+.case-mood-grid div { display:flex; flex-direction:column; align-items:center; text-align:center; }
+.case-mood-swatch { width:40px; height:40px; border-radius:50%; margin-bottom:8px; border:1px solid rgba(0,0,0,.1); }
+.case-mood-grid b { font-size:12.5px; }
+.case-mood-grid span { font-size:11px; color:var(--fits-muted); }
+.case-two-col { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; margin-top:28px; }
+.case-two-col h3 { font-size:15px; margin-bottom:10px; }
+.case-two-col p { font-size:14px; line-height:1.7; color:var(--fits-muted); }
+.case-list { margin-top:8px; }
+.case-list li { display:grid; grid-template-columns:24px 1fr; gap:12px; padding:10px 0; font-size:14px; line-height:1.6; color:var(--fits-muted); }
+.case-list li span { color:var(--fits-ink); font-weight:600; }
+@media(max-width:1099px) { .case-process-strip { grid-template-columns:repeat(3,minmax(0,1fr)); } .case-card-grid { grid-template-columns:1fr; } .case-two-col { grid-template-columns:1fr; gap:24px; } .case-mood-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media(max-width:600px) { .case-section { padding:0 22px 70px; } .case-divider { padding:0 22px 50px; } .case-process-strip { grid-template-columns:repeat(2,minmax(0,1fr)); } .case-decision { grid-template-columns:1fr; } .case-mood-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+
+/* Resonance's own palette — pulled from the app's mood colours (Melancholy navy,
+   Joy gold, Wonder teal) instead of reusing FitsApp's purple/green. */
+.reson-case { --fits-ink:#2E3A5C; --fits-muted:#5C6B8A; --fits-paper:#FBF7F1; --fits-green:#CFE4E2; --fits-purple:#F0DFC0; background:#F2EFEA; }
+.reson-case .fits-story { background:#DDE3EE; }
+.reson-case .fits-case-header h1 em { color:#6E3A48; }
+.reson-case .fits-story-tabs button:hover:not([aria-pressed=true]) { background:#E4E9F2; }
+.reson-case .fits-case a:focus-visible, .reson-case .fits-case button:focus-visible { outline-color:#2E3A5C; }
