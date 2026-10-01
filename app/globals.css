@@ -387,6 +387,6 @@ body:has(.cover-nav) footer { padding-bottom: 110px; }
   .projects-window .os-window-content { padding: 30px clamp(32px, 5vw, 70px) 48px; }
 }
 
-.work-gallery-space-fitsapp, .work-gallery-space-fitsapp .work-gallery-cover { background: #c5c1e2; }
+.work-gallery-space-fitsapp, .work-gallery-space-fitsapp .work-gallery-cover { background: #fff; }
 .work-gallery-space-resonance { background: #fff; }
 .work-gallery-space-resonance .work-gallery-cover { inset: 14% 23% !important; width: 54% !important; height: 72% !important; object-fit: fill; background: #111; box-shadow: 0 5px 8px #0003; }

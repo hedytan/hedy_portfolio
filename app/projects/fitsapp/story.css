@@ -1,0 +1,42 @@
+.fits-case { --fits-ink:#282536; --fits-muted:#514c61; --fits-purple:#ded9ee; --fits-green:#dce7b6; --fits-paper:#faf9f5; background:#f4f2f7; color:var(--fits-ink); min-height:100vh; }
+.fits-case-nav { max-width:1480px; margin:auto; padding:24px 40px; display:flex; justify-content:space-between; gap:20px; font-size:13px; }
+.fits-case a:focus-visible,.fits-case button:focus-visible { outline:3px solid #77648e; outline-offset:5px; }
+.fits-case-nav a { padding:12px 0; }
+.fits-case-nav span { align-self:center; }
+.fits-case-header { max-width:1400px; margin:auto; padding:50px 40px 60px; }
+.fits-case-header h1 { font-size:clamp(36px,5vw,70px); letter-spacing:-.055em; line-height:1.12; margin:20px 0 24px; }
+.fits-case-header h1 em { font-style:normal; color:#656043; }
+.fits-case-header > p:not(.fits-story-kicker) { max-width:740px; font-size:17px; line-height:1.8; color:var(--fits-muted); }
+.fits-case-meta { display:flex; flex-wrap:wrap; gap:10px 24px; margin-top:26px; font-size:12px; }
+.fits-story { max-width:1480px; margin:auto; padding:36px 40px 20px; background:#c8c2de; border-radius:36px; }
+.fits-story-tabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.fits-story-tabs button { text-align:left; border:1px solid #817992; padding:14px 16px; border-radius:14px; font-size:13px; line-height:1.5; transition:background .2s; }
+.fits-story-tabs button span { display:block; font-size:11px; margin-bottom:4px; }
+.fits-story-tabs button[aria-pressed=true] { background:var(--fits-ink); color:white; border-color:var(--fits-ink); }
+.fits-story-tabs button:hover:not([aria-pressed=true]) { background:#e6e1ef; }
+.fits-story-heading { padding:38px 0 28px; }
+.fits-story-kicker { font-size:11px; letter-spacing:.08em; line-height:1.7; text-transform:uppercase; }
+.fits-story-heading h2 { font-size:clamp(25px,3vw,40px); letter-spacing:-.035em; margin:9px 0; line-height:1.2; }
+.fits-story-heading > p:last-child { font-size:14px; line-height:1.7; }
+.fits-story-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; align-items:stretch; }
+.fits-story-card { min-width:0; border-radius:28px; padding:26px 24px; }
+.fits-story-card--paper { background:var(--fits-paper); }
+.fits-story-card--green { background:var(--fits-green); }
+.fits-story-card--purple { background:var(--fits-purple); }
+.fits-story-card--dark { background:var(--fits-ink); color:#faf9f5; }
+.fits-story-card h3 { font-size:clamp(20px,1.7vw,25px); line-height:1.3; letter-spacing:-.035em; margin:18px 0; overflow-wrap:break-word; }
+.fits-story-card > p:not(.fits-story-kicker) { font-size:14px; line-height:1.85; }
+.fits-story-detail { border-top:1px solid currentColor; padding-top:18px; margin-top:20px; }
+.fits-story-image { display:block; margin:18px 0; border-radius:10px; overflow:hidden; }
+.fits-story-image img { width:100%; height:auto; }
+.fits-story-controls { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:22px 0 4px; }
+.fits-story-controls > button { min-height:44px; font-size:13px; padding:8px; }
+.fits-story-controls > button:disabled { opacity:.4; cursor:default; }
+.fits-story-dots { display:flex; }
+.fits-story-dots button { width:44px; height:44px; display:grid; place-items:center; }
+.fits-story-dots span { width:7px; height:7px; border-radius:10px; background:#776d8c; }
+.fits-story-dots [aria-current=step] span { width:24px; background:var(--fits-ink); }
+@media(min-width:1100px) { .fits-story-grid { min-height:540px; } }
+@media(max-width:1099px) { .fits-story-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .fits-story { border-radius:24px; margin:0 20px; padding:28px; } }
+@media(max-width:600px) { .fits-case-nav { padding:16px 22px; } .fits-case-header { padding:30px 22px 38px; } .fits-story { margin:0 10px; padding:20px 14px 14px; } .fits-story-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; } .fits-story-tabs button { padding:12px; font-size:12px; } .fits-story-grid { grid-template-columns:1fr; gap:16px; } .fits-story-card { padding:26px; } .fits-story-dots button { width:32px; } .fits-story-controls > button { font-size:12px; } }
+@media(prefers-reduced-motion:reduce) { .fits-story-tabs button { transition:none; } }
