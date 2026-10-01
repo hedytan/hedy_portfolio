@@ -40,10 +40,10 @@ export default function FitsAppStory() {
       <p className="fits-story-kicker">{card.label}</p><h3>{card.title}</h3>
       {card.image && <a className="fits-story-image" href={`/fitsapp-case/${card.image}.png`} target="_blank" rel="noreferrer" aria-label={`Enlarge FitsApp ${card.image} presentation image (opens in a new tab)`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`/fitsapp-case/${card.image}.png`} alt={`FitsApp presentation showing ${card.image}`} width="1100" height="619" />
+        <img src={`/fitsapp-case/${card.image}.png`} alt={`FitsApp presentation showing ${card.image}`} />
       </a>}
       <p>{card.text}</p>{card.detail && <p className="fits-story-detail">{card.detail}</p>}
     </article>)}</div>
-    <div className="fits-story-controls"><button type="button" disabled={active === 0} onClick={() => setActive(active - 1)} aria-controls="fits-story-panel">← Previous</button><div className="fits-story-dots" aria-label="Chapter pagination">{chapters.map((item, i) => <button type="button" key={item.title} aria-label={`Chapter ${i + 1}: ${item.title}`} aria-current={i === active ? "step" : undefined} onClick={() => setActive(i)}><span /></button>)}</div><button type="button" disabled={active === 3} onClick={() => setActive(active + 1)} aria-controls="fits-story-panel">Next →</button></div>
+    <div className="fits-story-controls"><button type="button" disabled={active === 0} onClick={() => setActive(active - 1)} aria-label="Previous chapter" aria-controls="fits-story-panel">‹</button><div className="fits-story-dots" aria-label="Chapter pagination">{chapters.map((item, i) => <button type="button" key={item.title} aria-label={`Chapter ${i + 1}: ${item.title}`} aria-current={i === active ? "step" : undefined} onClick={() => setActive(i)}><span /></button>)}</div><button type="button" disabled={active === 3} onClick={() => setActive(active + 1)} aria-label="Next chapter" aria-controls="fits-story-panel">›</button></div>
   </section>;
 }
