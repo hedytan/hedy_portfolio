@@ -82,7 +82,7 @@ export const projects: Project[] = [
     year: "2025",
     tag: "Human Research",
     title: "Keyboard Research",
-    href: "#",
+    href: "/projects/keyboard-research",
     description: "A walkthrough of my human research study on keyboard typing experiences.",
     imgPlaceholder: "Keyboard Research — study\n▸ drop your screenshot here",
   },

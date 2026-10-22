@@ -1,46 +1,9 @@
-import Link from "next/link";
-import Image from "next/image";
-import type { Metadata } from "next";
-import FitsAppStory from "@/components/FitsAppStory";
-import "../case-study.css";
-
-export const metadata: Metadata = {
-  title: "FitsApp — Small steps. A reason to return. · Hedy Tan",
-  description: "The problem, trade-offs, proposed build and next tests behind a playful step-tracking concept.",
-};
-
-export default function FitsApp() {
-  return <main className="fits-case font-mono">
-    <nav className="fits-case-nav" aria-label="Project navigation"><Link href="/#work">← All projects</Link><span>02 / FitsApp</span></nav>
-    <header className="fits-case-header"><p className="fits-story-kicker">FITSAPP · TEAM DESIGN PROJECT</p><h1>Small steps.<br /><em>A reason to return.</em></h1><p>FitsApp is a team-designed activity concept for busy young professionals aged 25–35. The design goal: make everyday walking feel worth returning to by turning small efforts into visible tree growth.</p><div className="fits-case-meta"><span>Research</span><span>Interaction design</span><span>Prototyping</span></div></header>
-    <FitsAppStory />
-
-    <div className="case-divider"><span>the decisions worth a closer look</span></div>
-    <section className="case-section">
-      <div className="case-section-head"><p className="fits-story-kicker">THE RESPONSE</p><h2>The tree makes effort visible; the number keeps it understandable.</h2></div>
-      <p className="case-lead">The interview summary pointed to delayed results and a desire to see progress sooner. This informed a design hypothesis: a visible response to everyday walking could make a small effort feel more worthwhile. It does not establish that tree growth will change activity over time.</p>
-      <figure className="case-figure"><Image src="/fitsapp-case/progress.png" alt="FitsApp tree growth and step count interface" width={309} height={500} style={{ maxWidth:260, margin:"0 auto" }} /><figcaption style={{textAlign:"center"}}>The visual metaphor sits alongside a concrete count. Both need to tell the same story.</figcaption></figure>
-    </section>
-    <section className="case-section">
-      <div className="case-section-head"><p className="fits-story-kicker">THE UNRESOLVED CHOICE</p><h2>A shrinking tree could undermine the reason to return.</h2></div>
-      <p className="case-lead">An early prototype explored negative growth after missed activity. That creates a tension with the target scenario: someone who is already tired, busy and struggling to maintain a routine. The next iteration should compare regression with paused growth and a forgiving restart.</p>
-      <div className="case-card-grid case-card-grid--3">
-        <div className="case-card"><h3>What was explored</h3><p>A visual loss intended to encourage a return after missed activity.</p></div>
-        <div className="case-card"><h3>What it could cost</h3><p>Accumulated effort may feel erased, or a busy day may feel like a failure.</p></div>
-        <div className="case-card"><h3>What needs testing</h3><p>Whether preserving growth makes restarting feel more achievable. This comparison is proposed, not a completed study.</p></div>
-      </div>
-    </section>
-    <section className="case-section">
-      <div className="case-section-head"><p className="fits-story-kicker">CLOSING THE LOOP</p><h2>Success means small walks feel worthwhile—and people actually return.</h2></div>
-      <p className="case-lead">The project produced a focused concept and interface prototypes. The next step is to test the promise made at the start, rather than treating finished screens as evidence of improved motivation.</p>
-      <div className="case-card-grid case-card-grid--3">
-        <div className="case-card"><h3>Can they understand progress?</h3><p>Ask participants to set a goal and explain the tree’s state. Observe task completion, errors and assistance needed.</p></div>
-        <div className="case-card"><h3>Can they recover from a missed day?</h3><p>Compare feedback variants in the same scenario. Record interpretations and emotional responses; stated intention alone does not prove a return.</p></div>
-        <div className="case-card"><h3>Do they return over time?</h3><p>A longer study would examine repeat use and walking relative to each participant’s baseline, including returns after inactivity. These are planned observations, not reported results.</p></div>
-      </div>
-      <p className="case-note">Evidence boundary: interview summaries informed the direction; the persona describes a design scenario. AI-assisted exploration generated hypotheses rather than testing them. Individual contribution, implementation status and measured outcomes should be documented separately before making stronger claims.</p>
-    </section>
-
-    <footer className="fits-case-nav"><Link href="/#work">← All projects</Link><Link href="/projects/resonance">Resonance →</Link></footer>
-  </main>;
-}
+import ProcessCase from "@/components/ProcessCase";
+export const metadata={title:"FitsApp — Hedy Tan"};
+export default function FitsApp(){return <ProcessCase name="FitsApp" intro="A step-tracking app that turns everyday walking into a growing tree. Small efforts become something you can see—and make your own." facts={[["Team","Kiwi Kuties"],["For","Busy young professionals"],["Type","Activity tracking"],["Focus","Progress & personalisation"]]} next="resonance" chapters={[
+{id:"problem",label:"The problem",title:"Everyday movement goes unnoticed.",text:"We started from an everyday observation: young people spending long stretches sitting, with little attention to walking or their activity habits. Our research synthesis also pointed to fatigue and slow-to-show results. We narrowed the challenge to making small, everyday movement feel worth doing.",note:"Design question: how might we make small amounts of movement feel visible and rewarding?"},
+{id:"solution",label:"The solution",title:"Turn steps into visible growth.",text:"Steps grow a tree, while the numerical count stays visible. The tree adds a reward; the number keeps the feedback concrete. Choose a goal, walk, then see the step total reflected in the tree’s growth.",image:"/fitsapp-case/progress.png"},
+{id:"decisions",label:"Key decisions",title:"Progress first. Customisation second.",text:"The progress screen gives the tree visual priority without hiding the step total. Tree selection gets a dedicated view, keeping the main screen focused. The trade-off is an extra step to change the tree.",note:"Walking is an understandable starting point, but steps cannot represent every activity or mobility need.",image:"/fitsapp-case/overview.png"},
+{id:"prototype",label:"The prototype",title:"Make progress personal.",text:"Customisation lets users make the tree their own. This recording shows tree selection in the app, bringing a personal choice into an otherwise numerical activity tracker.",video:"/fitsapp-case/personalisation.mp4",note:"Build checks still needed: permissions, delayed activity data, live synchronisation and persistence. Missing data should not look like lost progress."},
+{id:"outcome",label:"Testing & reflection",title:"Encouraging early feedback. Longer-term impact still to test.",text:"We invited a small group to try the app and received positive feedback in informal sessions. This is an encouraging initial response, not yet evidence of increased exercise.",note:"Next: measure independent goal-setting, understanding of tree growth and walking over time. Early concepts showed the tree shrinking after missed activity; whether that encourages a return or creates pressure still needs testing."}
+]}/>;}

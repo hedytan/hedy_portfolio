@@ -1,5 +1,2 @@
-import PortfolioDesktop from "@/components/PortfolioDesktop";
-
-export default function Home() {
-  return <PortfolioDesktop />;
-}
+import PortfolioIndex from "@/components/PortfolioIndex";
+export default function Home() { return <PortfolioIndex />; }
