@@ -1,0 +1,32 @@
+.works-list{max-width:1000px;margin:0 auto;padding:30px 0 40px;scroll-margin-top:30px;font-family:var(--font-sans),Arial,sans-serif}
+.works-list>h2{font-size:28px;font-weight:500;letter-spacing:-.04em;margin:0 0 35px}
+.works-filters{display:flex;flex-wrap:wrap;gap:12px 30px;margin-bottom:30px}
+.works-filters button{background:none;border:0;padding:10px 0;min-height:44px;font:inherit;font-size:16px;color:#6c6a65;cursor:pointer}
+.works-filters button[aria-pressed=true]{color:#20201e;text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:1px}
+.works-filters button:hover{color:#20201e}
+.works-filters button:focus-visible{outline:2px solid #876600;outline-offset:5px}
+.works-filters button span{font-size:12px;color:#76736c;margin-left:3px}
+.works-rows{display:grid;gap:7px}
+.works-row{display:block;padding:20px 0;scroll-margin-top:30px}
+.works-row-heading{display:flex;align-items:baseline;justify-content:space-between;gap:25px}
+.works-row-heading h3{font-size:21px;font-weight:500;letter-spacing:-.02em;line-height:1.4;margin:0}
+.works-row-heading h3>span{font-size:16px;color:#77746d;margin-left:5px}
+.works-row-heading>p{margin:0;font-size:15px;color:#6c6a65;white-space:nowrap}
+.works-row-heading>p>span{margin-left:14px}
+.works-summary{font-size:16px;line-height:1.6;color:#6c6a65;margin:7px 0 0}
+.works-soon{display:block;color:#78756e;font-size:11px;margin-top:5px}
+.works-row-link:hover h3{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+@media(max-width:700px){.works-list{padding-top:15px}.works-list>h2{font-size:25px;margin-bottom:22px}.works-filters{gap:24px;margin-bottom:18px}.works-row-heading{display:block}.works-row-heading h3{font-size:20px}.works-row-heading>p{font-size:12px;margin-top:5px}.works-summary{font-size:14px}.works-row{padding:16px 0}}
+/* Compact reading column with generous surrounding space. */
+.works-list{max-width:720px;padding:45px 0 70px}
+.works-list>h2{font-size:23px;margin-bottom:28px}
+.works-filters{gap:12px 25px;margin-bottom:28px}
+.works-filters button{font-size:13px}
+.works-filters button span{font-size:10px}
+.works-row{padding:16px 0}
+.works-row-heading h3{font-size:17px}
+.works-row-heading h3>span{font-size:13px}
+.works-row-heading>p{font-size:12px}
+.works-summary{font-size:13px;line-height:1.7;margin-top:6px}
+.works-soon{font-size:10px}
+@media(max-width:700px){.works-list{padding:25px 0 45px}.works-row-heading h3{font-size:17px}.works-row-heading>p{font-size:12px}.works-summary{font-size:13px}}

@@ -99,3 +99,11 @@
 .pi-about-education span{font-size:12px;letter-spacing:.04em}
 .pi-about-education h4{font-size:14px;line-height:1.45;letter-spacing:.025em;margin:8px 0 7px;max-width:32ch}
 .pi-about-education p{font-size:13px;line-height:1.6;max-width:34ch}
+/* Keep the homepage content restrained within the space beside the rail. */
+.pi-hero{max-width:800px;margin:0 auto;padding:95px 0 85px}
+.pi-hero h1{font-size:clamp(28px,3vw,36px)}
+.pi-about,.pi-contact{max-width:800px;margin-left:auto;margin-right:auto}
+.pi-about-layout{gap:45px}
+@media(min-width:701px){.pi{padding-right:150px}}
+@media(max-width:1000px) and (min-width:701px){.pi{padding-right:45px}}
+@media(max-width:700px){.pi-hero{padding:45px 0 50px}.pi-about-layout{gap:30px}}
