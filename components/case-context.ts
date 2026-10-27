@@ -2,7 +2,7 @@ export const caseContext = {
  fitsapp: {
   number:'02', year:'2025', context:'Apple Foundation Program · Kiwi Kuties', role:'UX research & interface design',
   question:'How might we make everyday walking feel rewarding enough to return to?',
-  image:'/fitsapp-case/progress.png', tags:['UX research','Interaction design','Gamification','UI design','Prototyping'],
+  image:'/fitsapp-case/recording/progress-recording.png', tags:['UX research','Interaction design','Gamification','UI design','Prototyping'],
   audience:'Young people with sedentary routines', audienceText:'The starting point was people who spend long stretches sitting and give little attention to everyday movement. The design focuses on a small, approachable action: walking.', goals:['Notice everyday activity','Understand progress at a glance','Make the experience personal'],
   insights:[['Small efforts need visible feedback','The team’s starting observation was that everyday movement often goes unnoticed. The tree makes incremental progress tangible.'],['Play needs a concrete measure','Growth provides an emotional reward, while the step count keeps the feedback understandable.'],['Motivation should not become pressure','A shrinking tree could make a missed day feel punitive. That early concept still needs testing.']],
   before:['Long stretches sitting','Walking receives little attention','Small efforts are hard to notice','Progress feels abstract'], after:['Choose a walking goal','See the step total','Watch the tree grow','Personalise the tree'],
