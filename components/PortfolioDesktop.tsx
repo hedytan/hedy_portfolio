@@ -110,14 +110,14 @@ export default function PortfolioDesktop() {
           <header className="work-gallery-heading"><h3>things i’ve made & explored</h3></header>
           {[
             { title: "Projects", slugs: ["resonance", "fitsapp"] },
-            { title: "Case studies", slugs: ["spotify-ease", "sync-brew", "keyboard-research"] },
+            { title: "Case studies", slugs: ["spotify-ease", "mind-the-gap", "keyboard-research"] },
           ].map(group => <section className="work-gallery-section" key={group.title} aria-label={group.title}>
             <h4 className="work-gallery-label">{group.title}</h4>
             <div className={`work-gallery-grid${group.title === "Projects" ? " work-gallery-grid-two" : ""}`}>
               {group.slugs.map(slug => {
                 const project = projects.find(item => item.slug === slug)!;
                 const title = slug === "keyboard-research" ? "Typing Research" : project.title;
-                const category = ({ resonance: "iOS App", fitsapp: "UX / UI", "spotify-ease": "UX / UI", "sync-brew": "Product Design", "keyboard-research": "UX Research" } as Record<string, string>)[slug];
+                const category = ({ resonance: "iOS App", fitsapp: "UX / UI", "spotify-ease": "UX / UI", "mind-the-gap": "Interactive Prototype", "keyboard-research": "UX Research" } as Record<string, string>)[slug];
                 const content = <><div className="work-gallery-visual"><span className="work-gallery-pin" aria-hidden="true" /><div className={`work-gallery-space work-gallery-space-${slug}`} aria-hidden="true">{(slug === "fitsapp" || slug === "resonance") && <Image src={slug === "fitsapp" ? "/fitsapp-growth-cover.png" : "/resonance-music-black.png"} alt="" fill sizes="(max-width: 650px) 320px, 250px" className="work-gallery-cover" />}</div><div className="work-gallery-overlay"><span className="work-gallery-overlay-title" aria-hidden="true">{title}</span><p>{project.description}</p><span className="work-gallery-action">{project.href !== "#" ? "Explore project ↗" : "Coming soon"}</span></div></div><div className="work-gallery-caption"><h5>{title}</h5><span className="work-gallery-meta">{category}</span></div>{project.href === "#" && <span className="work-gallery-soon">Coming soon</span>}</>;
                 return project.href !== "#"
                   ? <Link key={slug} href={project.href} className="work-gallery-item" aria-label={`Explore ${title}`}>{content}</Link>
