@@ -132,7 +132,9 @@
 
 /* Portfolios: real-looking kraft file folders, each with a pinned print and a plain list. */
 .fd-stack{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");list-style:none;margin:0;padding:10px 0 0}
-.fd{position:relative;margin-top:-34px;transition:transform .35s cubic-bezier(.3,1.3,.5,1)}
+.fd{position:relative;margin-top:-64px;--r:0deg;--x:0px;transform:translateX(var(--x)) rotate(var(--r));transition:transform .35s cubic-bezier(.3,1.3,.5,1)}
+.fd:nth-child(5n+1){--r:-.7deg;--x:-6px}.fd:nth-child(5n+2){--r:.6deg;--x:8px}.fd:nth-child(5n+3){--r:-.35deg;--x:-2px}.fd:nth-child(5n+4){--r:.8deg;--x:5px}.fd:nth-child(5n){--r:-.5deg;--x:-7px}
+@keyframes fd-wiggle{0%{transform:translateX(var(--x)) translateY(0) rotate(var(--r))}30%{transform:translateX(var(--x)) translateY(-8px) rotate(calc(var(--r) - 1.4deg))}60%{transform:translateX(var(--x)) translateY(-8px) rotate(calc(var(--r) + .9deg))}100%{transform:translateX(var(--x)) translateY(-8px) rotate(calc(var(--r) - .4deg))}}
 .fd:first-child{margin-top:0}
 .fd-link{position:relative;display:block}
 .fd .fd-front,.fd .fd-front *{color:var(--fd-ink)}
@@ -148,29 +150,37 @@
 .fd-label{position:relative;align-self:center;margin:6px 0 0;min-width:min(230px,34%);padding:6px 14px;background:#f7f5ef;color:#1a1a1a;box-shadow:0 1px 0 rgba(0,0,0,.12);font-size:clamp(13px,1.5vw,16px);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
 .fd-t0 .fd-label{margin-left:calc(3% + 26px)}.fd-t2 .fd-label{margin-right:calc(3% + 26px)}
 /* body: the back panel shows as a darker lip above the front flap */
-.fd-front{position:relative;display:grid;grid-template-columns:1fr minmax(0,min(36%,330px));gap:40px;align-items:center;padding:52px 6% 60px;background:var(--fd) var(--grain);border-radius:8px 8px 4px 4px;box-shadow:0 -10px 24px rgba(0,0,0,.4),inset 0 10px 0 var(--fd-lip),inset 0 11px 0 rgba(255,255,255,.18)}
+.fd-front{position:relative;display:grid;grid-template-columns:1fr minmax(0,min(36%,330px));gap:40px;align-items:center;padding:52px 6% 96px;background:var(--fd) var(--grain);border-radius:8px 8px 4px 4px;box-shadow:0 -10px 24px rgba(0,0,0,.4),inset 0 10px 0 var(--fd-lip),inset 0 11px 0 rgba(255,255,255,.18)}
 .fd-flip .fd-front{grid-template-columns:minmax(0,min(36%,330px)) 1fr}
 .fd-flip .fd-list{order:2}
 .fd-list{display:flex;flex-direction:column}
 .fd-line{padding:13px 0 9px;border-bottom:1px solid color-mix(in srgb,var(--fd-ink) 30%,transparent);font-size:clamp(14px,1.7vw,19px);letter-spacing:.06em;text-transform:uppercase;line-height:1.25}
 .fd-open{margin-top:18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.7;transition:opacity .2s}
 /* the pinned print */
-.fd-print{position:relative;display:block;padding:12px 12px 12px;background:#fbfbf8;box-shadow:0 10px 22px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.3);transform:rotate(2deg);transition:transform .35s cubic-bezier(.3,1.3,.5,1)}
-.fd-flip .fd-print{transform:rotate(-2deg)}
+.fd-print{position:relative;display:block;margin-top:-110px;padding:12px;background:#fbfbf8;box-shadow:0 14px 26px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.3);transform:rotate(3.5deg);transition:transform .4s cubic-bezier(.3,1.3,.5,1)}
+.fd-flip .fd-print{transform:rotate(-4deg)}
+.fd:first-child .fd-print{margin-top:-60px}
+.fd:nth-child(3n) .fd-print{transform:rotate(-1.5deg) translateX(14px)}
 .fd-pic{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden}
 .fd-pic img{display:block;width:100%;height:100%;object-fit:contain}
 .fd-clip{position:absolute;z-index:2;top:-38px;right:14%;width:50px;height:66px;transform:rotate(8deg);filter:drop-shadow(0 4px 3px rgba(0,0,0,.4))}
 .fd-flip .fd-clip{right:auto;left:4%;transform:rotate(-10deg)}
-@media(hover:hover){.fd:hover{transform:translateY(-8px)}.fd:hover .fd-print{transform:rotate(0deg) translateY(-4px)}.fd:hover .fd-open{opacity:1}}
+@media(hover:hover){.fd:hover{animation:fd-wiggle .55s cubic-bezier(.3,1.2,.5,1) forwards}.fd:hover .fd-print{transform:rotate(6deg) translateY(-10px)}.fd-flip:hover .fd-print{transform:rotate(-7deg) translateY(-10px)}.fd:hover .fd-open{opacity:1}}
 .fd-link:focus-visible{outline:none}.fd-link:focus-visible .fd-front{outline:2px solid var(--hot);outline-offset:3px}
 @media(max-width:700px){
-  .fd{margin-top:-26px}
+  .fd{margin-top:-46px}
   .fd-tab{height:44px}.fd-tab::before{height:44px;width:62%}
   .fd-label{min-width:0;font-size:13px;padding:5px 12px}
   .fd-t0 .fd-label{margin-left:calc(3% + 20px)}.fd-t2 .fd-label{margin-right:calc(3% + 20px)}
-  .fd-front,.fd-flip .fd-front{grid-template-columns:1fr;gap:34px;padding:40px 22px 52px}
+  .fd-front,.fd-flip .fd-front{grid-template-columns:1fr;gap:34px;padding:40px 22px 74px}.fd-print,.fd:first-child .fd-print{margin-top:0}
   .fd-flip .fd-list{order:0}
   .fd-line{font-size:14px;padding:11px 0 8px}
   .fd-print{width:72%;justify-self:end}.fd-flip .fd-print{justify-self:start}
 }
-@media(prefers-reduced-motion:reduce){.fd,.fd-print{transition:none}}
+@media(prefers-reduced-motion:reduce){.fd,.fd-print{transition:none}.fd:hover{animation:none}}
+
+/* Nav slides away on scroll down, returns on scroll up. */
+.hp-nav{transition:transform .35s ease,opacity .35s ease}
+.hp-nav.is-hidden{transform:translateY(-130%);opacity:0}
+.hp-nav.is-hidden a{pointer-events:none}
+@media(prefers-reduced-motion:reduce){.hp-nav{transition:none}}

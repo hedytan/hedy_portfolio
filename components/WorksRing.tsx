@@ -19,7 +19,7 @@ export default function WorksRing() {
       {projects.map((p, i) => {
         const f = folders[p.slug];
         if (!f) return null;
-        return <li key={p.slug} className={`fd fd-c${i % 4} fd-t${i % 3} ${i % 2 ? "fd-flip" : ""}`} style={{ zIndex: i + 1 }}>
+        return <li key={p.slug} className={`fd fd-c${i % 4} ${i % 2 ? "fd-t2 fd-flip" : "fd-t0"}`} style={{ zIndex: i + 1 }}>
           <Link href={p.href === "#" ? "/" : p.href} className="fd-link" aria-label={`${f.label} — ${f.lines.join(", ")}`}>
             <span className="fd-tab"><span className="fd-label">{f.label}</span></span>
             <span className="fd-front">
