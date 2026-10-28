@@ -8,14 +8,14 @@ import "./works-list.css";
 const categories: Record<string, string[]> = {
   resonance: ["UI", "UX"],
   fitsapp: ["UI", "UX", "Research"],
-  "spotify-ease": ["UI", "UX"],
+  "job-buddy": ["UI", "UX"],
   "keyboard-research": ["Research"],
   "mind-the-gap": ["UI", "UX"],
 };
 const descriptions: Record<string, string> = {
   resonance: "An emotion-first music app connecting artists and listeners through personal moments.",
   fitsapp: "A playful step tracker that turns everyday walks into a growing, personalised tree.",
-  "spotify-ease": "An accessibility-focused exploration of a more inclusive music listening experience.",
+  "job-buddy": "A handheld device and app that turns a first meeting at an event into a saved connection, with an icebreaker to start the conversation.",
   "keyboard-research": "A probe kit exploring how everyday typing connects with comfort, mood and context.",
   "mind-the-gap": "A vending machine for feelings: write a note, receive a card, and see how a station feels.",
 };
