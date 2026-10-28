@@ -10,7 +10,7 @@ export const site = {
   bigName: "Hedy Tan",
   tagline: "UX/UI designer based in Sydney",
   links: {
-    linkedin: "https://www.linkedin.com/in/hedy-tan-83b81423b/",
+    linkedin: "https://www.linkedin.com/in/hedy-tan/",
     github: "#",
     resume: "#",
   },
