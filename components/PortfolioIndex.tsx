@@ -15,7 +15,7 @@ export default function PortfolioIndex() {
     <nav className="hp-nav" aria-label="Main navigation"><div className="hp-nav-in">
       <a href="#top" className="hp-nav-name">HEDY TAN<span> · UX/UI DESIGNER</span></a>
       <div className="hp-nav-links">
-        <a href="#work">WORKS</a>
+        <a href="#work">PROJECTS</a>
         <a href="#about">ABOUT</a>
         <a href="#contact">CONTACT</a>
       </div>

@@ -22,7 +22,7 @@ const changes: [string, string][] = [
 
 export default function JobBuddy() {
   return <main className="pc jb">
-    <nav className="pc-top"><Link href="/" aria-label="Hedy Tan home">Ht</Link><Link href="/#work">← ALL WORKS</Link><a href="/#contact">CONTACT</a></nav>
+    <nav className="pc-top"><Link href="/" aria-label="Hedy Tan home">Ht</Link><Link href="/#work">← ALL PROJECTS</Link><a href="/#contact">CONTACT</a></nav>
     <header className="pc-header"><div><p className="pc-label">HYBRID PRODUCT · TEAM PROJECT</p><h1>Job<br/>Buddy</h1></div><dl>{[["Year","2026"],["Type","Wearable device + app"],["Context","UTS · Interaction Design Studio"],["Team","PG10 · Shuffle Mode"]].map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl></header>
 
     <section className="pc-section" id="overview"><p className="pc-label">01 — OVERVIEW</p><div className="pc-copy"><p className="pc-intro">A device that starts the conversation at career events, and an app that keeps the connection going.</p></div><div className="jb-hero"><figure><video src="/job-buddy/full.mp4" autoPlay muted loop playsInline preload="metadata" aria-label="The Tabby prototype in use: pair a device with the app, choose a card, then two devices meet, show a prompt and save the connection" /></figure></div></section>

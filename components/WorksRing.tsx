@@ -12,9 +12,9 @@ const meta: Record<string, string> = {
 const name = (slug: string, title: string) => (slug === "keyboard-research" ? "Typing Research" : title);
 
 export default function WorksRing() {
-  return <section className="wl" id="work" aria-label="Selected works">
+  return <section className="wl" id="work" aria-label="Selected projects">
     <Badge />
-    <h2 className="wl-label">My works</h2>
+    <h2 className="wl-label">My projects</h2>
     <ul className="wl-list">
       {projects.map(p => <li key={p.slug} className="wl-item">
         <Link href={p.href === "#" ? "/" : p.href}>
