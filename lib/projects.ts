@@ -21,7 +21,7 @@ export const site = {
       "my background is in digital media and interaction design, and i'm now exploring how research, visuals, and a little code can come together to make something people want to spend time with.",
       "this website is a little like my sketchbook: personal, playful, and probably never quite finished. i hope you find something here that makes you curious. stay a while, open a folder, or say hello - i'd love to know what you're making, too.",
     ],
-    chips: ["Figma", "SwiftUI", "User research", "Prototyping", "Accessibility", "ESP32", "AI-assisted workflows"],
+    chips: ["Figma", "Adobe Creative Suite", "Video editing", "Front-end coding", "User research", "Prototyping", "SwiftUI"],
   },
 };
 
