@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/projects";
 import PolaroidPile from "./PolaroidPile";
 import Badge from "./Badge";
+import WorksRing from "./WorksRing";
 import SiteNav from "./SiteNav";
 import "./portfolio-v2.css";
 
@@ -16,6 +17,8 @@ export default function PortfolioIndex() {
     <SiteNav home />
 
     <section className="hp-badge" aria-label="Hedy Tan name badge"><Badge /></section>
+
+    <WorksRing />
 
 
     <section className="ab" id="about" aria-labelledby="about-title">

@@ -36,7 +36,7 @@ export default function Nav({ variant = "default" }: { variant?: "default" | "co
           .HEDY
         </Link>
         <ul className="flex items-center gap-8 list-none font-mono text-sm">
-          <li><Link href="/projects" className="text-ink hover:text-blue transition-colors no-underline">projects</Link></li>
+          <li><Link href="/#work" className="text-ink hover:text-blue transition-colors no-underline">projects</Link></li>
           <li><Link href="/#about" className="text-ink hover:text-blue transition-colors no-underline">about</Link></li>
           <li><Link href="/#contact" className="text-ink hover:text-blue transition-colors no-underline">contact</Link></li>
         </ul>

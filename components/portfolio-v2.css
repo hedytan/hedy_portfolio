@@ -120,9 +120,8 @@
 .dt-col ul{display:flex;flex-wrap:wrap;gap:6px 28px}
 @media(max-width:800px){.dt{padding:0}.dt-col{grid-template-columns:1fr;gap:18px;padding:40px 22px}.dt-col>.dt-item{grid-column:1}.dt-col:first-child h3{grid-row:auto}.dt-col ul{flex-direction:column;gap:0}}
 
-/* Home opens on the name badge; projects live on their own page. */
+/* Home opens on the name badge; PROJECTS jumps to a screen with only the project list. */
 .hp-badge{min-height:100vh;min-height:100svh;display:flex;align-items:flex-start;justify-content:center;padding:60px 0 0}
 .hp-badge .bd{width:100%}
-.hp-projects{display:flex;flex-direction:column}.hp-projects>.hp-foot{width:100%}
-.wl-page{flex:1;width:100%;padding-top:130px;min-height:calc(100vh - 80px)}
-@media(max-width:800px){.wl-page{padding-top:100px}}
+.wl-page{min-height:100vh;min-height:100svh;padding-top:110px;scroll-margin-top:0;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:800px){.wl-page{padding-top:90px}}
