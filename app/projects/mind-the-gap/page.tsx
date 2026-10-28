@@ -1,3 +1,4 @@
+import ProjectPager from "@/components/ProjectPager";
 import BrowserPrototype from "@/components/BrowserPrototype";
 import Link from "next/link";
 import "@/components/process-case.css";
@@ -48,6 +49,6 @@ export default function MindTheGap() {
 
     <section className="pc-section" id="outcome"><p className="pc-label">07 — STILL OPEN</p><div className="pc-copy"><h2>Works end to end. Not yet tested by anyone but me.</h2><ul>{open.map(o=><li key={o}>{o}</li>)}</ul><p>Next: a short task test — choose, write, reveal, find the wall.</p></div></section>
     <section className="pc-section" id="try"><p className="pc-label">08 — TRY IT</p><div className="pc-pair"><div><h2>Somewhere between stops, put something down.</h2><p>Try it on your commute.</p></div><figure><iframe className="mtg-live" src="https://vent-machine.vercel.app/" title="Mind the Gap vending machine prototype" loading="lazy" allow="accelerometer; gyroscope"/><figcaption>Live prototype — tap to try</figcaption></figure></div></section>
-    <footer className="pc-footer"><span>Hedy Tan</span><Link href="/projects/resonance">Next / Resonance →</Link></footer>
+    <ProjectPager slug="mind-the-gap" />
   </main>;
 }

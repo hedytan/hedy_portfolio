@@ -1,3 +1,4 @@
+import ProjectPager from "@/components/ProjectPager";
 import Link from "next/link";
 import "@/components/process-case.css";
 import "./jb.css";
@@ -35,6 +36,6 @@ export default function JobBuddy() {
     <section className="pc-section" id="feedback"><p className="pc-label">05 — WHAT CHANGED</p><div className="pc-copy"><h2>Shaped by expert and class feedback.</h2></div><ul className="jb-list">{changes.map(([t,d])=><li key={t}><b>{t}</b><span>{d}</span></li>)}</ul></section>
 
     <section className="pc-section" id="outcome"><p className="pc-label">06 — NEXT</p><div className="pc-copy"><h2>Do follow-up prompts help people reconnect?</h2><p className="pc-note">Not yet tested with attendees.</p></div></section>
-    <footer className="pc-footer"><span>Hedy Tan</span><Link href="/projects/mind-the-gap">Next / Mind the Gap →</Link></footer>
+    <ProjectPager slug="job-buddy" />
   </main>;
 }
