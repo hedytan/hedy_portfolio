@@ -46,7 +46,7 @@ export default function Badge() {
     return Math.max(-1.2, Math.min(1.2, Math.atan2(-dx, dy)));
   };
   const down = (e: React.PointerEvent) => {
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    try { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); } catch { /* pointer already gone */ }
     const s = st.current; s.drag = true; s.moved = false; s.w = 0; s.vy = 0; s.lastA = s.a; s.lastT = performance.now(); s.startY = e.clientY - Math.sign(s.y) * 0; s.lastY = s.y; s.startY = e.clientY - (s.y > 0 ? 230 * Math.atanh(Math.min(0.99, s.y / 170)) : s.y < 0 ? -120 * Math.atanh(Math.min(0.99, -s.y / 70)) : 0);
   };
   const move = (e: React.PointerEvent) => {
