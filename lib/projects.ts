@@ -16,12 +16,10 @@ export const site = {
   },
   about: {
     paragraphs: [
-      "hi, i'm hedy - a UX/UI designer based in Sydney. welcome to my little corner of the internet <3",
-      "i have a habit of noticing small things: an interaction that feels awkward, a detail that makes me smile, or a feeling that refuses to fit into a sentence. sometimes those observations become sketches. sometimes they become apps. sometimes they become a very specific conversation about whether that button really needs to be there.",
-      "my background is in digital media and interaction design, and i'm now exploring how research, visuals, and a little code can come together to make something people want to spend time with.",
-      "this website is a little like my sketchbook: personal, playful, and probably never quite finished. i hope you find something here that makes you curious. stay a while, open a folder, or say hello - i'd love to know what you're making, too.",
+      "hi, i'm hedy, a UX/UI designer based in sydney. welcome to my little corner of the internet <3",
+      "i have a habit of noticing small things: an interaction that feels awkward, a detail that makes me smile. sometimes those observations become sketches, sometimes apps. my background is in digital media and interaction design, and i'm exploring how research, visuals and a little code can come together to make something people want to spend time with.",
     ],
-    chips: ["Figma", "Adobe Creative Suite", "Video editing", "Front-end coding", "User research", "Prototyping", "SwiftUI"],
+    chips: ["Figma", "Adobe Creative Suite", "Video editing", "Photography", "Front-end coding", "SwiftUI", "User research", "Prototyping", "Interaction design", "Visual storytelling"],
   },
 };
 

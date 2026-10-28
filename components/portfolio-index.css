@@ -107,3 +107,17 @@
 @media(min-width:701px){.pi{padding-right:150px}}
 @media(max-width:1000px) and (min-width:701px){.pi{padding-right:45px}}
 @media(max-width:700px){.pi-hero{padding:45px 0 50px}.pi-about-layout{gap:30px}}
+
+/* Contact: labelled rows, in the same quiet register as the About details. */
+.pi-contact{border-top:1px solid rgba(32,32,30,.22);margin-top:60px;padding:40px 0 70px}
+.pi-contact-header{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:28px}
+.pi-contact-header h2{font-size:13px;font-weight:500;letter-spacing:.1em;margin:0}
+.pi-contact-header nav{display:flex;gap:24px;font-size:11px;letter-spacing:.08em}
+.pi-contact>.pi-contact-lead{font-size:clamp(20px,2.4vw,26px);line-height:1.35;letter-spacing:-.02em;color:#20201e;margin:0 0 34px;max-width:none}
+.pi-contact-list{margin:0;border-top:1px solid #cec9be}
+.pi-contact-list>div{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:16px 0;border-bottom:1px solid #e4e0d6}
+.pi-contact-list dt{font-size:11px;letter-spacing:.1em;color:#6d6a62}
+.pi-contact-list dd{margin:0;font-size:13px}
+.pi-contact-list a{text-decoration:underline;text-underline-offset:4px;color:#20201e}
+.pi-contact>.pi-contact-foot{margin:40px 0 0;font-size:11px;color:#6d6a62}
+@media(max-width:700px){.pi-contact{margin-top:40px;padding:30px 0 50px}.pi-contact-list>div{grid-template-columns:1fr;gap:4px}}
