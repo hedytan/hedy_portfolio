@@ -44,7 +44,7 @@
 /* about: photo and a handwritten title */
 .ab{max-width:1040px;margin:0 auto;padding:130px 28px 110px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,7vw,90px);align-items:center;scroll-margin-top:20px}
 .ab-photo{margin:0}.ab-photo img{display:block;width:100%;height:auto;max-height:78vh;object-fit:cover;filter:grayscale(1) contrast(1.03)}
-.ab-copy h2{font-family:var(--font-child),cursive;font-size:clamp(54px,8.5vw,112px);font-weight:400;line-height:.92;letter-spacing:.01em;text-transform:uppercase;margin:0 0 44px}
+.ab-copy h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;line-height:1.1;letter-spacing:.02em;text-transform:uppercase;margin:0 0 30px}
 .ab-copy p{margin:0 0 18px;color:#a9a7a0;font-size:13px;max-width:44ch}
 .ab-copy a{text-decoration:underline;text-underline-offset:4px;color:#cfcdc6}.ab-copy a:hover{color:var(--hot)}
 @media(max-width:800px){.ab{grid-template-columns:1fr;padding:80px 22px 70px;gap:34px}.ab-photo{max-width:360px}.ab-copy h2{margin-bottom:28px}}
@@ -95,6 +95,10 @@
 .wl-meta{display:block;font-size:12px;color:#a9a7a0;margin-top:2px}
 .wl-item a:hover strong{color:var(--hot)}
 @media(max-width:800px){.wl{padding:50px 22px 30px}}
-.ab-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:start}
-.ab-photos img{display:block;width:100%;height:auto;object-fit:cover;aspect-ratio:4/5;filter:grayscale(1)}
-.ab-photos img:first-child{grid-column:1 / -1;aspect-ratio:5/4}
+.pp{position:relative;height:520px;touch-action:pan-y}
+.pp-card{position:absolute;left:0;top:0;width:clamp(130px,13vw,155px);margin:0;padding:8px 8px 10px;background:#faf6ec;border-radius:2px;box-shadow:0 14px 30px rgba(0,0,0,.55);cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;transition:box-shadow .2s,transform .2s ease-out}
+.pp-card.is-held{cursor:grabbing;box-shadow:0 26px 48px rgba(0,0,0,.65);transition:box-shadow .2s}
+.pp-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:#d8d3c6}
+.pp-img img{object-fit:cover;pointer-events:none}
+.pp-card figcaption{margin:9px 0 0;text-align:center;font-family:var(--font-hand),cursive;font-weight:400;font-size:14.5px;line-height:1.15;color:#55504a}
+@media(max-width:800px){.pp{height:520px}}

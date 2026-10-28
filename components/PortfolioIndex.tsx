@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/projects";
+import PolaroidPile from "./PolaroidPile";
 import WorksRing from "./WorksRing";
 import "./portfolio-v2.css";
 
@@ -26,7 +27,12 @@ export default function PortfolioIndex() {
         {site.about.paragraphs.map(p => <p key={p}>{p}</p>)}
         <p><a href="#contact">Feel free to get in touch.</a></p>
       </div>
-      <div className="ab-photos">{[["/hedy-sydney-portrait.jpg", "Hedy in Sydney"], ["/hedy-beach.jpg", "Hedy at the beach"], ["/hedy-izakaya.jpg", "Hedy at an izakaya in Japan"]].map(([src, alt]) => <Image key={src} src={src} alt={alt} width={600} height={750} sizes="(max-width: 800px) 40vw, 200px" />)}</div>
+      <PolaroidPile shots={[
+        { src: "/about/onigiri.jpg", alt: "Hedy with an onigiri", caption: "foodie", x: 0, y: 0, r: -4, focus: "50% 35%" },
+        { src: "/about/breakfast.jpg", alt: "Hedy holding a strawberry cake, with a matcha drink beside her", caption: "strawberry cake lover", x: 175, y: 25, r: 5, focus: "50% 50%" },
+        { src: "/about/matcha.jpg", alt: "Two matcha drinks on a wooden table", caption: "matcha holic", x: 0, y: 215, r: 3 },
+        { src: "/about/baby.jpg", alt: "Hedy as a baby", caption: "happy kid, always", x: 175, y: 250, r: 2, focus: "50% 30%" },
+      ]} />
     </section>
 
     <section className="dt" aria-label="Details">
