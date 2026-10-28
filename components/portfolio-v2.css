@@ -56,7 +56,7 @@
 /* details: typewriter columns, ink that turns blue as the pointer nears */
 .hot{width:fit-content}.hot,.dt a{transition:color .12s}.hot:hover,.dt a:hover{color:var(--hot)}
 .dt{max-width:1040px;margin:0 auto;padding:30px 28px 120px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(30px,6vw,80px);border-top:1px solid rgba(255,255,255,.18);padding-top:70px}
-.dt h3{font-size:13px;font-weight:700;margin:0 0 26px;color:var(--ink)}
+.dt h3{font-size:13px;font-weight:800;letter-spacing:.08em;margin:0 0 26px;color:var(--ink)}
 .dt p{margin:0}.dt-item{margin-bottom:24px}.dt-strong{font-weight:700}
 .dt ul{list-style:none;margin:0;padding:0}.dt li{line-height:1.85}
 .dt a{text-decoration:underline;text-underline-offset:4px}

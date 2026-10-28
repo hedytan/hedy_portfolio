@@ -39,17 +39,17 @@ export default function PortfolioIndex() {
 
     <section className="dt" aria-label="Details">
       <div className="dt-col">
-        <h3>education</h3>
+        <h3>EDUCATION</h3>
         {education.map(([when, what, where]) => <div className="dt-item" key={what}>
           <p className="dt-strong">{what}</p><p>{where}</p><p>{when}</p>
         </div>)}
       </div>
       <div className="dt-col">
-        <h3>skills &amp; tools</h3>
+        <h3>SKILLS &amp; TOOLS</h3>
         <ul>{site.about.chips.map(skill => <li key={skill}>{skill}</li>)}</ul>
       </div>
       <div className="dt-col" id="contact">
-        <h3>contact</h3>
+        <h3>CONTACT</h3>
         <ul>
           <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
           <li><a href={site.links.linkedin} target="_blank" rel="noreferrer">linkedin.com/in/hedy-tan</a></li>
