@@ -6,7 +6,7 @@ import WorksRing from "./WorksRing";
 import "./portfolio-v2.css";
 
 const education = [
-  ["2025–2026", "Master of Interaction Design", "University of Technology Sydney"],
+  ["2025–2026", "Master of Interaction Design", "University of Technology Sydney (UTS)"],
   ["2023–2025", "Bachelor of Digital Media", "Queensland University of Technology (QUT)"],
 ];
 
