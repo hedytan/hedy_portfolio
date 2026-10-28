@@ -107,3 +107,12 @@
 .pp-img img{object-fit:cover;pointer-events:none}
 .pp-card figcaption{margin:9px 0 0;text-align:center;font-family:var(--font-hand),cursive;font-weight:400;font-size:14.5px;line-height:1.15;color:#55504a}
 @media(max-width:800px){.pp{height:520px}}
+
+/* Details: three separate blocks — light, black, light. */
+.dt{gap:16px}
+.dt-col{padding:32px 28px;border-radius:4px}
+.dt-col:nth-child(odd){background:#ecebe5;color:#151515}
+.dt-col:nth-child(odd) h3,.dt-col:nth-child(odd) a{color:#151515}
+.dt-col:nth-child(2){background:#000;color:var(--ink);border:1px solid rgba(255,255,255,.22)}
+.dt-col:nth-child(odd) a:hover{color:#c2281a}
+@media(max-width:800px){.dt{gap:14px}.dt-col{padding:26px 22px}}
