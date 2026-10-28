@@ -109,8 +109,8 @@ export default function PortfolioDesktop() {
         {route === "work" && <div className="work-gallery">
           <header className="work-gallery-heading"><h3>things i’ve made & explored</h3></header>
           {[
-            { title: "Projects", slugs: ["resonance", "mind-the-gap", "fitsapp"] },
-            { title: "Case studies", slugs: ["keyboard-research", "job-buddy"] },
+            { title: "Projects", slugs: ["resonance", "mind-the-gap", "job-buddy", "fitsapp"] },
+            { title: "Case studies", slugs: ["keyboard-research"] },
           ].map(group => <section className="work-gallery-section" key={group.title} aria-label={group.title}>
             <h4 className="work-gallery-label">{group.title}</h4>
             <div className={`work-gallery-grid${group.title === "Projects" ? " work-gallery-grid-two" : ""}`}>

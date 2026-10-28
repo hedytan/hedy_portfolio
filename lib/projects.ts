@@ -68,6 +68,15 @@ export const projects: Project[] = [
     imgPlaceholder: "Mind the Gap — vending machine\n▸ drop your screenshot here",
   },
   {
+    slug: "job-buddy",
+    year: "2026",
+    tag: "Interaction prototype",
+    title: "Job Buddy",
+    href: "/projects/job-buddy",
+    description: "A handheld device and companion app that turns a first meeting at an event into a saved connection, with an icebreaker to start the conversation.",
+    imgPlaceholder: "Job Buddy — Tappy + app\n▸ drop your screenshot here",
+  },
+  {
     slug: "fitsapp",
     year: "2025",
     tag: "UX Research · Team",
@@ -85,14 +94,5 @@ export const projects: Project[] = [
     href: "/projects/keyboard-research",
     description: "A walkthrough of my human research study on keyboard typing experiences.",
     imgPlaceholder: "Keyboard Research — study\n▸ drop your screenshot here",
-  },
-  {
-    slug: "job-buddy",
-    year: "2026",
-    tag: "Interaction prototype",
-    title: "Job Buddy",
-    href: "/projects/job-buddy",
-    description: "A handheld device and companion app that turns a first meeting at an event into a saved connection, with an icebreaker to start the conversation.",
-    imgPlaceholder: "Job Buddy — Tappy + app\n▸ drop your screenshot here",
   },
 ];
