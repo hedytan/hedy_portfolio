@@ -1,29 +1,40 @@
+import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import BinderClip from "./BinderClip";
 
-const meta: Record<string, string> = {
-  resonance: "iOS App",
-  "mind-the-gap": "Interactive Prototype",
-  "job-buddy": "Device + App",
-  fitsapp: "UX / UI Design",
-  "keyboard-research": "UX Research",
+// What each folder says, in plain words, plus the one picture that explains the project.
+const folders: Record<string, { label: string; lines: string[]; img: string; w: number; h: number; bg: string }> = {
+  resonance: { label: "Resonance", lines: ["iOS app · 2026", "Emotion-first music", "Solo · SwiftUI"], img: "/folders/resonance.jpg", w: 900, h: 900, bg: "#050505" },
+  "mind-the-gap": { label: "Mind the Gap", lines: ["Interactive prototype · 2026", "Vending machine for feelings", "Station wellbeing"], img: "/folders/mind-the-gap.jpg", w: 640, h: 1077, bg: "#0f1622" },
+  "job-buddy": { label: "Job Buddy", lines: ["Device + app · 2026", "Event networking", "Tap to connect"], img: "/folders/job-buddy.jpg", w: 770, h: 660, bg: "#e9e6e0" },
+  fitsapp: { label: "FitsApp", lines: ["UX / UI design · 2025", "Steps grow a tree", "Team of 5 · Apple Foundation"], img: "/folders/fitsapp.jpg", w: 240, h: 328, bg: "#c8c3e6" },
+  "keyboard-research": { label: "Typing Research", lines: ["UX research · 2025", "Keyboard typing study", "Diary + probe design"], img: "/folders/keyboard-research.jpg", w: 547, h: 390, bg: "#fbf3e2" },
 };
-const name = (slug: string, title: string) => (slug === "keyboard-research" ? "Typing Research" : title);
 
-// Projects as a stack of paper folders: each tab peeks out.
 export default function WorksRing() {
   return <section className="wl wl-page" id="work" aria-label="Portfolios">
     <h2 className="wl-label">PORTFOLIOS</h2>
     <ul className="fd-stack">
-      {projects.map((p, i) => <li key={p.slug} className={`fd fd-${i % 5} ${i % 2 ? "fd-right" : ""}`} style={{ zIndex: i + 1 }}>
-        <Link href={p.href === "#" ? "/" : p.href} className="fd-link">
-          <span className="fd-tab"><span className="fd-no">{String(i + 1).padStart(2, "0")}</span>{name(p.slug, p.title)}</span>
-          <span className="fd-body">
-            <span className="fd-meta">{meta[p.slug]} — {p.year}<span className="fd-arrow" aria-hidden="true">↗</span></span>
-            <span className="fd-desc">{p.description}</span>
-          </span>
-        </Link>
-      </li>)}
+      {projects.map((p, i) => {
+        const f = folders[p.slug];
+        if (!f) return null;
+        return <li key={p.slug} className={`fd fd-c${i % 4} fd-t${i % 3} ${i % 2 ? "fd-flip" : ""}`} style={{ zIndex: i + 1 }}>
+          <Link href={p.href === "#" ? "/" : p.href} className="fd-link" aria-label={`${f.label} — ${f.lines.join(", ")}`}>
+            <span className="fd-tab"><span className="fd-label">{f.label}</span></span>
+            <span className="fd-front">
+              <span className="fd-list">
+                {f.lines.map(l => <span key={l} className="fd-line">{l}</span>)}
+                <span className="fd-open">Open case study →</span>
+              </span>
+              <span className="fd-print">
+                <BinderClip className="fd-clip" />
+                <span className="fd-pic" style={{ background: f.bg }}><Image src={f.img} alt="" width={f.w} height={f.h} sizes="(max-width:700px) 70vw, 380px" /></span>
+              </span>
+            </span>
+          </Link>
+        </li>;
+      })}
     </ul>
   </section>;
 }
