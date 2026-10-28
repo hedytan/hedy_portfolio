@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
-import Badge from "./Badge";
 
 const meta: Record<string, string> = {
   resonance: "iOS App",
@@ -12,9 +11,8 @@ const meta: Record<string, string> = {
 const name = (slug: string, title: string) => (slug === "keyboard-research" ? "Typing Research" : title);
 
 export default function WorksRing() {
-  return <section className="wl" id="work" aria-label="Selected projects">
-    <Badge />
-    <h2 className="wl-label">MY PROJECTS</h2>
+  return <section className="wl wl-page" id="work" aria-label="Selected projects">
+    <h1 className="wl-label">MY PROJECTS</h1>
     <ul className="wl-list">
       {projects.map(p => <li key={p.slug} className="wl-item">
         <Link href={p.href === "#" ? "/" : p.href}>

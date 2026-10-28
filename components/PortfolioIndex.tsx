@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/projects";
 import PolaroidPile from "./PolaroidPile";
-import WorksRing from "./WorksRing";
+import Badge from "./Badge";
+import SiteNav from "./SiteNav";
 import "./portfolio-v2.css";
 
 const education = [
@@ -12,16 +13,10 @@ const education = [
 
 export default function PortfolioIndex() {
   return <main className="hp" id="top">
-    <nav className="hp-nav" aria-label="Main navigation"><div className="hp-nav-in">
-      <a href="#top" className="hp-nav-name">HEDY TAN<span> · UX/UI DESIGNER</span></a>
-      <div className="hp-nav-links">
-        <a href="#work">PROJECTS</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
-      </div>
-    </div></nav>
+    <SiteNav home />
 
-    <WorksRing />
+    <section className="hp-badge" aria-label="Hedy Tan name badge"><Badge /></section>
+
 
     <section className="ab" id="about" aria-labelledby="about-title">
       <div className="ab-copy">

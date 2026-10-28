@@ -8,7 +8,7 @@ export default function ProjectPager({ slug }: { slug: string }) {
   const i = projects.findIndex(p => p.slug === slug);
   const prev = projects[i - 1], next = projects[i + 1];
   return <footer className="pc-footer pc-pager">
-    {prev ? <Link href={prev.href}>← Previous / {label(prev.slug, prev.title)}</Link> : <Link href="/#work">← All works</Link>}
-    {next ? <Link href={next.href}>Next / {label(next.slug, next.title)} →</Link> : <Link href="/#work">All works →</Link>}
+    {prev ? <Link href={prev.href}>← Previous / {label(prev.slug, prev.title)}</Link> : <Link href="/projects">← All works</Link>}
+    {next ? <Link href={next.href}>Next / {label(next.slug, next.title)} →</Link> : <Link href="/projects">All works →</Link>}
   </footer>;
 }
