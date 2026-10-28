@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/projects";
 import WorksRing from "./WorksRing";
-import Proximity from "./Proximity";
 import "./portfolio-v2.css";
 
 const education = [
@@ -12,7 +11,6 @@ const education = [
 
 export default function PortfolioIndex() {
   return <main className="hp" id="top">
-    <Proximity />
     <nav className="hp-nav" aria-label="Main navigation">
       <a href="#top" className="hp-nav-name">HEDY TAN<span> · UX/UI DESIGNER</span></a>
       <a href="#work">WORKS</a>
@@ -35,19 +33,19 @@ export default function PortfolioIndex() {
       <div className="dt-col">
         <h3>education</h3>
         {education.map(([when, what, where]) => <div className="dt-item" key={what}>
-          <p className="px dt-strong">{what}</p><p className="px">{where}</p><p className="px">{when}</p>
+          <p className="dt-strong">{what}</p><p>{where}</p><p>{when}</p>
         </div>)}
       </div>
       <div className="dt-col">
         <h3>skills &amp; tools</h3>
-        <ul>{site.about.chips.map(skill => <li key={skill} className="px">{skill}</li>)}</ul>
+        <ul>{site.about.chips.map(skill => <li key={skill}>{skill}</li>)}</ul>
       </div>
       <div className="dt-col" id="contact">
         <h3>contact</h3>
         <ul>
-          <li className="px"><a href={`mailto:${site.email}`}>{site.email}</a></li>
-          <li className="px"><a href={site.links.linkedin} target="_blank" rel="noreferrer">linkedin.com/in/hedy-tan</a></li>
-          <li className="px">Sydney, NSW</li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><a href={site.links.linkedin} target="_blank" rel="noreferrer">linkedin.com/in/hedy-tan</a></li>
+          <li>Sydney, NSW</li>
         </ul>
       </div>
     </section>

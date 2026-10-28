@@ -20,9 +20,18 @@ const meta: Record<string, string> = {
   "mind-the-gap": "Interactive prototype",
 };
 const name = (slug: string, title: string) => (slug === "keyboard-research" ? "Typing Research" : title);
+// each project gets the object that suits it: a phone, a device photo, or a paper form
+const shape: Record<string, { kind: "phone" | "photo" | "paper"; w: number; h: number }> = {
+  resonance: { kind: "phone", w: 1, h: 2.044 },
+  "mind-the-gap": { kind: "phone", w: 1, h: 2.044 },
+  fitsapp: { kind: "phone", w: 1, h: 2.044 },
+  "job-buddy": { kind: "photo", w: 2.2, h: 1.375 },
+  "keyboard-research": { kind: "paper", w: 1.4, h: 1.995 },
+};
 const N = projects.length;
-const STEP = 360 / N;
-const wrap = (d: number) => ((((d + 180) % 360) + 360) % 360) - 180;
+const STEP = 1;
+const wrap = (d: number) => ((((d + N / 2) % N) + N) % N) - N / 2;
+const PX = 280;
 
 export default function WorksRing() {
   const [theta, setTheta] = useState(0);
@@ -40,7 +49,7 @@ export default function WorksRing() {
       const t = target.current;
       if (t === null) return;
       const d = t - th.current;
-      if (Math.abs(d) < 0.02) { apply(t); target.current = null; return; }
+      if (Math.abs(d) < 0.001) { apply(t); target.current = null; return; }
       apply(th.current + d * 0.12);
       raf.current = requestAnimationFrame(step);
     };
@@ -49,7 +58,7 @@ export default function WorksRing() {
   const snap = useCallback((from: number) => { target.current = Math.round(from / STEP) * STEP; run(); }, [run]);
   const goTo = useCallback((i: number) => {
     const cur = th.current;
-    target.current = cur + wrap(i * STEP - cur);
+    target.current = cur + wrap(i - cur);
     run();
   }, [run]);
 
@@ -61,7 +70,7 @@ export default function WorksRing() {
       if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
       e.preventDefault();
       target.current = null;
-      apply(th.current + e.deltaX * 0.22);
+      apply(th.current + e.deltaX / PX);
       clearTimeout(idle.current);
       idle.current = setTimeout(() => snap(th.current), 150);
     };
@@ -77,31 +86,40 @@ export default function WorksRing() {
     if (!d.moved) return;
     const now = performance.now();
     const dtt = Math.max(1, now - d.t);
-    d.v = (-dx * 0.3) / dtt;
+    d.v = (-dx / PX) / dtt;
     d.x = e.clientX; d.t = now;
-    apply(th.current - dx * 0.3);
+    apply(th.current - dx / PX);
   };
   const up = () => { const d = drag.current; drag.current = null; if (d?.moved) snap(th.current + d.v * 180); };
   const key = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowRight") { e.preventDefault(); goTo(Math.round(th.current / STEP) + 1); }
-    if (e.key === "ArrowLeft") { e.preventDefault(); goTo(Math.round(th.current / STEP) - 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); goTo(Math.round(th.current) + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); goTo(Math.round(th.current) - 1); }
   };
 
-  const cur = ((Math.round(theta / STEP) % N) + N) % N;
+  const cur = ((Math.round(theta) % N) + N) % N;
   const active = projects[cur];
 
   return <section className="wr" id="work" aria-label="Selected works">
-    <div className="wr-stage" ref={stage} data-lenis-prevent tabIndex={0} aria-roledescription="carousel" aria-label="Projects. Drag, swipe or use the arrow keys to rotate."
+    <header className="wr-intro"><h1>I’m Hedy<br />UX/UI Designer</h1><p>Hedy Tan — Sydney, NSW</p></header>
+    <div className="wr-stage" ref={stage} data-lenis-prevent tabIndex={0} aria-roledescription="carousel" aria-label="Projects. Drag, swipe or use the arrow keys to browse."
       onKeyDown={key} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up}>
-      <div className="wr-ring" style={{ transform: `translateZ(calc(var(--R) * -1)) rotateY(${-theta}deg)` }}>
+      <div className="wr-ring">
         {projects.map((p, i) => {
-          const f = Math.abs(wrap(i * STEP - theta));
-          const front = f < STEP / 2;
+          const d = wrap(i * STEP - theta);
+          const a = Math.abs(d), sg = Math.sign(d);
+          const front = a < 0.5;
+          const me = shape[p.slug];
+          const fr = shape[projects[((Math.round(theta) % N) + N) % N].slug];
+          const K = (me.w + fr.w) * 0.5 * 0.92 + 0.12;
+          const x = sg * (a <= 1 ? a * K : K + (a - 1) * me.w * 0.5);
+          const ry = -sg * Math.min(a, 1) * 56;
+          const z = -Math.min(a, 2) * 130;
           return <Link key={p.slug} href={p.href === "#" ? "/" : p.href} aria-label={`${name(p.slug, p.title)}, ${p.year}`} tabIndex={-1} draggable={false}
-            className={`wr-panel${front ? " is-front" : ""}`}
-            style={{ transform: `rotateY(${i * STEP}deg) translateZ(var(--R))`, filter: `brightness(${f < 4 ? 1 : Math.max(0.5, 1 - f / 190)})` }}
-            onClick={e => { if (drag.current?.moved) { e.preventDefault(); return; } if (!front) { e.preventDefault(); goTo(i); } else if (p.href === "#") e.preventDefault(); }}>
-            <Image src={covers[p.slug]} alt="" fill sizes="(max-width:700px) 60vw, 340px" draggable={false} priority={i < 2} />
+            className={`wr-panel wr-${me.kind}${front ? " is-front" : ""}`}
+            style={{ "--w": me.w, "--h": me.h, transform: `translateX(calc(var(--pw) * ${x})) translateZ(${z}px) rotateY(${ry}deg)`, zIndex: 10 - Math.round(a * 2), opacity: a > 2.1 ? 0 : 1, filter: `brightness(${Math.max(0.62, 1 - a * 0.14)})` } as React.CSSProperties}
+            onClick={e => { if (drag.current?.moved) { e.preventDefault(); return; } if (!front) { e.preventDefault(); goTo(Math.round(th.current) + Math.round(d)); } else if (p.href === "#") e.preventDefault(); }}>
+            <span className="wr-screen"><Image src={covers[p.slug]} alt="" fill sizes="(max-width:700px) 60vw, 420px" draggable={false} unoptimized /></span>
+            {me.kind === "phone" && <Image className="wr-frame" src="/iphone-17-frame.png" alt="" width={450} height={920} sizes="220px" draggable={false} aria-hidden="true" />}
           </Link>;
         })}
       </div>
@@ -113,6 +131,6 @@ export default function WorksRing() {
       <Link href={active.href} className="wr-open">OPEN PROJECT ↗</Link>
     </div>
     <div className="wr-dots" role="group" aria-label="Choose project">{projects.map((p, i) => <button key={p.slug} type="button" aria-label={name(p.slug, p.title)} aria-current={i === cur} onClick={() => goTo(i)} />)}</div>
-    <p className="wr-hint">Drag to rotate</p>
+    <p className="wr-hint">Drag to browse</p>
   </section>;
 }
