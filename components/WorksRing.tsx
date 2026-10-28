@@ -5,11 +5,11 @@ import BinderClip from "./BinderClip";
 
 // What each folder says, in plain words, plus the one picture that explains the project.
 const folders: Record<string, { label: string; lines: string[]; img: string; w: number; h: number; bg: string }> = {
-  resonance: { label: "Resonance", lines: ["iOS app · 2026", "Emotion-first music", "Solo · SwiftUI"], img: "/folders/resonance.jpg", w: 900, h: 900, bg: "#050505" },
-  "mind-the-gap": { label: "Mind the Gap", lines: ["Interactive prototype · 2026", "Vending machine for feelings", "Station wellbeing"], img: "/folders/mind-the-gap.jpg", w: 640, h: 1077, bg: "#0f1622" },
-  "job-buddy": { label: "Job Buddy", lines: ["Device + app · 2026", "Event networking", "Tap to connect"], img: "/folders/job-buddy.jpg", w: 770, h: 660, bg: "#e9e6e0" },
-  fitsapp: { label: "FitsApp", lines: ["UX / UI design · 2025", "Steps grow a tree", "Team of 5 · Apple Foundation"], img: "/folders/fitsapp.jpg", w: 240, h: 328, bg: "#c8c3e6" },
-  "keyboard-research": { label: "Typing Research", lines: ["UX research · 2025", "Keyboard typing study", "Diary + probe design"], img: "/folders/keyboard-research.jpg", w: 547, h: 390, bg: "#fbf3e2" },
+  resonance: { label: "Resonance", lines: ["iOS app · 2026", "Emotion-first music app", "Share the feeling behind a song"], img: "/folders/resonance.jpg", w: 900, h: 900, bg: "#050505" },
+  "mind-the-gap": { label: "Mind the Gap", lines: ["Interactive prototype · 2026", "Vending machine for feelings", "See how a station feels"], img: "/folders/mind-the-gap.jpg", w: 640, h: 1077, bg: "#0f1622" },
+  "job-buddy": { label: "Job Buddy", lines: ["Device + app · 2026", "Turn a first meeting into a connection", "Icebreaker to start talking"], img: "/folders/job-buddy.jpg", w: 770, h: 660, bg: "#e9e6e0" },
+  fitsapp: { label: "FitsApp", lines: ["UX / UI design · 2025", "Every walk grows a tree", "Motivation from delight, not data"], img: "/folders/fitsapp.jpg", w: 240, h: 328, bg: "#c8c3e6" },
+  "keyboard-research": { label: "Typing Research", lines: ["UX research · 2025", "Keyboard typing experiences", "Losing and regaining flow"], img: "/folders/keyboard-research.jpg", w: 547, h: 390, bg: "#fbf3e2" },
 };
 
 export default function WorksRing() {
