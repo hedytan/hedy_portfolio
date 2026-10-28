@@ -21,12 +21,12 @@ export default function PortfolioIndex() {
     <WorksRing />
 
     <section className="ab" id="about" aria-labelledby="about-title">
-      <figure className="ab-photo"><Image src="/hedy-sydney-portrait.jpg" alt="Hedy in Sydney" width={800} height={1000} sizes="(max-width: 800px) 90vw, 440px" /></figure>
       <div className="ab-copy">
         <h2 id="about-title">About me</h2>
         {site.about.paragraphs.map(p => <p key={p}>{p}</p>)}
         <p><a href="#contact">Feel free to get in touch.</a></p>
       </div>
+      <div className="ab-photos">{[["/hedy-sydney-portrait.jpg", "Hedy in Sydney"], ["/hedy-beach.jpg", "Hedy at the beach"], ["/hedy-izakaya.jpg", "Hedy at an izakaya in Japan"]].map(([src, alt]) => <Image key={src} src={src} alt={alt} width={600} height={750} sizes="(max-width: 800px) 40vw, 200px" />)}</div>
     </section>
 
     <section className="dt" aria-label="Details">
