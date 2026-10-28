@@ -12,7 +12,12 @@ export default function SiteNav({ home = false }: { home?: boolean }) {
 
   useEffect(() => {
     last.current = window.scrollY;
+    // Home: keep the first screen to just the badge; reveal what's below once the page moves.
+    const root = document.documentElement;
+    const mark = () => root.classList.toggle("has-scrolled", window.scrollY > 8);
+    if (home) { mark(); root.classList.add("reveal-ready"); }
     const onScroll = () => {
+      if (home) mark();
       const y = window.scrollY;
       const dy = y - last.current;
       last.current = y;
@@ -22,8 +27,8 @@ export default function SiteNav({ home = false }: { home?: boolean }) {
       else if (dy < -4) setHidden(false);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => { window.removeEventListener("scroll", onScroll); root.classList.remove("reveal-ready", "has-scrolled"); };
+  }, [home]);
 
   // After a jump, stay hidden until the smooth scroll has finished.
   const jumped = () => { setHidden(true); quietUntil.current = performance.now() + 1400; };

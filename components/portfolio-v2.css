@@ -186,3 +186,8 @@
 .hp-nav.is-hidden{transform:translateY(-130%);opacity:0}
 .hp-nav.is-hidden a{pointer-events:none}
 @media(prefers-reduced-motion:reduce){.hp-nav{transition:none}}
+
+/* First screen shows only the badge; the section below fades in once you scroll. Layout doesn't move. */
+.wl-page{transition:opacity .5s ease,transform .5s ease}
+html.reveal-ready:not(.has-scrolled) .wl-page{opacity:0;transform:translateY(16px)}
+@media(prefers-reduced-motion:reduce){.wl-page{transition:none}html.reveal-ready:not(.has-scrolled) .wl-page{transform:none}}
