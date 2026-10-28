@@ -108,11 +108,14 @@
 .pp-card figcaption{margin:9px 0 0;text-align:center;font-family:var(--font-hand),cursive;font-weight:400;font-size:14.5px;line-height:1.15;color:#55504a}
 @media(max-width:800px){.pp{height:520px}}
 
-/* Details: three separate blocks — light, black, light. */
-.dt{gap:16px}
-.dt-col{padding:32px 28px;border-radius:4px}
-.dt-col:nth-child(odd){background:#ecebe5;color:#151515}
-.dt-col:nth-child(odd) h3,.dt-col:nth-child(odd) a{color:#151515}
-.dt-col:nth-child(2){background:#000;color:var(--ink);border:1px solid rgba(255,255,255,.22)}
-.dt-col:nth-child(odd) a:hover{color:#c2281a}
-@media(max-width:800px){.dt{gap:14px}.dt-col{padding:26px 22px}}
+/* Details: full-width bands — dark grey, black, dark grey — with soft dividers. */
+.dt{max-width:none;margin:0;padding:0;display:block;border-top:1px solid rgba(255,255,255,.1)}
+.dt-col{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:56px max(28px,calc((100% - 1040px)/2 + 28px));border-bottom:1px solid rgba(255,255,255,.1)}
+.dt-col:nth-child(odd){background:#151517}
+.dt-col:nth-child(2){background:#0b0b0c}
+.dt-col h3{margin:0}.dt-col>.dt-item:last-child{margin-bottom:0}
+.dt-col>.dt-item{grid-column:2}
+.dt-col:first-child{row-gap:20px}
+.dt-col:first-child h3{grid-row:span 2}
+.dt-col ul{display:flex;flex-wrap:wrap;gap:6px 28px}
+@media(max-width:800px){.dt{padding:0}.dt-col{grid-template-columns:1fr;gap:18px;padding:40px 22px}.dt-col>.dt-item{grid-column:1}.dt-col:first-child h3{grid-row:auto}.dt-col ul{flex-direction:column;gap:0}}
