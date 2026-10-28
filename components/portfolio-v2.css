@@ -191,3 +191,8 @@
 .wl-page{transition:opacity .5s ease,transform .5s ease}
 html.reveal-ready:not(.has-scrolled) .wl-page{opacity:0;transform:translateY(16px)}
 @media(prefers-reduced-motion:reduce){.wl-page{transition:none}html.reveal-ready:not(.has-scrolled) .wl-page{transform:none}}
+
+/* Keep Education / Skills / Contact close to About — they belong to the same section. */
+.ab{padding-bottom:36px}
+.pp{height:470px}
+@media(max-width:800px){.ab{padding-bottom:20px}.pp{height:460px}}
