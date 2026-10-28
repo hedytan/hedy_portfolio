@@ -12,12 +12,14 @@ const education = [
 
 export default function PortfolioIndex() {
   return <main className="hp" id="top">
-    <nav className="hp-nav" aria-label="Main navigation">
+    <nav className="hp-nav" aria-label="Main navigation"><div className="hp-nav-in">
       <a href="#top" className="hp-nav-name">HEDY TAN<span> · UX/UI DESIGNER</span></a>
-      <a href="#work">WORKS</a>
-      <a href="#about">ABOUT</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
+      <div className="hp-nav-links">
+        <a href="#work">WORKS</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+    </div></nav>
 
     <WorksRing />
 

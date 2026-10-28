@@ -3,10 +3,14 @@
 .hp a:focus-visible,.hp button:focus-visible,.ws-stage:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 
 /* navigation pills */
-.hp-nav{position:fixed;top:16px;left:16px;z-index:300;display:flex;gap:8px;flex-wrap:wrap;max-width:calc(100vw - 32px)}
+.hp-nav{position:fixed;top:0;left:0;right:0;z-index:300;padding-top:16px;pointer-events:none}
+.hp-nav-in{max-width:1040px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.hp-nav-links{display:flex;gap:8px}
+.hp-nav a{pointer-events:auto;white-space:nowrap}
 .hp-nav a{padding:9px 14px;font-size:10.5px;letter-spacing:.08em;background:rgba(24,24,26,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:8px;transition:background .2s,color .2s,border-color .2s}
 .hp-nav a:hover{color:var(--hot);border-color:var(--hot)}
-.hp-nav-name span{color:#8f8d86}.hp-nav-name:hover span{color:var(--hot)}
+.hp-nav-name span{color:#8f8d86}
+@media(max-width:600px){.hp-nav-in{padding:0 22px}.hp-nav a{padding:8px 10px;font-size:10px}.hp-nav-name span{display:none}.hp-nav-links{gap:6px}}.hp-nav-name:hover span{color:var(--hot)}
 
 /* works: a ring of project covers you can spin */
 .wr{position:relative;min-height:100svh;padding:clamp(96px,14vh,140px) 0 72px;overflow:hidden;--pw:clamp(120px,12.5vw,185px)}
