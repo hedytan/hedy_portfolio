@@ -1,20 +1,20 @@
 .mtg-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:34px}
 .mtg-flow figure{align-items:flex-start;text-align:left}
-.mtg-flow img,.mtg-hero video,.mtg-hero img,.mtg-pair img{display:block;width:100%;height:auto;max-height:none;border:1px solid #d9d5cb;border-radius:14px;background:#0f1722}
-.mtg-flow figcaption,.mtg-pair figcaption{font-size:11px;line-height:1.55;margin-top:12px;color:#555}
-.mtg-flow figcaption b,.mtg-pair figcaption b{display:block;color:#20201e;font-weight:600;margin-bottom:2px}
+.mtg-flow img,.mtg-hero video,.mtg-hero img,.mtg-pair img{display:block;width:100%;height:auto;max-height:none;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:#0f1722}
+.mtg-flow figcaption,.mtg-pair figcaption{font-size:11px;line-height:1.55;margin-top:12px;color:#a9a7a0}
+.mtg-flow figcaption b,.mtg-pair figcaption b{display:block;color:#ecebe5;font-weight:600;margin-bottom:2px}
 .mtg-hero{display:flex;justify-content:center}
 .mtg-hero figure{width:min(320px,100%)}
 .mtg-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:34px;margin-top:30px;align-items:start}
 .mtg-pair figure{align-items:flex-start}
 .mtg-pair--wide{grid-template-columns:minmax(0,260px) minmax(0,260px);justify-content:start}
-.mtg-trade{margin-top:26px;border-top:1px solid #d9d5cb}
-.mtg-trade>div{display:grid;grid-template-columns:200px 1fr;gap:36px;padding:22px 0;border-bottom:1px solid #d9d5cb}
+.mtg-trade{margin-top:26px;border-top:1px solid rgba(255,255,255,.16)}
+.mtg-trade>div{display:grid;grid-template-columns:200px 1fr;gap:36px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.16)}
 .mtg-trade h3{font-size:14px;font-weight:600;margin:0}
 .mtg-trade p{margin:0 0 8px}.mtg-trade p:last-child{margin:0}
 .mtg-review{width:100%;border-collapse:collapse;margin-top:26px;font-size:12px;line-height:1.55}
-.mtg-review th{text-align:left;font-weight:500;color:#716e65;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:0 18px 10px 0;border-bottom:1px solid #d9d5cb}
-.mtg-review td{vertical-align:top;padding:14px 18px 14px 0;border-bottom:1px solid #e8e5dd}
+.mtg-review th{text-align:left;font-weight:500;color:#8f8d86;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:0 18px 10px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.mtg-review td{vertical-align:top;padding:14px 18px 14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
 .mtg-review td:first-child{width:34%;font-weight:600}
 @media(max-width:850px){.mtg-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.mtg-trade>div{grid-template-columns:1fr;gap:10px}}
 @media(max-width:600px){.mtg-pair,.mtg-pair--wide{grid-template-columns:1fr}.mtg-review,.mtg-review tbody,.mtg-review tr,.mtg-review td{display:block;width:100%}.mtg-review thead{display:none}.mtg-review td:first-child{width:100%;padding-bottom:2px;border:0}.mtg-review td{padding:2px 0 14px}}
@@ -25,4 +25,4 @@
 
 .mtg-try{display:inline-block;margin-top:6px;font-size:13px;border-bottom:1px solid currentColor;padding-bottom:3px}
 .pc figure .pc-phone-screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#08080a}
-.pc figure .mtg-live{display:block;width:100%;max-width:360px;height:min(680px,80vh);border:1px solid #d9d5cb;border-radius:14px;background:#08080a}
+.pc figure .mtg-live{display:block;width:100%;max-width:360px;height:min(680px,80vh);border:1px solid rgba(255,255,255,.16);border-radius:14px;background:#08080a}
