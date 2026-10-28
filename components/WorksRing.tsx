@@ -14,7 +14,7 @@ const name = (slug: string, title: string) => (slug === "keyboard-research" ? "T
 export default function WorksRing() {
   return <section className="wl" id="work" aria-label="Selected projects">
     <Badge />
-    <h2 className="wl-label">My projects</h2>
+    <h2 className="wl-label">MY PROJECTS</h2>
     <ul className="wl-list">
       {projects.map(p => <li key={p.slug} className="wl-item">
         <Link href={p.href === "#" ? "/" : p.href}>
