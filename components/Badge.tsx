@@ -76,24 +76,16 @@ export default function Badge() {
         onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFlip(f => !f); st.current.w += 2.4; } }}>
         <div className="bd-face bd-front">
           <div className="bd-paper">
-            <p className="bd-title">UX/UI<br />Designer</p>
-            <div className="bd-photo"><Image src="/badge-hedy.jpg" alt="Hedy in Sydney" fill sizes="140px" draggable={false} unoptimized /></div>
-            <dl className="bd-fields">
-              <div><dt>Name</dt><dd>Hedy Tan</dd></div>
-              <div><dt>Based in</dt><dd>Sydney, NSW</dd></div>
-            </dl>
+            <p className="bd-name">Hedy Tan</p>
+            <div className="bd-photo"><Image src="/badge-hedy.jpg" alt="Hedy in Sydney" fill sizes="200px" draggable={false} unoptimized /></div>
+            <p className="bd-role">UX/UI<br />Designer</p>
+            <p className="bd-small">Sydney, NSW</p>
           </div>
         </div>
         <div className="bd-face bd-back">
           <div className="bd-paper">
-            <p className="bd-title">About the<br />holder</p>
-            <dl className="bd-fields bd-fields-back">
-              <div><dt>Study</dt><dd>UTS, Master</dd></div>
-              <div><dt>Before</dt><dd>QUT, Bachelor</dd></div>
-              <div><dt>Fuelled by</dt><dd>matcha</dd></div>
-              <div><dt>Status</dt><dd>open to work</dd></div>
-            </dl>
-            <p className="bd-hint">Tap to flip back</p>
+            <p className="bd-back-text">Research,<br />Interaction<br />&amp; Prototyping</p>
+            <p className="bd-small">Hedy Tan · Sydney, NSW</p>
           </div>
         </div>
       </div>
