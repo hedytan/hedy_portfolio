@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, IBM_Plex_Mono, Fraunces, Caveat } from "next/font/google";
+import { Instrument_Sans, IBM_Plex_Mono, Fraunces, Caveat, Anton } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -26,6 +26,12 @@ const hand = Caveat({
   variable: "--font-hand",
   display: "swap",
 });
+const display = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
+  display: "swap",
+});
 const child = localFont({
   src: "./fonts/CHILD.ttf",
   variable: "--font-child",
@@ -45,7 +51,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable} ${serif.variable} ${hand.variable} ${child.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable} ${serif.variable} ${hand.variable} ${child.variable} ${display.variable}`}>
       <body className="font-mono bg-bg text-ink antialiased">
         <SmoothScroll>{children}</SmoothScroll>
       </body>

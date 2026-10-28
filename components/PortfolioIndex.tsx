@@ -16,7 +16,7 @@ export default function PortfolioIndex() {
   return <main className="hp" id="top">
     <SiteNav home />
 
-    <section className="hp-badge" aria-label="Hedy Tan name badge"><Badge /></section>
+    <section className="hp-badge" aria-label="Hedy Tan name badge"><p className="hp-bigname" aria-hidden="true">Hedy Tan</p><Badge /></section>
 
     <WorksRing />
 

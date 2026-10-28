@@ -70,36 +70,30 @@ export default function Badge() {
 
   return <div className="bd" aria-label="Hedy's name badge. Drag to swing it, click to flip.">
     <div className="bd-rig" ref={rig}>
-      <div className="bd-strap" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+      <div className="bd-strap" aria-hidden="true" />
       <div className="bd-clip" aria-hidden="true" />
       <div className={`bd-card${flip ? " is-flip" : ""}`} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} role="button" tabIndex={0}
         onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFlip(f => !f); st.current.w += 2.4; } }}>
         <div className="bd-face bd-front">
-          <span className="bd-sleeve-top" aria-hidden="true"><i /><b /><i /></span>
           <div className="bd-paper">
-            <div className="bd-head"><p className="bd-title">UX/UI<br />Designer</p><span className="bd-no">NO. 026</span></div>
-            <p className="bd-tags"><span>research</span><span>interaction</span><span>prototyping</span></p>
+            <p className="bd-title">UX/UI<br />Designer</p>
             <div className="bd-photo"><Image src="/badge-hedy.jpg" alt="Hedy in Sydney" fill sizes="140px" draggable={false} unoptimized /></div>
             <dl className="bd-fields">
               <div><dt>Name</dt><dd>Hedy Tan</dd></div>
               <div><dt>Based in</dt><dd>Sydney, NSW</dd></div>
-              <div><dt>Fuelled by</dt><dd>matcha</dd></div>
             </dl>
-            <div className="bd-foot"><p>The holder of this card is an official noticer of small things.</p><span>HT-26</span></div>
           </div>
         </div>
         <div className="bd-face bd-back">
-          <span className="bd-sleeve-top" aria-hidden="true"><i /><b /><i /></span>
           <div className="bd-paper">
-            <div className="bd-head"><p className="bd-title">About the<br />holder</p><span className="bd-no">P. 02</span></div>
-            <p className="bd-tags"><span>research</span><span>interaction</span><span>prototyping</span></p>
+            <p className="bd-title">About the<br />holder</p>
             <dl className="bd-fields bd-fields-back">
               <div><dt>Study</dt><dd>UTS, Master</dd></div>
               <div><dt>Before</dt><dd>QUT, Bachelor</dd></div>
-              <div><dt>Loves</dt><dd>strawberry cake</dd></div>
+              <div><dt>Fuelled by</dt><dd>matcha</dd></div>
               <div><dt>Status</dt><dd>open to work</dd></div>
             </dl>
-            <div className="bd-foot"><p>Drag to swing. Tap to flip back.</p><span>HT-26</span></div>
+            <p className="bd-hint">Tap to flip back</p>
           </div>
         </div>
       </div>
