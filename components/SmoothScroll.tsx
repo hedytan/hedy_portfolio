@@ -43,7 +43,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         const target = document.querySelector(id);
         if (target) {
           e.preventDefault();
-          lenis.scrollTo(target as HTMLElement, { offset: -20 });
+          lenis.scrollTo(target as HTMLElement, { offset: id === "#work" ? 0 : -20 });
         }
       }
     };

@@ -129,3 +129,32 @@
 .hp-badge .bd{width:100%}
 .wl-page{min-height:100vh;min-height:100svh;padding-top:90px;scroll-margin-top:0}
 @media(max-width:800px){.wl-page{padding-top:80px}}
+
+/* Projects: a stack of paper folders with tabs, photos tucked inside.
+   Each folder's text sits on the side away from its tab; its photo pokes up on that same side,
+   so it never covers the text of the folder behind it. */
+.fd-stack{list-style:none;margin:0;padding:70px 0 0}
+.fd{position:relative;margin-top:-62px;transition:transform .35s cubic-bezier(.3,1.3,.5,1)}
+.fd:first-child{margin-top:0}
+.fd-link{position:relative;display:block}
+.fd .fd-tab,.fd .fd-body{color:#1c1b19}
+.fd-photo{position:absolute;z-index:0;top:-60px;right:7%;width:clamp(92px,13vw,140px);aspect-ratio:4/3;background:#fbfaf6;box-shadow:0 6px 14px rgba(0,0,0,.45);transform:rotate(4deg);transition:transform .35s cubic-bezier(.3,1.3,.5,1)}
+.fd-photo img{object-fit:cover;padding:5px 5px 13px}
+.fd-right .fd-photo{right:auto;left:7%;transform:rotate(-5deg)}
+.fd-tab{position:relative;z-index:1;display:inline-flex;align-items:center;gap:12px;height:46px;padding:0 26px;margin-bottom:-1px;border-radius:14px 14px 0 0;background:var(--fd);font-size:clamp(12px,1.3vw,14px);font-weight:700;letter-spacing:.08em;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.fd-no{font-weight:400;opacity:.5;font-size:.85em}
+.fd-right .fd-link{text-align:right}
+.fd-right .fd-tab{flex-direction:row-reverse}
+.fd-body{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;min-height:150px;padding:16px 26px 72px;border-radius:0 14px 14px 14px;background:var(--fd);box-shadow:0 -6px 18px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.35);text-align:left}
+.fd-right .fd-body{align-items:flex-start;border-radius:14px 0 14px 14px}
+.fd:last-child .fd-body{padding-bottom:30px}
+.fd-meta,.fd-desc{width:min(440px,56%)}
+.fd-meta{display:flex;justify-content:space-between;gap:16px;font-size:12px;letter-spacing:.04em;opacity:.7}
+.fd-arrow{opacity:0;transition:opacity .2s}
+.fd-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:6px;font-size:12.5px;line-height:1.55;opacity:.85}
+.fd-0{--fd:#d6ccb8}.fd-1{--fd:#d9b3ae}.fd-2{--fd:#a9b7c4}.fd-3{--fd:#bcc19c}.fd-4{--fd:#c6bad6}
+.fd-link:hover .fd-arrow,.fd-link:focus-visible .fd-arrow{opacity:1}
+@media(hover:hover){.fd:hover{transform:translateY(-12px)}.fd:hover .fd-photo{transform:translateY(-16px) rotate(1deg)}.fd-right:hover .fd-photo{transform:translateY(-16px) rotate(-2deg)}}
+.fd-link:focus-visible{outline:none}.fd-link:focus-visible .fd-tab,.fd-link:focus-visible .fd-body{outline:2px solid var(--hot)}
+@media(max-width:700px){.fd-stack{padding-top:56px}.fd{margin-top:-56px}.fd-tab{height:42px;padding:0 18px;gap:9px}.fd-body{min-height:150px;padding:14px 18px 66px}.fd-photo{top:-44px;right:5%;width:84px}.fd-right .fd-photo{left:5%}.fd-meta,.fd-desc{width:62%}.fd-meta{font-size:11px}.fd-arrow{display:none}.fd-desc{font-size:11.5px;-webkit-line-clamp:3}}
+@media(prefers-reduced-motion:reduce){.fd,.fd-photo{transition:none}}
