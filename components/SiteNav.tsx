@@ -15,7 +15,15 @@ export default function SiteNav({ home = false }: { home?: boolean }) {
     // Home: keep the first screen to just the badge; reveal what's below once the page moves.
     const root = document.documentElement;
     const mark = () => root.classList.toggle("has-scrolled", window.scrollY > 8);
-    if (home) { mark(); root.classList.add("reveal-ready"); }
+    // Stretch the big name down to fill the first screen; it settles back once you scroll.
+    const big = document.querySelector<HTMLElement>(".hp-bigname");
+    const fit = () => {
+      if (!big) return;
+      const top = big.getBoundingClientRect().top + window.scrollY;
+      const s = (window.innerHeight - top - 28) / big.offsetHeight;
+      root.style.setProperty("--stretch", String(Math.min(3, Math.max(1, s))));
+    };
+    if (home) { fit(); mark(); root.classList.add("reveal-ready"); window.addEventListener("resize", fit); }
     const onScroll = () => {
       if (home) mark();
       const y = window.scrollY;
@@ -27,7 +35,7 @@ export default function SiteNav({ home = false }: { home?: boolean }) {
       else if (dy < -4) setHidden(false);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => { window.removeEventListener("scroll", onScroll); root.classList.remove("reveal-ready", "has-scrolled"); };
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", fit); root.classList.remove("reveal-ready", "has-scrolled"); root.style.removeProperty("--stretch"); };
   }, [home]);
 
   // After a jump, stay hidden until the smooth scroll has finished.

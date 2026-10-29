@@ -196,3 +196,8 @@ html.reveal-ready:not(.has-scrolled) .wl-page{opacity:0;transform:translateY(16p
 .ab{padding-bottom:36px}
 .pp{height:470px}
 @media(max-width:800px){.ab{padding-bottom:20px}.pp{height:460px}}
+
+/* Big name: taller on the first screen, back to normal height once you scroll. */
+.hp-bigname{transform-origin:50% 0;transition:transform .6s cubic-bezier(.3,1,.4,1)}
+html.reveal-ready:not(.has-scrolled) .hp-bigname{transform:scaleY(var(--stretch,1))}
+@media(prefers-reduced-motion:reduce){.hp-bigname{transition:none}}
