@@ -14,3 +14,4 @@
 .jb-steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:14px;padding:10px 0;font-size:13px}
 .jb-steps li::before{content:counter(s,decimal-leading-zero);color:#8f8d86;font-size:11px;padding-top:2px}
 @media(max-width:600px){.jb-stats{grid-template-columns:1fr}.jb-list li{grid-template-columns:1fr;gap:4px}}
+.pc .jb-list li b{color:#ff4d3d}
