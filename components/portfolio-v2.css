@@ -188,7 +188,7 @@
 @media(prefers-reduced-motion:reduce){.hp-nav{transition:none}}
 
 /* First screen shows only the badge; the section below fades in once you scroll. Layout doesn't move. */
-.wl-page{transition:opacity .5s ease,transform .5s ease}
+html.motion-ready .wl-page{transition:opacity .5s ease,transform .5s ease}
 html.reveal-ready:not(.has-scrolled) .wl-page{opacity:0;transform:translateY(16px)}
 @media(prefers-reduced-motion:reduce){.wl-page{transition:none}html.reveal-ready:not(.has-scrolled) .wl-page{transform:none}}
 
@@ -197,7 +197,8 @@ html.reveal-ready:not(.has-scrolled) .wl-page{opacity:0;transform:translateY(16p
 .pp{height:470px}
 @media(max-width:800px){.ab{padding-bottom:20px}.pp{height:460px}}
 
-/* Big name: taller on the first screen, back to normal height once you scroll. */
-.hp-bigname{transform-origin:50% 0;transition:transform .6s cubic-bezier(.3,1,.4,1)}
-html.reveal-ready:not(.has-scrolled) .hp-bigname{transform:scaleY(var(--stretch,1))}
-@media(prefers-reduced-motion:reduce){.hp-bigname{transition:none}}
+/* Big name: a bit taller on the first screen (no load animation), normal height once you scroll. */
+.hp-bigname{transform-origin:50% 0;transform:scaleY(1.45)}
+html.has-scrolled .hp-bigname{transform:none}
+html.motion-ready .hp-bigname{transition:transform .5s cubic-bezier(.3,1,.4,1)}
+@media(prefers-reduced-motion:reduce){html.motion-ready .hp-bigname{transition:none}}
