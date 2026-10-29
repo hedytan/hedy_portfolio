@@ -1,6 +1,6 @@
 import ProcessCase from "@/components/ProcessCase";
 export const metadata={title:"FitsApp — Hedy Tan"};
-export default function FitsApp(){return <ProcessCase name="FitsApp" intro="A step tracker that turns everyday walking into a growing tree." facts={[["Team","Kiwi Kuties"],["For","Busy young professionals"],["Type","Activity tracking"],["Focus","Progress & personalisation"]]} next="resonance" chapters={[
+export default function FitsApp(){return <ProcessCase name="FitsApp" intro="A step tracker that turns everyday walking into a growing tree." facts={[["For","Busy young professionals"],["Type","Activity tracking"],["Focus","Progress & personalisation"]]} next="resonance" chapters={[
 {id:"problem",label:"The problem",title:"Everyday movement goes unnoticed.",text:"Young people sit for long stretches, and small bouts of movement go unnoticed.",note:"Research also pointed to fatigue and slow results."},
 {id:"solution",label:"The solution",title:"Turn steps into visible growth.",text:"Steps grow a tree, and the step count stays visible.",image:"/fitsapp-case/progress.png"},
 {id:"decisions",label:"Key decisions",title:"Progress first. Customisation second.",text:"The tree leads on the progress screen. Choosing a tree gets its own view.",note:"Trade-off: an extra step to change tree; steps miss other activities.",image:"/fitsapp-case/overview.png"},

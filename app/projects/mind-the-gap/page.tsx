@@ -33,7 +33,7 @@ const open = [
 export default function MindTheGap() {
   return <main className="pc mtg">
     <nav className="pc-top"><Link href="/" aria-label="Hedy Tan home">Ht</Link><Link href="/#work">← ALL PROJECTS</Link><a href="/#contact">CONTACT</a></nav>
-    <header className="pc-header"><div><p className="pc-label">INTERACTIVE PROTOTYPE</p><h1>Mind the<br/>Gap</h1></div><dl>{[["Year","2026"],["Type","Web prototype · Station kiosk concept"],["Setting","Sydney train stations"],["Focus","Expression & collective mood"]].map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl></header>
+    <header className="pc-header"><div><h1>Mind the<br/>Gap</h1></div><dl>{[["Year","2026"],["Type","Web prototype · Station kiosk concept"],["Setting","Sydney train stations"],["Focus","Expression & collective mood"]].map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl></header>
 
     <section className="pc-section" id="overview"><p className="pc-label">01 — OVERVIEW</p><div className="pc-pair"><div><p className="pc-intro">A vending machine for feelings: pick one, write a note, and a card drops out.</p></div><figure><BrowserPrototype src="/mind-the-gap/clips/express-english.mp4" label="Choose a feeling and write an anonymous note" poster="/mind-the-gap/note.jpg"/><figcaption>Choose a feeling → write a note</figcaption></figure></div></section>
 
