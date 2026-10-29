@@ -1,4 +1,4 @@
-import Image from "next/image";
+import PortfolioIntro from "./PortfolioIntro";
 import Link from "next/link";
 import { site } from "@/lib/projects";
 import PolaroidPile from "./PolaroidPile";
@@ -14,6 +14,7 @@ const education = [
 
 export default function PortfolioIndex() {
   return <main className="hp" id="top">
+    <PortfolioIntro />
     <SiteNav home />
 
     <section className="hp-badge" aria-label="Hedy Tan name badge"><p className="hp-bigname" aria-hidden="true">Hedy Tan</p><Badge /></section>
